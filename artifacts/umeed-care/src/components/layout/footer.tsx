@@ -1,5 +1,4 @@
-import { Facebook, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
-import { Link } from "wouter";
+import { Facebook, Mail, MapPin, MessageCircle } from "lucide-react";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
@@ -13,7 +12,7 @@ export default function Footer() {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12">
           <div>
-            <Link href="/" className="inline-flex items-center gap-3 mb-4">
+            <a href="#hero" className="inline-flex items-center gap-3 mb-4">
               <img
                 src={logoImg}
                 alt="Umeed Care Center Logo — Orthotic & Prosthetics Karachi"
@@ -23,7 +22,7 @@ export default function Footer() {
                 <span className="font-bold text-xl text-primary tracking-tight leading-none">Umeed</span>
                 <span className="font-sans text-xs font-medium tracking-widest uppercase text-muted-foreground">Care Center</span>
               </div>
-            </Link>
+            </a>
             <p className="text-muted-foreground font-serif italic text-base max-w-xs leading-relaxed">
               Restoring Mobility. Inspiring Hope.
             </p>

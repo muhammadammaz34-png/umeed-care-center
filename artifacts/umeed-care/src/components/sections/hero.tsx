@@ -31,22 +31,32 @@ export default function Hero() {
             Umeed Care Center provides expert orthotic and prosthetic solutions in Karachi — including prosthetic limbs, custom orthotics, spinal braces, and diabetic footwear. Compassionate care under one roof.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 fade-in-up delay-200">
-            <Button asChild size="lg" className="rounded-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 shadow-md bg-green-600 hover:bg-green-700 text-white border-0">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp Us
-              </a>
-            </Button>
-            <Button asChild size="lg" className="rounded-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 shadow-md">
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
-                Contact Us
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 bg-background/50 backdrop-blur-sm border-border">
-              <a href="#services">
-                Explore Services
-              </a>
-            </Button>
+            {/* Green → White on hover */}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp Us
+            </a>
+            {/* Primary green → White on hover */}
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            >
+              Contact Us
+            </a>
+            {/* White/outline → Green on hover */}
+            <a
+              href="#services"
+              className="inline-flex items-center justify-center gap-2 rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-sm border-2 border-primary bg-white/70 text-primary backdrop-blur-sm hover:bg-primary hover:text-white transition-all duration-200"
+            >
+              Explore Services
+            </a>
           </div>
         </div>
       </div>

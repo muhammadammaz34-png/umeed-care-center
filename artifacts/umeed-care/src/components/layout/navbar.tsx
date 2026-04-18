@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 
@@ -46,11 +45,14 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild variant="default" className="hidden sm:inline-flex rounded-full px-5 shadow-sm text-sm">
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-              Contact Us
-            </a>
-          </Button>
+          <a
+            href={facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center justify-center rounded-full h-10 px-5 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+          >
+            Contact Us
+          </a>
           {/* Mobile hamburger */}
           <button
             className="md:hidden p-2 rounded-lg text-foreground hover:text-primary transition-colors"
@@ -76,11 +78,15 @@ export default function Navbar() {
             </a>
           ))}
           <div className="pt-3">
-            <Button asChild variant="default" className="w-full rounded-full shadow-sm">
-              <a href={facebookUrl} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
-                Contact Us on Facebook
-              </a>
-            </Button>
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center rounded-full h-12 px-6 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
+            >
+              Contact Us on Facebook
+            </a>
           </div>
         </div>
       )}

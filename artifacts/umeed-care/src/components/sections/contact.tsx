@@ -1,5 +1,4 @@
 import { MapPin, Phone, Mail, Facebook, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
@@ -70,12 +69,16 @@ export default function Contact() {
             </div>
 
             <div className="mt-8">
-              <Button asChild size="lg" className="w-full sm:w-auto rounded-full shadow-sm bg-green-600 hover:bg-green-700 text-white border-0">
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp Us Now
-                </a>
-              </Button>
+              {/* Green → White on hover */}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200 w-full sm:w-auto"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp Us Now
+              </a>
             </div>
           </div>
 
@@ -87,12 +90,16 @@ export default function Contact() {
             <p className="text-muted-foreground mb-6 text-sm">
               Follow us for patient stories, new services, and updates from Umeed Care Center in Karachi.
             </p>
-            <Button asChild size="lg" className="w-full rounded-full shadow-sm">
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <Facebook className="w-4 h-4" />
-                Message on Facebook
-              </a>
-            </Button>
+            {/* Primary → White on hover */}
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
+            >
+              <Facebook className="w-4 h-4" />
+              Message on Facebook
+            </a>
           </div>
 
         </div>

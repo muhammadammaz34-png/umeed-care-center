@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import lowerLimbProsthetic from "@/assets/images/service-lower-limb-prosthetic.png";
 import upperLimbProsthetic from "@/assets/images/service-upper-limb-prosthetic.png";
 import pediatricOrthotics from "@/assets/images/service-pediatric-orthotics.png";
@@ -93,11 +92,14 @@ export default function Services() {
 
         <div className="mt-20 text-center scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
           <p className="text-muted-foreground mb-6">Need a consultation for a specific service?</p>
-          <Button asChild size="lg" className="rounded-full px-8 shadow-md">
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-              Contact Us Today
-            </a>
-          </Button>
+          <a
+            href={facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full h-14 px-10 text-base font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+          >
+            Contact Us Today
+          </a>
         </div>
       </div>
     </section>
