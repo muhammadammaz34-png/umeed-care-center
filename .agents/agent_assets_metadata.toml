@@ -1,0 +1,56 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "TF4pyFH6pjWSFKq8GUUqh"
+uri = "file://artifacts/umeed-care/src/assets/images/hero.png"
+type = "image"
+title = "Hero background walking prosthetic"
+
+[[generated]]
+id = "ZJBfC8sC98qRqdiJGyCLS"
+uri = "file://artifacts/umeed-care/src/assets/images/service-lower-limb-prosthetic.png"
+type = "image"
+title = "Lower limb prosthetic care"
+
+[[generated]]
+id = "Si4_ZfTqJE1aMbVi1mPpY"
+uri = "file://artifacts/umeed-care/src/assets/images/service-upper-limb-prosthetic.png"
+type = "image"
+title = "Upper limb prosthetic device"
+
+[[generated]]
+id = "TFGK64OnlAeTi4OXBkR3v"
+uri = "file://artifacts/umeed-care/src/assets/images/service-pediatric-orthotics.png"
+type = "image"
+title = "Pediatric orthotic fitting"
+
+[[generated]]
+id = "tAAu6aJs4AhP0eel1jrKc"
+uri = "file://artifacts/umeed-care/src/assets/images/service-spinal-orthotics.png"
+type = "image"
+title = "Spinal orthotic brace"
+
+[[generated]]
+id = "voBiX9Iuwz6xtIPUHOUbA"
+uri = "file://artifacts/umeed-care/src/assets/images/service-lower-limb-orthotics.png"
+type = "image"
+title = "Lower limb orthotics"
+
+[[generated]]
+id = "Pv04gZ-APmrN2Asfzd2f7"
+uri = "file://artifacts/umeed-care/src/assets/images/service-upper-limb-orthotics.png"
+type = "image"
+title = "Upper limb orthotics"
+
+[[generated]]
+id = "0aNIvF0pvfUE7Jx0u2Myj"
+uri = "file://artifacts/umeed-care/src/assets/images/service-custom-foot-orthotics.png"
+type = "image"
+title = "Custom foot orthotics insoles"
+
+[[generated]]
+id = "_5xuA_HZ-zI1L29pEJmS0"
+uri = "file://artifacts/umeed-care/src/assets/images/service-diabetic-footwear.png"
+type = "image"
+title = "Diabetic therapeutic footwear"

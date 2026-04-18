@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Umeed Care Centre"
+version = "1.0.0"
+id = "artifacts/umeed-care"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24216
+
+[services.development]
+run = "pnpm --filter @workspace/umeed-care run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/umeed-care", "run", "build" ]
+publicDir = "artifacts/umeed-care/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24216"
+BASE_PATH = "/"
