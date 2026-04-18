@@ -7,7 +7,7 @@ const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}

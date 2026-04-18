@@ -7,6 +7,7 @@ import WhyChooseUs from "@/components/sections/why-choose-us";
 import Contact from "@/components/sections/contact";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 
 export default function Home() {
   // Simple intersection observer for animations
@@ -43,6 +44,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
