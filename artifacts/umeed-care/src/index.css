@@ -72,19 +72,19 @@
   --card-foreground: 180 50% 15%;
   --card-border: 180 20% 85%;
 
-  /* Brand Green (from Umeed logo) */
-  --primary: 122 52% 38%;
+  /* Brand Green — matches "Umeed" lime green from cover banner */
+  --primary: 120 58% 40%;
   --primary-foreground: 0 0% 100%;
 
-  /* Brand Blue secondary (from logo circle) */
-  --secondary: 211 30% 90%;
-  --secondary-foreground: 211 72% 30%;
+  /* Brand Blue secondary — matches the blue circle and "امید" text */
+  --secondary: 211 55% 92%;
+  --secondary-foreground: 211 78% 30%;
 
-  --muted: 122 10% 93%;
-  --muted-foreground: 122 10% 42%;
+  --muted: 120 12% 93%;
+  --muted-foreground: 210 15% 42%;
 
-  /* Brand Blue accent */
-  --accent: 211 72% 40%;
+  /* Brand Blue accent — vivid blue matching brand image */
+  --accent: 211 78% 40%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 70% 50%;
