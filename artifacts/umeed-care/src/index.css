@@ -72,19 +72,19 @@
   --card-foreground: 180 50% 15%;
   --card-border: 180 20% 85%;
 
-  /* Deep Calming Teal */
-  --primary: 180 40% 30%;
+  /* Brand Green (from Umeed logo) */
+  --primary: 122 52% 38%;
   --primary-foreground: 0 0% 100%;
 
-  /* Soft warm secondary */
-  --secondary: 40 30% 90%;
-  --secondary-foreground: 180 50% 20%;
+  /* Brand Blue secondary (from logo circle) */
+  --secondary: 211 30% 90%;
+  --secondary-foreground: 211 72% 30%;
 
-  --muted: 40 20% 93%;
-  --muted-foreground: 180 15% 45%;
+  --muted: 122 10% 93%;
+  --muted-foreground: 122 10% 42%;
 
-  /* Warm accent (Sand/Gold) */
-  --accent: 35 40% 60%;
+  /* Brand Blue accent */
+  --accent: 211 72% 40%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 70% 50%;

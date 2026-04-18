@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
 import Services from "@/components/sections/services";
+import Gallery from "@/components/sections/gallery";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import Contact from "@/components/sections/contact";
 import Navbar from "@/components/layout/navbar";
@@ -37,6 +38,7 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <Gallery />
         <WhyChooseUs />
         <Contact />
       </main>
