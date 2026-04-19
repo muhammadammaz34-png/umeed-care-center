@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { href: "#about", label: "About Us" },
@@ -14,14 +21,18 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      className={`sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : "shadow-none"
+      }`}
+    >
       <div className="container mx-auto px-4 md:px-6 h-16 sm:h-20 flex items-center justify-between">
         <div className="flex items-center gap-2 sm:gap-3">
-          <a href="#hero" className="flex items-center gap-2 sm:gap-3">
+          <a href="#hero" className="flex items-center gap-2 sm:gap-3 group">
             <img
               src={logoImg}
               alt="Umeed Care Center — Orthotic & Prosthetic Solutions Karachi"
-              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-primary/20 shadow-sm"
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-primary/20 shadow-sm transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col leading-tight">
               <span className="font-bold text-base sm:text-lg text-primary tracking-tight leading-none">Umeed</span>
@@ -36,7 +47,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </a>
@@ -61,9 +72,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border/40 px-4 py-4 flex flex-col gap-1">
+      {/* Mobile menu — slide down */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        } bg-background border-t border-border/40`}
+      >
+        <div className="px-4 py-4 flex flex-col gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -84,7 +99,7 @@ export default function Navbar() {
             </a>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

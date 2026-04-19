@@ -74,7 +74,7 @@ export default function Contact() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200 w-full sm:w-auto animate-pulse-ring"
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp Us Now

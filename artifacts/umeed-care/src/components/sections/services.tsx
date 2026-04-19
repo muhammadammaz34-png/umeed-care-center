@@ -67,10 +67,9 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 scroll-animate opacity-0 translate-y-8"
-              style={{ transitionDelay: `${(index % 4) * 100}ms` }}
+            <div
+              key={index}
+              className={`group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/30 scroll-animate opacity-0 translate-y-8 card-tilt stagger-${Math.min(index + 1, 8)}`}
             >
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img 

@@ -43,12 +43,11 @@ export default function WhyChooseUs() {
           
           <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
             {reasons.map((reason, index) => (
-              <div 
-                key={index} 
-                className="bg-card p-8 rounded-2xl border border-border/50 shadow-sm hover:shadow-md transition-shadow scroll-animate opacity-0 translate-y-8"
-                style={{ transitionDelay: `${index * 100}ms` }}
+              <div
+                key={index}
+                className={`bg-card p-8 rounded-2xl border border-border/50 scroll-animate opacity-0 translate-y-8 card-tilt stagger-${index + 1}`}
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 animate-float-slow">
                   {reason.icon}
                 </div>
                 <h3 className="font-bold text-xl text-foreground mb-3">{reason.title}</h3>
