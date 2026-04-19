@@ -150,18 +150,19 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox — mobile-friendly */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer"
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 cursor-pointer"
           onClick={() => setLightbox(null)}
         >
           <div
-            className="relative max-w-3xl w-full max-h-[90vh] flex flex-col items-center cursor-default"
+            className="relative w-full sm:max-w-3xl max-h-[92vh] sm:max-h-[90vh] flex flex-col items-center cursor-default bg-black/0 rounded-t-2xl sm:rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close button */}
             <button
-              className="absolute -top-10 right-0 text-white/80 hover:text-white text-3xl font-light leading-none"
+              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center text-xl hover:bg-black/80 transition-colors"
               onClick={() => setLightbox(null)}
               aria-label="Close"
             >
@@ -170,13 +171,13 @@ export default function Gallery() {
             <img
               src={lightbox.src}
               alt={lightbox.alt}
-              className="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
+              className="w-full max-h-[78vh] sm:max-h-[80vh] object-contain"
             />
-            <div className="mt-4 text-center">
+            <div className="w-full px-4 py-3 sm:py-4 text-center bg-black/60 backdrop-blur-sm">
               <span className="inline-block rounded-full px-3 py-0.5 text-xs font-semibold bg-primary text-white mr-2">
                 {lightbox.category}
               </span>
-              <span className="text-white font-semibold text-base">{lightbox.title}</span>
+              <span className="text-white font-semibold text-sm sm:text-base">{lightbox.title}</span>
             </div>
           </div>
         </div>

@@ -17,7 +17,6 @@ export default function ScrollToTop() {
         ? hero.getBoundingClientRect().bottom < 0
         : currentY > 400;
 
-      // Show only when past the hero AND scrolling down
       setVisible(pastHero && scrollingDown);
     };
 
@@ -31,7 +30,7 @@ export default function ScrollToTop() {
     <button
       onClick={scrollToTop}
       aria-label="Back to top"
-      className={`fixed top-1/2 left-4 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-primary/90 hover:scale-110 active:scale-95 animate-pulse-ring -translate-y-1/2 ${
+      className={`fixed bottom-5 right-5 z-50 w-11 h-11 md:w-12 md:h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-primary/90 hover:scale-110 active:scale-95 animate-pulse-ring ${
         visible
           ? "opacity-100 scale-100 pointer-events-auto"
           : "opacity-0 scale-75 pointer-events-none"
