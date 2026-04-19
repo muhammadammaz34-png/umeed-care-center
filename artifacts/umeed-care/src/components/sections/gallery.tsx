@@ -10,6 +10,17 @@ import img8 from "@assets/662643985_1443629034127422_9152001050772943340_n_17766
 import img9 from "@assets/662718373_1443628234127502_476574193512134838_n_1776608965308.jpg";
 import img10 from "@assets/666677563_1443629707460688_2763765736026044889_n_1776608965308.jpg";
 import img11 from "@assets/669795209_1449074206916238_5506623007269071269_n_1776608965308.jpg";
+import img12 from "@assets/47153120_1233174810166406_5230395019696799744_n_1776609811097.jpg";
+import img13 from "@assets/48192535_1242383062578914_4472969715911753728_n_1776609811097.jpg";
+import img14 from "@assets/479670652_1120055653151430_7010248175547220166_n_1776609811098.jpg";
+import img15 from "@assets/480087096_1120037679819894_6633528697134854108_n_1776609811098.jpg";
+import img16 from "@assets/480277288_1121874436302885_8918119650455429917_n_1776609811098.jpg";
+import img17 from "@assets/480279584_1122580832898912_5657396072157540807_n_1776609811098.jpg";
+import img18 from "@assets/480346591_1121874206302908_7237530190157909665_n_1776609811099.jpg";
+import img19 from "@assets/480513640_1122584949565167_6470524271491016156_n_1776609811099.jpg";
+import img20 from "@assets/480552562_1122580806232248_1128370728482231093_n_1776609811100.jpg";
+import img21 from "@assets/480749826_1121874242969571_2627881248593712257_n_1776609811100.jpg";
+import img22 from "@assets/506793321_3249070958576771_9142112043904167513_n_1776609811100.jpg";
 
 type Category = "All" | "Footwear" | "Orthotics" | "Prosthetics";
 
@@ -33,6 +44,17 @@ const items: GalleryItem[] = [
   { src: img7, alt: "Heavy-duty black cross-strap sandals", title: "Heavy-Duty Sandals", category: "Footwear" },
   { src: img10, alt: "Black and white childrens orthotic sandals", title: "Paediatric Sandals", category: "Footwear" },
   { src: img11, alt: "Black two-strap therapeutic sandals", title: "Two-Strap Sandals", category: "Footwear" },
+  { src: img12, alt: "Silicone prosthetic hand with zipper closure", title: "Silicone Prosthetic Hand", category: "Prosthetics", span: "tall" },
+  { src: img13, alt: "Batch of custom ankle-foot orthoses", title: "Custom AFO Collection", category: "Orthotics", span: "wide" },
+  { src: img14, alt: "Bilateral full-leg orthosis with hip support pink", title: "Full-Leg HKAFO — Pink", category: "Orthotics", span: "tall" },
+  { src: img15, alt: "Dynamic finger extension hand orthosis worn on hand", title: "Dynamic Finger Orthosis", category: "Orthotics" },
+  { src: img16, alt: "Lumbar back brace spinal support CAMP brand", title: "Lumbar Spinal Brace", category: "Orthotics" },
+  { src: img17, alt: "Purple foot orthoses pair with black straps", title: "Foot Orthoses — Violet", category: "Orthotics" },
+  { src: img18, alt: "Three knee braces ROM hinged different styles", title: "Knee Brace Range", category: "Orthotics", span: "wide" },
+  { src: img19, alt: "Yellow bilateral leg orthosis with black straps", title: "Bilateral Leg Orthosis", category: "Orthotics" },
+  { src: img20, alt: "Purple bilateral leg orthosis full length with hip support", title: "Full-Leg HKAFO — Violet", category: "Orthotics", span: "tall" },
+  { src: img21, alt: "Walking boots and ankle braces collection", title: "Walking Boot Collection", category: "Orthotics", span: "wide" },
+  { src: img22, alt: "Black wedge orthotic sandals in two sizes", title: "Wedge Sandals — Pair", category: "Footwear" },
 ];
 
 const categories: Category[] = ["All", "Footwear", "Orthotics", "Prosthetics"];
