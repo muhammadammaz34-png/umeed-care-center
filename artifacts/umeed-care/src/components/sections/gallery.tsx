@@ -21,6 +21,7 @@ import img19 from "@assets/480513640_1122584949565167_6470524271491016156_n_1776
 import img20 from "@assets/480552562_1122580806232248_1128370728482231093_n_1776609811100.jpg";
 import img21 from "@assets/480749826_1121874242969571_2627881248593712257_n_1776609811100.jpg";
 import img22 from "@assets/506793321_3249070958576771_9142112043904167513_n_1776609811100.jpg";
+import img23 from "@assets/mmm_1776610475278.jpeg";
 
 type Category = "All" | "Footwear" | "Orthotics" | "Prosthetics";
 
@@ -55,6 +56,7 @@ const items: GalleryItem[] = [
   { src: img20, alt: "Purple bilateral leg orthosis full length with hip support", title: "Full-Leg HKAFO — Violet", category: "Orthotics", span: "tall" },
   { src: img21, alt: "Walking boots and ankle braces collection", title: "Walking Boot Collection", category: "Orthotics", span: "wide" },
   { src: img22, alt: "Black wedge orthotic sandals in two sizes", title: "Wedge Sandals — Pair", category: "Footwear" },
+  { src: img23, alt: "Paediatric leather orthotic boots tan and teal", title: "Paediatric Orthotic Boots", category: "Footwear", span: "wide" },
 ];
 
 const categories: Category[] = ["All", "Footwear", "Orthotics", "Prosthetics"];
