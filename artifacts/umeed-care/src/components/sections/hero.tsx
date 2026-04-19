@@ -1,9 +1,7 @@
 import heroImage from "@/assets/images/hero.png";
-import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
-const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
 
 export default function Hero() {
   return (
@@ -43,9 +41,7 @@ export default function Hero() {
             </a>
             {/* Primary green → White on hover */}
             <a
-              href={FACEBOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
             >
               Contact Us

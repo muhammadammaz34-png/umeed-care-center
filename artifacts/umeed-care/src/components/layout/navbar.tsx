@@ -3,7 +3,6 @@ import { Menu, X } from "lucide-react";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 
 export default function Navbar() {
-  const facebookUrl = "https://www.facebook.com/profile.php?id=100054410172615";
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
@@ -46,9 +45,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href={facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="hidden sm:inline-flex items-center justify-center rounded-full h-10 px-5 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Contact Us
@@ -79,13 +76,11 @@ export default function Navbar() {
           ))}
           <div className="pt-3">
             <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center rounded-full h-12 px-6 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
             >
-              Contact Us on Facebook
+              Contact Us
             </a>
           </div>
         </div>

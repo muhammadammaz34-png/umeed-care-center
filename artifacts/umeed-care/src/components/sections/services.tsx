@@ -93,9 +93,7 @@ export default function Services() {
         <div className="mt-20 text-center scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
           <p className="text-muted-foreground mb-6">Need a consultation for a specific service?</p>
           <a
-            href={facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="inline-flex items-center justify-center rounded-full h-14 px-10 text-base font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Contact Us Today
