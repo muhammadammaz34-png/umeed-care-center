@@ -9,8 +9,7 @@ export default function ScrollToTop() {
 
     const onScroll = () => {
       if (hero) {
-        const heroBottom = hero.getBoundingClientRect().bottom;
-        setVisible(heroBottom < 0);
+        setVisible(hero.getBoundingClientRect().bottom < 0);
       } else {
         setVisible(window.scrollY > 400);
       }
@@ -26,10 +25,10 @@ export default function ScrollToTop() {
     <button
       onClick={scrollToTop}
       aria-label="Back to top"
-      className={`fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-primary/90 hover:scale-110 active:scale-95 animate-pulse-ring ${
+      className={`fixed top-1/2 right-4 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-primary/90 hover:scale-110 active:scale-95 animate-pulse-ring -translate-y-1/2 ${
         visible
-          ? "opacity-100 translate-y-0 pointer-events-auto animate-bounce-soft"
-          : "opacity-0 translate-y-4 pointer-events-none"
+          ? "opacity-100 scale-100 pointer-events-auto"
+          : "opacity-0 scale-75 pointer-events-none"
       }`}
     >
       <ArrowUp className="w-5 h-5" />
