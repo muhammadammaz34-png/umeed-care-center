@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const hero = document.getElementById("hero");
 
     const onScroll = () => {
-      if (hero) {
-        setVisible(hero.getBoundingClientRect().bottom < 0);
-      } else {
-        setVisible(window.scrollY > 400);
-      }
+      const currentY = window.scrollY;
+      const scrollingDown = currentY > lastScrollY.current;
+      lastScrollY.current = currentY;
+
+      const pastHero = hero
+        ? hero.getBoundingClientRect().bottom < 0
+        : currentY > 400;
+
+      // Show only when past the hero AND scrolling down
+      setVisible(pastHero && scrollingDown);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
