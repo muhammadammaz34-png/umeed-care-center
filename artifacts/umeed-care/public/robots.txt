@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1a22ec90-c150-4fdf-bc6b-5629fbd351d2-00-2jpk3jrb164lt.kirk.replit.dev/sitemap.xml
