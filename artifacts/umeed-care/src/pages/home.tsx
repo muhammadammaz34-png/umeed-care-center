@@ -3,7 +3,9 @@ import Hero from "@/components/sections/hero";
 import TrustStrip from "@/components/sections/trust-strip";
 import About from "@/components/sections/about";
 import Services from "@/components/sections/services";
+import Process from "@/components/sections/process";
 import Gallery from "@/components/sections/gallery";
+import Testimonials from "@/components/sections/testimonials";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import Contact from "@/components/sections/contact";
 import Navbar from "@/components/layout/navbar";
@@ -11,7 +13,6 @@ import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 
 export default function Home() {
-  // Simple intersection observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,8 +41,10 @@ export default function Home() {
         <Hero />
         <TrustStrip />
         <About />
+        <Process />
         <Services />
         <Gallery />
+        <Testimonials />
         <WhyChooseUs />
         <Contact />
       </main>
