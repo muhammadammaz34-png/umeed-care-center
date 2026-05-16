@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Hero from "@/components/sections/hero";
+import TrustStrip from "@/components/sections/trust-strip";
 import About from "@/components/sections/about";
 import Services from "@/components/sections/services";
 import Gallery from "@/components/sections/gallery";
@@ -37,6 +38,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <TrustStrip />
         <About />
         <Services />
         <Gallery />
