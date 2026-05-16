@@ -17,20 +17,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  function handleLogoClick(e: React.MouseEvent) {
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setMobileOpen(false);
+    }
+  }
+
   // Nav links differ by page
   const navLinks = isHome
     ? [
-        { href: "#about", label: "About Us", external: false },
-        { href: "/services", label: "Services", external: false },
-        { href: "#gallery", label: "Gallery", external: false },
-        { href: "#why-us", label: "Why Choose Us", external: false },
-        { href: "#contact", label: "Contact", external: false },
+        { href: "#hero", label: "Home" },
+        { href: "#about", label: "About Us" },
+        { href: "/services", label: "Services" },
+        { href: "#gallery", label: "Gallery" },
+        { href: "#why-us", label: "Why Choose Us" },
+        { href: "#contact", label: "Contact" },
       ]
     : [
-        { href: "/", label: "Home", external: false },
-        { href: "/services", label: "Services", external: false },
-        { href: "/#gallery", label: "Gallery", external: false },
-        { href: "/#contact", label: "Contact", external: false },
+        { href: "/", label: "Home" },
+        { href: "/services", label: "Services" },
+        { href: "/#gallery", label: "Gallery" },
+        { href: "/#contact", label: "Contact" },
       ];
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
@@ -93,7 +102,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 h-16 sm:h-20 flex items-center justify-between">
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group" onClick={handleLogoClick}>
             <img
               src={logoImg}
               alt="Umeed Care Center logo"
