@@ -116,7 +116,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
@@ -127,13 +127,13 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center justify-center rounded-full h-10 px-5 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            className="hidden lg:inline-flex items-center justify-center rounded-full h-10 px-5 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Book Now
           </a>
-          {/* Mobile hamburger */}
+          {/* Mobile/tablet hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-foreground hover:text-primary transition-colors"
+            className="lg:hidden p-2 rounded-lg text-foreground hover:text-primary transition-colors"
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((v) => !v)}
           >
@@ -144,7 +144,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         } bg-background border-t border-border/40`}
       >

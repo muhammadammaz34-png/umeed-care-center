@@ -191,7 +191,7 @@ export default function ServicesPage() {
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 Umeed Care Center offers a full spectrum of orthotic and prosthetic services in Karachi. Every solution is custom-fitted, clinically assessed, and designed around your individual needs and goals.
               </p>
-              <div className="flex flex-col xs:flex-row gap-3 mt-7">
+              <div className="flex flex-col sm:flex-row gap-3 mt-7">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
