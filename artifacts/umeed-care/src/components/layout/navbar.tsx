@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation, Link } from "wouter";
-import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
@@ -94,11 +93,29 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6 h-16 sm:h-20 flex items-center justify-between">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-            <img
-              src={logoImg}
-              alt="Umeed Care Center — Orthotic & Prosthetic Solutions Karachi"
-              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-primary/20 shadow-sm transition-transform duration-300 group-hover:scale-105"
-            />
+            {/* Inline SVG logo — always renders, no external file dependency */}
+            <svg
+              width="44"
+              height="44"
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="shrink-0 transition-transform duration-300 group-hover:scale-105"
+              aria-hidden="true"
+            >
+              <circle cx="22" cy="22" r="21" fill="hsl(120 58% 40%)" stroke="hsl(120 58% 40% / 0.2)" strokeWidth="1.5" />
+              {/* Stylised 'U' letterform */}
+              <path
+                d="M14 14 L14 24 C14 29.5 30 29.5 30 24 L30 14"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              {/* Small leaf/heart at base */}
+              <circle cx="22" cy="30" r="2.5" fill="white" fillOpacity="0.85" />
+            </svg>
             <div className="flex flex-col leading-tight">
               <span className="font-bold text-base sm:text-lg text-primary tracking-tight leading-none">Umeed</span>
               <span className="font-sans text-[10px] sm:text-xs font-medium tracking-widest uppercase text-muted-foreground">Care Center</span>
