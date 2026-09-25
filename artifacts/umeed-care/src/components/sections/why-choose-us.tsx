@@ -29,7 +29,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="why-us" className="py-14 sm:py-20 md:py-28 bg-background relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/30 rounded-l-[100px] -z-10 transform translate-x-1/4"></div>
       
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
           <div className="lg:w-1/3 scroll-animate opacity-0 transition-all duration-1000 translate-x-[-20px]">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Why Choose <br />
-              <span className="text-primary italic font-serif font-normal">Umeed?</span>
+              <span className="text-primary">Umeed?</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               We stand apart through our unwavering commitment to patient dignity and our rigorous attention to clinical detail.
@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
                 key={index}
                 className={`bg-card p-8 rounded-2xl border border-border/50 scroll-animate opacity-0 translate-y-8 card-tilt stagger-${index + 1}`}
               >
-                <div className={`w-14 h-14 rounded-full ${reason.accent === "accent" ? "bg-accent/10" : "bg-primary/10"} flex items-center justify-center mb-6 animate-float-slow`}>
+                <div className={`w-14 h-14 rounded-full ${reason.accent === "accent" ? "bg-accent/10" : "bg-primary/10"} flex items-center justify-center mb-6`}>
                   {reason.icon}
                 </div>
                 <h3 className="font-bold text-xl text-foreground mb-3">{reason.title}</h3>

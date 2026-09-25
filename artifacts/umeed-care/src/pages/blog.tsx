@@ -3,10 +3,18 @@ import { MessageCircle, ChevronLeft, Newspaper } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import { useSEO } from "@/hooks/use-seo";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
 export default function BlogPage() {
+  useSEO({
+    path: "/blog",
+    title: "Blog | Umeed Care Center — Karachi",
+    description: "Articles, guides, and updates from Umeed Care Center's orthotic and prosthetic specialists in Karachi. Coming soon.",
+    noindex: true,
+  });
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -25,7 +33,7 @@ export default function BlogPage() {
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
                 Insights on{" "}
-                <span className="text-primary italic font-serif font-normal">Mobility &amp; Care</span>
+                <span className="text-primary">Mobility &amp; Care</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 Articles, guides, and updates from our orthotic and prosthetic specialists in Karachi.
@@ -35,7 +43,7 @@ export default function BlogPage() {
         </section>
 
         {/* Empty state */}
-        <section className="py-20 sm:py-28">
+        <section className="py-14 sm:py-20">
           <div className="container px-4 sm:px-6 mx-auto">
             <div className="max-w-md mx-auto text-center">
               <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
@@ -49,7 +57,7 @@ export default function BlogPage() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 px-6 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 Ask Us a Question

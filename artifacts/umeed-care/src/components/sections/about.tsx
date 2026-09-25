@@ -1,14 +1,15 @@
 import { Heart, Users, ShieldCheck } from "lucide-react";
+import aboutImage from "@/assets/images/service-lower-limb-prosthetic.png";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background relative">
+    <section id="about" className="py-14 sm:py-20 md:py-28 bg-background relative">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           <div className="lg:w-1/2 space-y-8 scroll-animate opacity-0 transition-all duration-1000 translate-y-8 data-[state=visible]:translate-y-0">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                Our Story of <span className="text-primary italic font-serif font-normal">Umeed</span>
+                Our Story of <span className="text-primary">Umeed</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 "Umeed" means hope. It is the foundation of everything we do. At Umeed Care Centre, we understand that finding the right orthotic or prosthetic solution is more than just a medical procedure—it is a journey toward regaining independence, confidence, and human dignity.
@@ -40,23 +41,22 @@ export default function About() {
             </div>
           </div>
           
-          <div className="lg:w-1/2 relative scroll-animate opacity-0 transition-all duration-1000 delay-200 translate-y-8 data-[state=visible]:translate-y-0">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden relative bg-muted">
-              {/* Abstract soft shape representation for warmth since we didn't generate a specific about image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/40"></div>
-              <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl mix-blend-multiply"></div>
-              <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl mix-blend-multiply"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center z-10">
-                <span className="font-serif text-5xl text-primary/40 mb-4">"</span>
-                <p className="text-2xl md:text-3xl font-serif italic text-foreground/80 leading-snug">
-                  Every person deserves to move freely and live fully.
-                </p>
-              </div>
+          <div className="lg:w-1/2 w-full scroll-animate opacity-0 transition-all duration-1000 delay-200 translate-y-8 data-[state=visible]:translate-y-0">
+            <div className="aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
+              <img
+                src={aboutImage}
+                alt="Custom-fitted prosthetic care at Umeed Care Center, Karachi"
+                className="w-full h-full object-cover"
+              />
             </div>
-            
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-primary/20 rounded-full"></div>
-            <div className="absolute -top-6 -right-6 w-24 h-24 border border-accent/20 rounded-full"></div>
+
+            {/* Quote card — stacked below on mobile, overlapping the image on larger screens */}
+            <div className="relative sm:-mt-10 mt-4 mx-auto sm:ml-6 sm:mr-0 max-w-sm bg-card border border-border/60 rounded-xl px-5 py-4">
+              <span className="font-serif text-3xl text-primary/40 leading-none">"</span>
+              <p className="text-sm sm:text-base font-serif italic text-foreground/80 leading-snug">
+                Every person deserves to move freely and live fully.
+              </p>
+            </div>
           </div>
         </div>
       </div>

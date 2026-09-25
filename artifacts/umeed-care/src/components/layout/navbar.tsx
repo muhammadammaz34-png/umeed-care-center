@@ -176,7 +176,7 @@ export default function Navbar() {
                 servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1"
               }`}
             >
-              <div className="w-72 rounded-xl border border-border/40 bg-background shadow-lg overflow-hidden">
+              <div className="w-72 rounded-xl border border-border/40 bg-background overflow-hidden">
                 <div className="py-2 max-h-[70vh] overflow-y-auto">
                   {SERVICES.map((service) => (
                     <Link
@@ -225,7 +225,7 @@ export default function Navbar() {
                 companyOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1"
               }`}
             >
-              <div className="w-48 rounded-xl border border-border/40 bg-background shadow-lg overflow-hidden py-2">
+              <div className="w-48 rounded-xl border border-border/40 bg-background overflow-hidden py-2">
                 {companyLinks.map((link) =>
                   link.href.startsWith("/") && !link.href.startsWith("/#") ? (
                     <Link
@@ -257,7 +257,7 @@ export default function Navbar() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center justify-center rounded-full h-10 px-5 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            className="hidden lg:inline-flex items-center justify-center rounded-lg h-10 px-5 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Book Now
           </a>
@@ -377,7 +377,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center rounded-full h-12 px-6 text-sm font-semibold shadow-sm border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
+              className="flex items-center justify-center rounded-lg h-12 px-6 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
             >
               Book a Consultation
             </a>

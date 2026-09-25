@@ -11,8 +11,15 @@ import Contact from "@/components/sections/contact";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import { useSEO } from "@/hooks/use-seo";
 
 export default function Home() {
+  useSEO({
+    path: "/",
+    title: "Umeed Care Center | Orthotics & Prosthetics Karachi",
+    description: "Expert orthotic & prosthetic clinic in Karachi. Custom prosthetic limbs, orthotics, spinal braces & diabetic footwear. Book a consultation: +92 313 6422564.",
+  });
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

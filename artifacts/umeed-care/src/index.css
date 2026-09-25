@@ -179,69 +179,27 @@
   transform: none !important;
 }
 
-/* ── Float (gentle bob) ── */
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-.animate-float-slow {
-  animation: float 8s ease-in-out infinite;
-}
+/* ── Float — retired (kept as no-ops so existing class names don't break markup) ── */
+.animate-float,
+.animate-float-slow,
 .animate-float-delay {
-  animation: float 6s ease-in-out 1.5s infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
+  animation: none;
 }
 
-/* ── Blob morph (hero background blobs) ── */
-.animate-blob {
-  animation: blob 10s ease-in-out infinite;
-}
+/* ── Blob morph — retired (kept as no-op) ── */
+.animate-blob,
 .animate-blob-delay {
-  animation: blob 13s ease-in-out 3s infinite;
-}
-@keyframes blob {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1); }
-  33%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: scale(1.05); }
-  66%       { border-radius: 50% 40% 60% 30% / 40% 70% 50% 60%; transform: scale(0.97); }
+  animation: none;
 }
 
-/* ── Shimmer sweep (badge highlight) ── */
+/* ── Shimmer sweep — retired (kept as no-op, badge renders as a plain static pill) ── */
 .animate-shimmer {
   position: relative;
-  overflow: hidden;
-}
-.animate-shimmer::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 60%);
-  background-size: 200% 100%;
-  animation: shimmer 2.8s ease-in-out infinite;
-}
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
 }
 
-/* ── Pulse ring (WhatsApp / CTA) ── */
+/* ── Pulse ring — retired (kept as no-op, button renders without the pulsing ring) ── */
 .animate-pulse-ring {
   position: relative;
-}
-.animate-pulse-ring::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: inherit;
-  border: 2px solid currentColor;
-  opacity: 0;
-  animation: pulseRing 2s ease-out infinite;
-}
-@keyframes pulseRing {
-  0%   { transform: scale(1);   opacity: 0.7; }
-  80%  { transform: scale(1.18); opacity: 0; }
-  100% { transform: scale(1.18); opacity: 0; }
 }
 
 /* ── Bounce soft (scroll-to-top) ── */
@@ -285,11 +243,11 @@
   100% { transform: translateX(-50%); }
 }
 
-/* ── Card tilt hover ── */
+/* ── Card hover — flat, restrained lift (no bounce/scale) ── */
 .card-tilt {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .card-tilt:hover {
-  transform: translateY(-6px) scale(1.015);
-  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -14px rgba(0,0,0,0.16);
 }

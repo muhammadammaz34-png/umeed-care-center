@@ -51,7 +51,7 @@ export default function Testimonials() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
             Lives Changed at{" "}
-            <span className="text-primary italic font-serif font-normal">Umeed</span>
+            <span className="text-primary">Umeed</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto text-sm sm:text-base">
             Hear from patients across Karachi whose mobility and confidence have been restored.

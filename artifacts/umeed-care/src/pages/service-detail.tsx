@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services, getServiceById } from "@/data/services";
+import { useSEO, SITE_URL } from "@/hooks/use-seo";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
@@ -12,6 +13,35 @@ export default function ServiceDetailPage() {
   const params = useParams<{ id: string }>();
   const [, navigate] = useLocation();
   const service = getServiceById(params.id);
+
+  useSEO({
+    path: `/services/${params.id}`,
+    title: service ? `${service.title} in Karachi | Umeed Care Center` : "Service Not Found | Umeed Care Center",
+    description: service
+      ? `${service.shortDescription} Serving ${service.whoItHelps.charAt(0).toLowerCase()}${service.whoItHelps.slice(1)} Book a consultation at Umeed Care Center, Karachi.`
+      : "This service could not be found.",
+    noindex: !service,
+    jsonLd: service
+      ? {
+          "@context": "https://schema.org",
+          "@type": "MedicalTherapy",
+          name: service.title,
+          description: service.description,
+          url: `${SITE_URL}/services/${service.id}`,
+          provider: {
+            "@type": "MedicalClinic",
+            name: "Umeed Care Center",
+            telephone: "+92-313-6422564",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Karachi",
+              addressRegion: "Sindh",
+              addressCountry: "PK",
+            },
+          },
+        }
+      : undefined,
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -54,16 +84,10 @@ export default function ServiceDetailPage() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 px-6 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Book a Consultation
-                </a>
-                <a
-                  href="tel:+923136422564"
-                  className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 px-6 text-sm font-semibold border-2 border-primary bg-white text-primary hover:bg-primary hover:text-white transition-all duration-200"
-                >
-                  Call +92 313 6422564
                 </a>
               </div>
             </div>
@@ -77,7 +101,7 @@ export default function ServiceDetailPage() {
 
               {/* Image */}
               <div className="w-full lg:w-2/5 shrink-0">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-md bg-muted">
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-muted">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -167,21 +191,15 @@ export default function ServiceDetailPage() {
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-sm sm:text-base">
               Contact our team in Karachi to book your consultation. We'll assess your needs and recommend the right solution for you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex justify-center">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold border-2 border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp Us Now
-              </a>
-              <a
-                href="tel:+923136422564"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold border-2 border-white/60 text-white hover:bg-white/10 transition-all duration-200"
-              >
-                Call +92 313 6422564
               </a>
             </div>
           </div>

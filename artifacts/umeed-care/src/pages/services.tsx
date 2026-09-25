@@ -5,10 +5,17 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services } from "@/data/services";
+import { useSEO } from "@/hooks/use-seo";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
 export default function ServicesPage() {
+  useSEO({
+    path: "/services",
+    title: "Orthotic & Prosthetic Services in Karachi | Umeed Care Center",
+    description: "Browse all orthotic & prosthetic services at Umeed Care Center, Karachi — prosthetic limbs, orthotics, spinal braces, diabetic footwear & pediatric care.",
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
 
@@ -46,7 +53,7 @@ export default function ServicesPage() {
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
                 Comprehensive Care{" "}
-                <span className="text-primary italic font-serif font-normal">Under One Roof</span>
+                <span className="text-primary">Under One Roof</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 Umeed Care Center offers a full spectrum of orthotic and prosthetic services in Karachi. Every solution is custom-fitted, clinically assessed, and designed around your individual needs and goals.
@@ -56,16 +63,10 @@ export default function ServicesPage() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 px-6 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Book a Consultation
-                </a>
-                <a
-                  href="tel:+923136422564"
-                  className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 px-6 text-sm font-semibold border-2 border-primary bg-white text-primary hover:bg-primary hover:text-white transition-all duration-200"
-                >
-                  Call +92 313 6422564
                 </a>
               </div>
             </div>
@@ -114,21 +115,15 @@ export default function ServicesPage() {
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-sm sm:text-base">
               Contact our team in Karachi to book your consultation. We'll assess your needs and recommend the right solution for you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex justify-center">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold border-2 border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp Us Now
-              </a>
-              <a
-                href="tel:+923136422564"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold border-2 border-white/60 text-white hover:bg-white/10 transition-all duration-200"
-              >
-                Call +92 313 6422564
               </a>
             </div>
           </div>

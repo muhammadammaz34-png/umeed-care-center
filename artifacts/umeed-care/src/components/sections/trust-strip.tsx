@@ -29,7 +29,7 @@ export default function TrustStrip() {
           >
             <span className={i % 2 === 0 ? "text-accent" : "text-primary"}>{item.icon}</span>
             <span className="text-sm font-medium tracking-wide">{item.label}</span>
-            <span className="ml-6 sm:ml-8 text-dark-foreground/30 text-lg">✦</span>
+            <span className="ml-6 sm:ml-8 w-1 h-1 rounded-full bg-dark-foreground/30" />
           </div>
         ))}
       </div>

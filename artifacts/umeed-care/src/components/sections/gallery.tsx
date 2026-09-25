@@ -69,7 +69,7 @@ export default function Gallery() {
   const filtered = active === "All" ? items : items.filter((i) => i.category === active);
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-secondary/30 relative overflow-hidden">
+    <section id="gallery" className="py-14 sm:py-20 md:py-28 bg-secondary/30 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{ backgroundImage: "radial-gradient(circle at 1px 1px, hsl(120 58% 40%) 1px, transparent 0)", backgroundSize: "28px 28px" }}
@@ -95,9 +95,9 @@ export default function Gallery() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200 ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
                 active === cat
-                  ? "bg-primary border-primary text-white shadow-md"
+                  ? "bg-primary border-primary text-white"
                   : "bg-white border-primary/30 text-foreground hover:border-primary hover:text-primary"
               }`}
             >
@@ -111,7 +111,7 @@ export default function Gallery() {
           {filtered.map((item, i) => (
             <div
               key={i}
-              className="break-inside-avoid group relative overflow-hidden rounded-2xl shadow-md cursor-zoom-in bg-card border border-border/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="break-inside-avoid group relative overflow-hidden rounded-2xl cursor-zoom-in bg-card border border-border/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               onClick={() => setLightbox(item)}
             >
               <div className="overflow-hidden">
@@ -143,7 +143,7 @@ export default function Gallery() {
             href={facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             See all photos on Facebook &rarr;
           </a>

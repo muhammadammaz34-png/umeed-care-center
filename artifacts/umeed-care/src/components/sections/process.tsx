@@ -41,7 +41,7 @@ export default function Process() {
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
             From First Contact to{" "}
-            <span className="text-primary italic font-serif font-normal">Full Mobility</span>
+            <span className="text-primary">Full Mobility</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
             We make the journey to better mobility as simple and stress-free as possible — three clear steps from consultation to custom fit.
@@ -60,7 +60,7 @@ export default function Process() {
             >
               {/* Step circle */}
               <div className="relative mb-5">
-                <div className={`w-[60px] h-[60px] rounded-full ${step.accent === "accent" ? "bg-accent/10 border-accent/20" : "bg-primary/10 border-primary/20"} border-2 flex items-center justify-center relative z-10`}>
+                <div className={`w-[60px] h-[60px] rounded-full ${step.accent === "accent" ? "bg-accent/10 border-accent/20" : "bg-primary/10 border-primary/20"} border flex items-center justify-center relative z-10`}>
                   {step.icon}
                 </div>
                 <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full ${step.accent === "accent" ? "bg-accent" : "bg-primary"} text-white text-[10px] font-bold flex items-center justify-center z-20`}>
@@ -69,7 +69,7 @@ export default function Process() {
               </div>
 
               {/* Content card */}
-              <div className={`bg-card border border-border/50 rounded-2xl p-6 w-full ${step.accent === "accent" ? "hover:border-accent/30" : "hover:border-primary/30"} hover:shadow-lg transition-all duration-300 card-tilt`}>
+              <div className={`bg-card border border-border/50 rounded-2xl p-6 w-full ${step.accent === "accent" ? "hover:border-accent/30" : "hover:border-primary/30"} hover:transition-all duration-300 card-tilt`}>
                 <p className={`${step.accent === "accent" ? "text-accent" : "text-primary"} font-mono text-xs font-bold tracking-[0.15em] mb-2 opacity-60`}>{step.number}</p>
                 <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
@@ -82,7 +82,7 @@ export default function Process() {
         <div className="text-center mt-12 sm:mt-16 scroll-animate opacity-0 transition-all duration-700 translate-y-8">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Start Your Journey Today
           </a>

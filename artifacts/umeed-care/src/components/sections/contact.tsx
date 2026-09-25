@@ -62,7 +62,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
+    <section id="contact" className="py-14 sm:py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-10"
         style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }}
@@ -159,7 +159,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-green-700 active:scale-95 transition-all duration-200"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-green-700 active:scale-95 transition-all duration-200"
                 >
                   <Send className="w-4 h-4" />
                   Send via WhatsApp

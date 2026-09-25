@@ -3,6 +3,8 @@ import { Heart, ShieldCheck, MessageCircle, ChevronLeft, Users, Home as HomeIcon
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import aboutImage from "@/assets/images/hero.png";
+import { useSEO } from "@/hooks/use-seo";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
@@ -34,6 +36,12 @@ const values = [
 ];
 
 export default function AboutPage() {
+  useSEO({
+    path: "/about",
+    title: "About Us | Umeed Care Center — Karachi",
+    description: "Umeed means hope. Learn about Umeed Care Center's mission, values, and compassionate team providing orthotic & prosthetic care in Karachi, Pakistan.",
+  });
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -52,7 +60,7 @@ export default function AboutPage() {
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
                 Our Story of{" "}
-                <span className="text-primary italic font-serif font-normal">Umeed</span>
+                <span className="text-primary">Umeed</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 "Umeed" means hope — the foundation of everything we do in Karachi's orthotic and prosthetic care.
@@ -76,27 +84,29 @@ export default function AboutPage() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full h-11 sm:h-12 px-6 text-sm font-semibold shadow-md border-2 border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Book a Consultation
                 </a>
               </div>
 
-              <div className="lg:w-1/2 relative">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden relative bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/40"></div>
-                  <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl mix-blend-multiply"></div>
-                  <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl mix-blend-multiply"></div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center z-10">
-                    <span className="font-serif text-5xl text-primary/40 mb-4">"</span>
-                    <p className="text-2xl md:text-3xl font-serif italic text-foreground/80 leading-snug">
-                      Every person deserves to move freely and live fully.
-                    </p>
-                  </div>
+              <div className="lg:w-1/2 w-full">
+                <div className="aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
+                  <img
+                    src={aboutImage}
+                    alt="Umeed Care Center specialist helping a patient in Karachi, Pakistan"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-primary/20 rounded-full"></div>
-                <div className="absolute -top-6 -right-6 w-24 h-24 border border-accent/20 rounded-full"></div>
+
+                {/* Quote card — stacked below on mobile, overlapping the image on larger screens */}
+                <div className="relative sm:-mt-10 mt-4 mx-auto sm:ml-6 sm:mr-0 max-w-sm bg-card border border-border/60 rounded-xl px-5 py-4">
+                  <span className="font-serif text-3xl text-primary/40 leading-none">"</span>
+                  <p className="text-sm sm:text-base font-serif italic text-foreground/80 leading-snug">
+                    Every person deserves to move freely and live fully.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -107,7 +117,7 @@ export default function AboutPage() {
           <div className="container px-4 sm:px-6 mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-                What Guides <span className="text-primary italic font-serif font-normal">Us</span>
+                What Guides <span className="text-primary">Us</span>
               </h2>
               <p className="text-muted-foreground text-sm sm:text-base">
                 The principles behind every consultation, fitting, and follow-up we provide.
@@ -140,14 +150,14 @@ export default function AboutPage() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold border-2 border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp Us Now
               </a>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold border-2 border-white/60 text-white hover:bg-white/10 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white/60 text-white hover:bg-white/10 transition-all duration-200"
               >
                 <Stethoscope className="w-4 h-4" />
                 Explore Services

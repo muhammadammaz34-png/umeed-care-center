@@ -3,11 +3,11 @@ import { services } from "@/data/services";
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-card border-y border-border/40">
+    <section id="services" className="py-14 sm:py-20 md:py-28 bg-card border-y border-border/40">
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-20 scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20 scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Comprehensive Care <span className="text-primary italic font-serif font-normal">Under One Roof</span>
+            Comprehensive Care <span className="text-primary">Under One Roof</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             We provide a full spectrum of orthotic and prosthetic solutions, carefully tailored to each individual's unique needs and goals.
@@ -39,11 +39,11 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-20 text-center scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
+        <div className="mt-12 sm:mt-16 md:mt-20 text-center scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
           <p className="text-muted-foreground mb-6">Need a consultation for a specific service?</p>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full h-14 px-10 text-base font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            className="inline-flex items-center justify-center rounded-lg h-14 px-10 text-base font-semibold border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Contact Us Today
           </a>
