@@ -2,22 +2,26 @@ import { UserCheck, Stethoscope, Home, HeartHandshake } from "lucide-react";
 
 const reasons = [
   {
-    icon: <UserCheck className="w-8 h-8 text-primary" />,
+    icon: <UserCheck className="w-8 h-8 text-accent" />,
+    accent: "accent" as const,
     title: "Expert Team",
     description: "Highly qualified and experienced specialists dedicated to precision and optimal outcomes."
   },
   {
     icon: <HeartHandshake className="w-8 h-8 text-primary" />,
+    accent: "primary" as const,
     title: "Personalized Care",
     description: "We listen to your story, understand your goals, and craft solutions specifically for your body."
   },
   {
-    icon: <Home className="w-8 h-8 text-primary" />,
+    icon: <Home className="w-8 h-8 text-accent" />,
+    accent: "accent" as const,
     title: "All Under One Roof",
     description: "From consultation and measurement to fitting and follow-ups, everything is handled in-house."
   },
   {
     icon: <Stethoscope className="w-8 h-8 text-primary" />,
+    accent: "primary" as const,
     title: "Compassionate Approach",
     description: "We treat every patient with the dignity, warmth, and respect they truly deserve."
   }
@@ -47,7 +51,7 @@ export default function WhyChooseUs() {
                 key={index}
                 className={`bg-card p-8 rounded-2xl border border-border/50 scroll-animate opacity-0 translate-y-8 card-tilt stagger-${index + 1}`}
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 animate-float-slow">
+                <div className={`w-14 h-14 rounded-full ${reason.accent === "accent" ? "bg-accent/10" : "bg-primary/10"} flex items-center justify-center mb-6 animate-float-slow`}>
                   {reason.icon}
                 </div>
                 <h3 className="font-bold text-xl text-foreground mb-3">{reason.title}</h3>

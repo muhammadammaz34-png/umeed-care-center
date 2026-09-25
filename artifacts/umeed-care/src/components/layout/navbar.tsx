@@ -9,11 +9,14 @@ const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20lik
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
   const isHome = location === "/";
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const companyCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,6 +27,7 @@ export default function Navbar() {
   useEffect(() => {
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current);
+      if (companyCloseTimer.current) clearTimeout(companyCloseTimer.current);
     };
   }, []);
 
@@ -45,6 +49,16 @@ export default function Navbar() {
     closeTimer.current = setTimeout(() => setServicesOpen(false), 150);
   }
 
+  function openCompanyMenu() {
+    if (companyCloseTimer.current) clearTimeout(companyCloseTimer.current);
+    setCompanyOpen(true);
+  }
+
+  function scheduleCloseCompanyMenu() {
+    if (companyCloseTimer.current) clearTimeout(companyCloseTimer.current);
+    companyCloseTimer.current = setTimeout(() => setCompanyOpen(false), 150);
+  }
+
   // Nav links differ by page
   const navLinks = isHome
     ? [
@@ -52,13 +66,16 @@ export default function Navbar() {
         { href: "#about", label: "About Us" },
         { href: "#gallery", label: "Gallery" },
         { href: "#why-us", label: "Why Choose Us" },
-        { href: "#contact", label: "Contact" },
       ]
     : [
         { href: "/", label: "Home" },
         { href: "/#gallery", label: "Gallery" },
-        { href: "/#contact", label: "Contact" },
       ];
+
+  const companyLinks = [
+    { href: isHome ? "#contact" : "/#contact", label: "Contact Us" },
+    { href: "/blog", label: "Blogs" },
+  ];
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
     const isActive = href === "/services" && location === "/services";
@@ -186,6 +203,53 @@ export default function Navbar() {
           {navLinks.slice(1).map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
+
+          {/* Company dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={openCompanyMenu}
+            onMouseLeave={scheduleCloseCompanyMenu}
+          >
+            <button
+              type="button"
+              className={`flex items-center gap-1 text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full ${
+                companyOpen ? "text-accent after:w-full" : "text-foreground/80 hover:text-accent"
+              }`}
+            >
+              Company
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${companyOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <div
+              className={`absolute right-0 top-full pt-3 transition-all duration-200 ${
+                companyOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-1"
+              }`}
+            >
+              <div className="w-48 rounded-xl border border-border/40 bg-background shadow-lg overflow-hidden py-2">
+                {companyLinks.map((link) =>
+                  link.href.startsWith("/") && !link.href.startsWith("/#") ? (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-accent hover:bg-accent/5 transition-colors"
+                      onClick={() => setCompanyOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-accent hover:bg-accent/5 transition-colors"
+                      onClick={() => setCompanyOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -264,6 +328,49 @@ export default function Navbar() {
           {navLinks.slice(1).map((link) => (
             <MobileNavLink key={link.href} href={link.href} label={link.label} />
           ))}
+
+          {/* Company accordion */}
+          <div className="border-b border-border/30 last:border-0">
+            <button
+              className="w-full flex items-center justify-between py-3 px-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors"
+              onClick={() => setMobileCompanyOpen((v) => !v)}
+            >
+              Company
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${mobileCompanyOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileCompanyOpen ? "max-h-40" : "max-h-0"
+              }`}
+            >
+              <div className="pb-2 pl-3 flex flex-col">
+                {companyLinks.map((link) =>
+                  link.href.startsWith("/") && !link.href.startsWith("/#") ? (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="py-2 px-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="py-2 px-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+
           <div className="pt-3">
             <a
               href={WHATSAPP_URL}

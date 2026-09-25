@@ -5,19 +5,22 @@ const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20lik
 
 const stats = [
   {
-    icon: <Package className="w-5 h-5 text-primary" />,
+    icon: <Package className="w-5 h-5 text-accent" />,
+    accent: "accent" as const,
     value: "8+",
     label: "Specialist Services",
     sub: "Orthotics • Prosthetics • Footwear",
   },
   {
     icon: <Users className="w-5 h-5 text-primary" />,
+    accent: "primary" as const,
     value: "All Ages",
     label: "Patients Served",
     sub: "From infants to elderly",
   },
   {
-    icon: <Award className="w-5 h-5 text-primary" />,
+    icon: <Award className="w-5 h-5 text-accent" />,
+    accent: "accent" as const,
     value: "100%",
     label: "Custom-Fitted",
     sub: "Every solution individually made",
@@ -73,7 +76,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 text-sm sm:text-base font-semibold shadow-md border-2 border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 text-sm sm:text-base font-semibold shadow-md border-2 border-accent bg-accent text-white hover:bg-white hover:text-accent transition-all duration-200"
             >
               Contact Us
             </a>
@@ -92,7 +95,7 @@ export default function Hero() {
                 key={i}
                 className="rounded-2xl bg-background/60 backdrop-blur-md border border-border/40 px-4 py-3 sm:px-5 sm:py-4 flex flex-row sm:flex-col gap-3 sm:gap-1 items-center sm:items-start"
               >
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                <div className={`w-8 h-8 rounded-full ${stat.accent === "accent" ? "bg-accent/10" : "bg-primary/10"} flex items-center justify-center shrink-0`}>
                   {stat.icon}
                 </div>
                 <div>

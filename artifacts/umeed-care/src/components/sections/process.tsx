@@ -3,7 +3,8 @@ import { CalendarCheck, Ruler, Package } from "lucide-react";
 const steps = [
   {
     number: "01",
-    icon: <CalendarCheck className="w-7 h-7 text-primary" />,
+    icon: <CalendarCheck className="w-7 h-7 text-accent" />,
+    accent: "accent" as const,
     title: "Book a Consultation",
     description:
       "Reach us via WhatsApp, phone, or the form below. We'll confirm a convenient appointment time — no long waiting lists.",
@@ -11,13 +12,15 @@ const steps = [
   {
     number: "02",
     icon: <Ruler className="w-7 h-7 text-primary" />,
+    accent: "primary" as const,
     title: "Assessment & Measurement",
     description:
       "Our specialist evaluates your condition, takes precise measurements, and discusses your mobility goals to design the ideal solution.",
   },
   {
     number: "03",
-    icon: <Package className="w-7 h-7 text-primary" />,
+    icon: <Package className="w-7 h-7 text-accent" />,
+    accent: "accent" as const,
     title: "Custom Fitting & Follow-Up",
     description:
       "Your device is crafted, fitted, and fine-tuned in-house. We stay with you through follow-up visits until you're fully comfortable.",
@@ -57,17 +60,17 @@ export default function Process() {
             >
               {/* Step circle */}
               <div className="relative mb-5">
-                <div className="w-[60px] h-[60px] rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center relative z-10">
+                <div className={`w-[60px] h-[60px] rounded-full ${step.accent === "accent" ? "bg-accent/10 border-accent/20" : "bg-primary/10 border-primary/20"} border-2 flex items-center justify-center relative z-10`}>
                   {step.icon}
                 </div>
-                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary text-white text-[10px] font-bold flex items-center justify-center z-20">
+                <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full ${step.accent === "accent" ? "bg-accent" : "bg-primary"} text-white text-[10px] font-bold flex items-center justify-center z-20`}>
                   {i + 1}
                 </span>
               </div>
 
               {/* Content card */}
-              <div className="bg-card border border-border/50 rounded-2xl p-6 w-full hover:border-primary/30 hover:shadow-lg transition-all duration-300 card-tilt">
-                <p className="text-primary font-mono text-xs font-bold tracking-[0.15em] mb-2 opacity-60">{step.number}</p>
+              <div className={`bg-card border border-border/50 rounded-2xl p-6 w-full ${step.accent === "accent" ? "hover:border-accent/30" : "hover:border-primary/30"} hover:shadow-lg transition-all duration-300 card-tilt`}>
+                <p className={`${step.accent === "accent" ? "text-accent" : "text-primary"} font-mono text-xs font-bold tracking-[0.15em] mb-2 opacity-60`}>{step.number}</p>
                 <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
