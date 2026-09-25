@@ -1,5 +1,7 @@
 import { Facebook, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Link } from "wouter";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
+import { services } from "@/data/services";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
@@ -18,7 +20,7 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Umeed Care Center Logo — Orthotic & Prosthetics Karachi"
-                className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover border-2 border-primary/20 shadow-sm"
+                className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain"
               />
               <div className="flex flex-col leading-tight">
                 <span className="font-bold text-lg sm:text-xl text-primary tracking-tight leading-none">Umeed</span>
@@ -64,11 +66,16 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-widest text-foreground mb-4 sm:mb-5">Our Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Lower &amp; Upper Limb Prosthetics</li>
-              <li>Pediatric Orthotics &amp; Prosthetics</li>
-              <li>Spinal Orthotics</li>
-              <li>Custom Foot Orthotics</li>
-              <li>Diabetic &amp; Pressure-Relief Footwear</li>
+              {services.map((service) => (
+                <li key={service.id}>
+                  <Link
+                    href={`/services/${service.id}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
             <div className="mt-4 sm:mt-5">
               <a
