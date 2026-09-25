@@ -75,6 +75,7 @@ export default function ServiceDetailPage() {
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
                 {service.title}
+                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">in Karachi, Pakistan</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 {service.shortDescription}

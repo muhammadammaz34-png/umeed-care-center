@@ -52,7 +52,7 @@ export default function ServicesPage() {
                 Orthotic &amp; Prosthetic Services — Karachi, Pakistan
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-                Comprehensive Care{" "}
+                Orthotic &amp; Prosthetic Services in Karachi{" "}
                 <span className="text-primary">Under One Roof</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">

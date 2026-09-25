@@ -51,6 +51,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="fade-in-up delay-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.15] mb-4 sm:mb-5">
+            <span className="block text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-2">Orthotic &amp; Prosthetic Clinic in Karachi</span>
             Restoring Mobility, <span className="text-primary">Inspiring Hope</span>
           </h1>
 

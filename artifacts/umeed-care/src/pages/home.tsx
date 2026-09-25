@@ -7,6 +7,7 @@ import Process from "@/components/sections/process";
 import Gallery from "@/components/sections/gallery";
 import Testimonials from "@/components/sections/testimonials";
 import WhyChooseUs from "@/components/sections/why-choose-us";
+import FAQ, { faqs } from "@/components/sections/faq";
 import Contact from "@/components/sections/contact";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
@@ -18,6 +19,18 @@ export default function Home() {
     path: "/",
     title: "Umeed Care Center | Orthotics & Prosthetics Karachi",
     description: "Expert orthotic & prosthetic clinic in Karachi. Custom prosthetic limbs, orthotics, spinal braces & diabetic footwear. Book a consultation: +92 313 6422564.",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
   });
 
   useEffect(() => {
@@ -53,6 +66,7 @@ export default function Home() {
         <Gallery />
         <Testimonials />
         <WhyChooseUs />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
