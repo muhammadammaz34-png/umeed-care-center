@@ -73,7 +73,7 @@ export default function Navbar() {
 
   const companyLinks = [
     { href: "/about", label: "About Us" },
-    { href: isHome ? "#contact" : "/#contact", label: "Contact Us" },
+    { href: "/contact", label: "Contact Us" },
     { href: "/blog", label: "Blogs" },
   ];
 
