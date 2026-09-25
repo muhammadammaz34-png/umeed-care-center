@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import heroImage from "@/assets/images/hero.png";
 import { MessageCircle, Award, Users, Package, MapPin } from "lucide-react";
 
@@ -80,12 +81,12 @@ export default function Hero() {
             >
               Contact Us
             </a>
-            <a
+            <Link
               href="/services"
               className="inline-flex items-center justify-center gap-2 rounded-full h-11 sm:h-12 md:h-14 px-5 sm:px-6 md:px-8 text-sm sm:text-base font-semibold shadow-sm border-2 border-primary bg-white/70 text-primary backdrop-blur-sm hover:bg-primary hover:text-white transition-all duration-200"
             >
               Explore Services
-            </a>
+            </Link>
           </div>
 
           {/* Stats strip — inspired by Techieonix reference */}
