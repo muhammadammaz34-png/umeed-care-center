@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://umeedcarecenter.replit.app/sitemap.xml
+Sitemap: https://umeed-care-center-umeed-care.vercel.app/sitemap.xml
