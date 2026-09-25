@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://umeed-care-center-umeed-care.vercel.app";
+const SITE_URL = "https://umeedcarecenter.vercel.app";
 const DEFAULT_IMAGE = `${SITE_URL}/opengraph.jpg`;
 
 interface SEOOptions {
