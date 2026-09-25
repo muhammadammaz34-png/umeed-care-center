@@ -29,7 +29,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-14 sm:py-20 md:py-28 bg-background relative overflow-hidden">
+    <section id="why-us" className="py-24 md:py-32 bg-background relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-secondary/30 rounded-l-[100px] -z-10 transform translate-x-1/4"></div>
       
