@@ -56,6 +56,7 @@ export default function FAQ() {
               <div
                 key={i}
                 className="border border-border/60 rounded-xl bg-card overflow-hidden"
+                onMouseEnter={() => setOpenIndex(i)}
               >
                 <button
                   type="button"
