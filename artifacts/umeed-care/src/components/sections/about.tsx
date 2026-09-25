@@ -53,7 +53,7 @@ export default function About() {
             {/* Quote card — stacked below on mobile, overlapping the image on larger screens */}
             <div className="relative sm:-mt-10 mt-4 mx-auto sm:ml-6 sm:mr-0 max-w-sm bg-card border border-border/60 rounded-xl px-5 py-4">
               <span className="font-serif text-3xl text-primary/40 leading-none">"</span>
-              <p className="text-sm sm:text-base font-serif italic text-foreground/80 leading-snug">
+              <p className="text-sm sm:text-base font-serif text-foreground/80 leading-snug">
                 Every person deserves to move freely and live fully.
               </p>
             </div>

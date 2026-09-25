@@ -27,7 +27,7 @@ export default function Footer() {
                 <span className="font-sans text-xs font-medium tracking-widest uppercase text-dark-foreground/60">Care Center</span>
               </div>
             </a>
-            <p className="text-dark-foreground/70 font-serif italic text-sm sm:text-base max-w-xs leading-relaxed">
+            <p className="text-dark-foreground/70 font-serif text-sm sm:text-base max-w-xs leading-relaxed">
               Restoring Mobility. Inspiring Hope.
             </p>
             <p className="text-dark-foreground/50 text-xs mt-3 max-w-xs">
