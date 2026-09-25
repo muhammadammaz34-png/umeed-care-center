@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, Send, CheckCircle, MapPin, Phone, Mail } from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
 
 const WHATSAPP_BASE = "https://wa.me/923136422564";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
@@ -173,29 +173,6 @@ export default function Contact() {
           )}
         </div>
 
-        {/* Quick contact pills below the card */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
-          <a
-            href={`${WHATSAPP_BASE}?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-2 text-xs sm:text-sm text-white/90 hover:bg-white/20 transition-all"
-          >
-            <MessageCircle className="w-3.5 h-3.5" />
-            0313 6422564
-          </a>
-          <a
-            href="mailto:shahsahab022@gmail.com"
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-2 text-xs sm:text-sm text-white/90 hover:bg-white/20 transition-all"
-          >
-            <Mail className="w-3.5 h-3.5" />
-            shahsahab022@gmail.com
-          </a>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-4 py-2 text-xs sm:text-sm text-white/90">
-            <MapPin className="w-3.5 h-3.5" />
-            Karachi, Pakistan
-          </span>
-        </div>
       </div>
     </section>
   );
