@@ -63,7 +63,6 @@ export default function Navbar() {
   const navLinks = isHome
     ? [
         { href: "#hero", label: "Home" },
-        { href: "#about", label: "About Us" },
         { href: "#gallery", label: "Gallery" },
         { href: "#why-us", label: "Why Choose Us" },
       ]
@@ -73,6 +72,7 @@ export default function Navbar() {
       ];
 
   const companyLinks = [
+    { href: "/about", label: "About Us" },
     { href: isHome ? "#contact" : "/#contact", label: "Contact Us" },
     { href: "/blog", label: "Blogs" },
   ];
