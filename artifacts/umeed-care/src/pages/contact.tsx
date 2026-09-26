@@ -1,193 +1,149 @@
-import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
+import { useEffect } from "react";
+import { Link } from "wouter";
+import { ChevronLeft, MapPin, MessageCircle, Mail, Facebook } from "lucide-react";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import Contact from "@/components/sections/contact";
+import { useSEO, SITE_URL } from "@/hooks/use-seo";
 
-const WHATSAPP_BASE = "https://wa.me/923136422564";
+const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
 
-const SERVICES = [
-  "Lower Limb Prosthetics",
-  "Upper Limb Prosthetics",
-  "Pediatric Orthotics & Prosthetics",
-  "Spinal Orthotics",
-  "Lower Limb Orthotics",
-  "Upper Limb Orthotics",
-  "Custom Foot Orthotics",
-  "Diabetic & Pressure-Relief Footwear",
-  "General Inquiry",
+const contactMethods = [
+  {
+    icon: <MessageCircle className="w-5 h-5 text-white" />,
+    label: "WhatsApp",
+    value: "+92 313 6422564",
+    href: WHATSAPP_URL,
+  },
+  {
+    icon: <Mail className="w-5 h-5 text-white" />,
+    label: "Email",
+    value: "shahsahab022@gmail.com",
+    href: "mailto:shahsahab022@gmail.com",
+  },
+  {
+    icon: <MapPin className="w-5 h-5 text-white" />,
+    label: "Location",
+    value: "Karachi, Sindh, Pakistan",
+    href: undefined,
+  },
+  {
+    icon: <Facebook className="w-5 h-5 text-white" />,
+    label: "Facebook",
+    value: "Umeed Care Center",
+    href: FACEBOOK_URL,
+  },
 ];
 
-interface FormState {
-  name: string;
-  phone: string;
-  service: string;
-  message: string;
-}
+export default function ContactPage() {
+  useSEO({
+    path: "/contact",
+    title: "Contact Us | Umeed Care Center — Karachi",
+    description: "Get in touch with Umeed Care Center in Karachi. Book a free consultation via WhatsApp, phone, or email for orthotic and prosthetic care.",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      name: "Contact Umeed Care Center",
+      url: `${SITE_URL}/contact`,
+      about: {
+        "@type": "MedicalClinic",
+        name: "Umeed Care Center",
+        telephone: "+92-313-6422564",
+        email: "shahsahab022@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Karachi",
+          addressRegion: "Sindh",
+          addressCountry: "PK",
+        },
+      },
+    },
+  });
 
-export default function Contact() {
-  const [form, setForm] = useState<FormState>({ name: "", phone: "", service: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<Partial<FormState>>({});
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            entry.target.classList.remove("opacity-0");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-  function validate(): boolean {
-    const e: Partial<FormState> = {};
-    if (!form.name.trim()) e.name = "Please enter your name";
-    if (!form.phone.trim()) e.phone = "Please enter your phone number";
-    if (!form.service) e.service = "Please select a service";
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  }
+    document.querySelectorAll(".scroll-animate").forEach((el) => {
+      observer.observe(el);
+    });
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!validate()) return;
-
-    const text = [
-      `Hello, I would like to book a consultation at Umeed Care Center.`,
-      ``,
-      `*Name:* ${form.name}`,
-      `*Phone:* ${form.phone}`,
-      `*Service Needed:* ${form.service}`,
-      form.message ? `*Message:* ${form.message}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    window.open(`${WHATSAPP_BASE}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
-    setSubmitted(true);
-  }
-
-  function handleChange(field: keyof FormState, value: string) {
-    setForm((prev) => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
-  }
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }}
-      />
-      <div className="absolute -top-32 -right-32 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
 
-      <div className="container px-4 sm:px-6 mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs sm:text-sm font-medium text-white/90 mb-4">
-            Free Consultation
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
-            Book a Consultation
-          </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto text-sm sm:text-base">
-            Fill in the form and we'll open WhatsApp with your details pre-filled — just hit send.
-          </p>
-        </div>
-
-        {/* Card */}
-        <div className="max-w-2xl mx-auto bg-card text-card-foreground rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
-          {submitted ? (
-            /* ── Success state ── */
-            <div className="flex flex-col items-center justify-center text-center p-12 gap-4">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                <CheckCircle className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">WhatsApp Opened!</h3>
-              <p className="text-muted-foreground text-sm max-w-xs">
-                Your consultation details are pre-filled in WhatsApp. Just hit send and we'll get back to you shortly.
+        {/* Page Hero */}
+        <section className="bg-primary/5 border-b border-border/40 py-14 sm:py-20">
+          <div className="container px-4 sm:px-6 mx-auto">
+            <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors mb-6">
+              <ChevronLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent mb-4">
+                Get in Touch
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+                Contact Umeed Care Center{" "}
+                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">Karachi, Pakistan</span>
+              </h1>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                Have a question or ready to book a consultation? Reach out via WhatsApp, phone, or email — our team responds quickly.
               </p>
-              <button
-                onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", service: "", message: "" }); }}
-                className="mt-2 text-sm text-primary underline hover:no-underline"
-              >
-                Submit another request
-              </button>
             </div>
-          ) : (
-            /* ── Form ── */
-            <div className="p-6 sm:p-8 md:p-10">
-              <h3 className="text-xl sm:text-2xl font-bold font-serif mb-1">Consultation Request</h3>
-              <p className="text-muted-foreground text-sm mb-6">We'll pre-fill your WhatsApp message — no typing needed on your end.</p>
+          </div>
+        </section>
 
-              <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                {/* Name + Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Field label="Full Name *" error={errors.name}>
-                    <input
-                      type="text"
-                      placeholder="e.g. Ahmed Khan"
-                      value={form.name}
-                      onChange={(e) => handleChange("name", e.target.value)}
-                      className={fieldClass(!!errors.name)}
-                    />
-                  </Field>
-                  <Field label="Phone Number *" error={errors.phone}>
-                    <input
-                      type="tel"
-                      placeholder="e.g. 0313 6422564"
-                      value={form.phone}
-                      onChange={(e) => handleChange("phone", e.target.value)}
-                      className={fieldClass(!!errors.phone)}
-                    />
-                  </Field>
-                </div>
-
-                {/* Service */}
-                <Field label="Service Needed *" error={errors.service}>
-                  <select
-                    value={form.service}
-                    onChange={(e) => handleChange("service", e.target.value)}
-                    className={fieldClass(!!errors.service)}
-                  >
-                    <option value="">Select a service…</option>
-                    {SERVICES.map((s) => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                </Field>
-
-                {/* Message */}
-                <Field label="Additional Details (optional)">
-                  <textarea
-                    rows={4}
-                    placeholder="Briefly describe your condition, symptoms, or any questions you have…"
-                    value={form.message}
-                    onChange={(e) => handleChange("message", e.target.value)}
-                    className={`${fieldClass(false)} resize-none`}
-                  />
-                </Field>
-
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-green-700 active:scale-95 transition-all duration-200"
-                >
-                  <Send className="w-4 h-4" />
-                  Send via WhatsApp
-                </button>
-
-                <p className="text-xs text-center text-muted-foreground">
-                  Clicking opens WhatsApp with your details pre-filled. No data is stored on this site.
-                </p>
-              </form>
+        {/* Contact methods */}
+        <section className="py-14 sm:py-20">
+          <div className="container px-4 sm:px-6 mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              {contactMethods.map((method, i) => {
+                const content = (
+                  <div className="bg-card border border-border/50 rounded-2xl p-6 h-full flex flex-col items-start gap-3 card-tilt">
+                    <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
+                      {method.icon}
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{method.label}</p>
+                      <p className="font-semibold text-foreground break-words">{method.value}</p>
+                    </div>
+                  </div>
+                );
+                return method.href ? (
+                  <a key={i} href={method.href} target="_blank" rel="noopener noreferrer">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={i}>{content}</div>
+                );
+              })}
             </div>
-          )}
-        </div>
+          </div>
+        </section>
 
-      </div>
-    </section>
-  );
-}
+        {/* Consultation form */}
+        <Contact />
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
-  return (
-    <div className="flex flex-col gap-1">
-      <label className="text-xs font-semibold text-foreground/80 uppercase tracking-wider">{label}</label>
-      {children}
-      {error && <p className="text-xs text-red-500 mt-0.5">{error}</p>}
+      </main>
+      <Footer />
+      <ScrollToTop />
     </div>
   );
-}
-
-function fieldClass(hasError: boolean) {
-  return `w-full rounded-xl border ${hasError ? "border-red-400 bg-red-50/50" : "border-border bg-secondary/30"} px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all duration-200`;
 }
