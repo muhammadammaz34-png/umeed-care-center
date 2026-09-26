@@ -23,7 +23,7 @@ export default function Footer() {
               />
               <div className="flex flex-col leading-tight">
                 <span className="font-bold text-lg sm:text-xl text-primary tracking-tight leading-none">Umeed</span>
-                <span className="font-sans text-xs font-medium tracking-widest uppercase text-dark-foreground/60">Care Center</span>
+                <span className="font-sans text-xs font-medium tracking-widest uppercase text-accent">Care Center</span>
               </div>
             </a>
             <p className="text-dark-foreground/70 font-serif text-sm sm:text-base max-w-xs leading-relaxed">

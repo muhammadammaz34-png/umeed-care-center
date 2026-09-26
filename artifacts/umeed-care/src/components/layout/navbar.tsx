@@ -143,7 +143,7 @@ export default function Navbar() {
             />
             <div className="flex flex-col leading-tight">
               <span className="font-bold text-base sm:text-lg text-primary tracking-tight leading-none">Umeed</span>
-              <span className="font-sans text-[10px] sm:text-xs font-medium tracking-widest uppercase text-muted-foreground">Care Center</span>
+              <span className="font-sans text-[10px] sm:text-xs font-medium tracking-widest uppercase text-accent">Care Center</span>
             </div>
           </Link>
         </div>
