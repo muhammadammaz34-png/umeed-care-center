@@ -1,41 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { ChevronLeft, MapPin, MessageCircle, Mail, Facebook } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import Contact from "@/components/sections/contact";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
-
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
-const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
-
-const contactMethods = [
-  {
-    icon: <MessageCircle className="w-5 h-5 text-white" />,
-    label: "WhatsApp",
-    value: "+92 313 6422564",
-    href: WHATSAPP_URL,
-  },
-  {
-    icon: <Mail className="w-5 h-5 text-white" />,
-    label: "Email",
-    value: "shahsahab022@gmail.com",
-    href: "mailto:shahsahab022@gmail.com",
-  },
-  {
-    icon: <MapPin className="w-5 h-5 text-white" />,
-    label: "Location",
-    value: "Karachi, Sindh, Pakistan",
-    href: undefined,
-  },
-  {
-    icon: <Facebook className="w-5 h-5 text-white" />,
-    label: "Facebook",
-    value: "Umeed Care Center",
-    href: FACEBOOK_URL,
-  },
-];
 
 export default function ContactPage() {
   useSEO({
@@ -104,36 +74,8 @@ export default function ContactPage() {
                 <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">Karachi, Pakistan</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Have a question or ready to book a consultation? Reach out via WhatsApp, phone, or email — our team responds quickly.
+                Have a question or ready to book a consultation? Fill in the form below and we'll open WhatsApp with your details pre-filled.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact methods */}
-        <section className="py-14 sm:py-20">
-          <div className="container px-4 sm:px-6 mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              {contactMethods.map((method, i) => {
-                const content = (
-                  <div className="bg-card border border-border/50 rounded-2xl p-6 h-full flex flex-col items-start gap-3 card-tilt">
-                    <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                      {method.icon}
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{method.label}</p>
-                      <p className="font-semibold text-foreground break-words">{method.value}</p>
-                    </div>
-                  </div>
-                );
-                return method.href ? (
-                  <a key={i} href={method.href} target="_blank" rel="noopener noreferrer">
-                    {content}
-                  </a>
-                ) : (
-                  <div key={i}>{content}</div>
-                );
-              })}
             </div>
           </div>
         </section>

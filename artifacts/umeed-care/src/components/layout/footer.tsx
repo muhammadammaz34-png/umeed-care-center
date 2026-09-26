@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 import { services } from "@/data/services";
 
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
 
 export default function Footer() {
@@ -45,15 +44,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle className="w-4 h-4 text-primary shrink-0" />
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-accent transition-colors font-medium"
-                  aria-label="Chat on WhatsApp"
-                >
-                  0313 6422564 (WhatsApp)
-                </a>
+                <span className="text-sm font-medium">0313 6422564 (WhatsApp)</span>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-accent shrink-0 mt-0.5" />

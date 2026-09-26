@@ -8,8 +8,6 @@ import { fetchBlogPostBySlug, type ContentfulBlogPost } from "@/lib/contentful";
 import { renderRichText } from "@/lib/render-rich-text";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
 
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
-
 function formatDate(dateStr: string) {
   if (!dateStr) return "";
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -142,15 +140,13 @@ export default function BlogDetailPage() {
               </article>
 
               <div className="mt-10 pt-8 border-t border-border/40">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Book a Consultation
-                </a>
+                </Link>
               </div>
             </div>
           </div>

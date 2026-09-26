@@ -4,8 +4,6 @@ import { useLocation, Link } from "wouter";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 import { services as SERVICES } from "@/data/services";
 
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
-
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -253,14 +251,12 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="hidden xl:inline-flex items-center justify-center rounded-lg h-10 px-5 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
             Book Now
-          </a>
+          </Link>
           {/* Mobile/tablet hamburger */}
           <button
             className="xl:hidden p-2 rounded-lg text-foreground hover:text-primary transition-colors"
@@ -372,15 +368,13 @@ export default function Navbar() {
           </div>
 
           <div className="pt-3">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center rounded-lg h-12 px-6 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
             >
               Book a Consultation
-            </a>
+            </Link>
           </div>
         </div>
       </div>

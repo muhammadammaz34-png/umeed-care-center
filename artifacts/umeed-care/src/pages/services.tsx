@@ -7,8 +7,6 @@ import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services } from "@/data/services";
 import { useSEO } from "@/hooks/use-seo";
 
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
-
 export default function ServicesPage() {
   useSEO({
     path: "/services",
@@ -59,15 +57,13 @@ export default function ServicesPage() {
                 Umeed Care Center offers a full spectrum of orthotic and prosthetic services in Karachi. Every solution is custom-fitted, clinically assessed, and designed around your individual needs and goals.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mt-7">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Book a Consultation
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -116,15 +112,13 @@ export default function ServicesPage() {
               Contact our team in Karachi to book your consultation. We'll assess your needs and recommend the right solution for you.
             </p>
             <div className="flex justify-center">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
-                WhatsApp Us Now
-              </a>
+                Book a Consultation
+              </Link>
             </div>
           </div>
         </section>

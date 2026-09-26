@@ -2,8 +2,6 @@ import { Link } from "wouter";
 import heroImage from "@/assets/images/hero.png";
 import { MessageCircle, Award, Users, Package, MapPin, ArrowRight } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
-
 const stats = [
   {
     icon: <Package className="w-5 h-5 text-accent" />,
@@ -62,15 +60,13 @@ export default function Hero() {
 
           {/* CTA buttons */}
           <div className="fade-in-up delay-300 flex flex-col sm:flex-row gap-3 mb-10 sm:mb-12">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm sm:text-base font-semibold bg-green-600 text-white hover:bg-green-700 transition-colors duration-200"
             >
               <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              WhatsApp Us
-            </a>
+              Book a Consultation
+            </Link>
             <Link
               href="/services"
               className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm sm:text-base font-semibold border border-border bg-background text-foreground hover:border-accent hover:text-accent transition-colors duration-200"

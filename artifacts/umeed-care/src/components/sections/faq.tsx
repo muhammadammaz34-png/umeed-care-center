@@ -1,7 +1,6 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { ChevronDown } from "lucide-react";
-
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
 const faqs = [
   {
@@ -78,14 +77,12 @@ export default function FAQ() {
         </div>
 
         <div className="text-center mt-10">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
           >
             Ask Us a Question
-          </a>
+          </Link>
         </div>
       </div>
     </section>
