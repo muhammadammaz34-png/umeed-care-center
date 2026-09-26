@@ -1,18 +1,24 @@
 import { Link } from "wouter";
-import { MessageCircle, ChevronLeft, Newspaper } from "lucide-react";
+import { ChevronLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { useSEO } from "@/hooks/use-seo";
+import { blogPosts } from "@/data/blog-posts";
 
-const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
 export default function BlogPage() {
   useSEO({
     path: "/blog",
-    title: "Blog | Umeed Care Center — Karachi",
-    description: "Articles, guides, and updates from Umeed Care Center's orthotic and prosthetic specialists in Karachi. Coming soon.",
-    noindex: true,
+    title: "Blog | Orthotic & Prosthetic Care Guides — Umeed Care Center",
+    description: "Practical guides on prosthetics, orthotics, pediatric care, and diabetic foot health from Umeed Care Center's specialists in Karachi.",
   });
 
   return (
@@ -36,32 +42,50 @@ export default function BlogPage() {
                 <span className="text-primary">Mobility &amp; Care</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Articles, guides, and updates from our orthotic and prosthetic specialists in Karachi.
+                Practical guides on prosthetics, orthotics, pediatric care, and diabetic foot health from our specialists in Karachi.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Empty state */}
+        {/* Post grid */}
         <section className="py-14 sm:py-20">
           <div className="container px-4 sm:px-6 mx-auto">
-            <div className="max-w-md mx-auto text-center">
-              <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                <Newspaper className="w-7 h-7 text-accent" />
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Coming Soon</h2>
-              <p className="text-muted-foreground text-sm sm:text-base mb-8">
-                We're preparing helpful articles on orthotic and prosthetic care, recovery tips, and patient stories. Check back soon.
-              </p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Ask Us a Question
-              </a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {blogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col rounded-2xl overflow-hidden bg-card border border-border/50 card-tilt hover:border-primary/20"
+                >
+                  <div className="aspect-[16/10] overflow-hidden bg-muted">
+                    <img
+                      src={post.coverImage}
+                      alt={post.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-5 sm:p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                      <span className="text-primary font-semibold">{post.category}</span>
+                      <span>&middot;</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h2 className="font-bold text-lg text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto pt-3 border-t border-border/40">
+                      <span className="text-xs text-muted-foreground">{formatDate(post.date)}</span>
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                        Read <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
