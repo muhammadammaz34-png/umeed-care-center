@@ -1,15 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "wouter";
-import { ChevronLeft, MessageCircle, ArrowRight } from "lucide-react";
+import { ChevronLeft, MessageCircle } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
-import { blogPosts, getBlogPostBySlug } from "@/data/blog-posts";
+import { fetchBlogPostBySlug, type ContentfulBlogPost } from "@/lib/contentful";
+import { renderRichText } from "@/lib/render-rich-text";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
 
 const WHATSAPP_URL = "https://wa.me/923136422564?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Umeed%20Care%20Center.";
 
 function formatDate(dateStr: string) {
+  if (!dateStr) return "";
   return new Date(dateStr).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -20,47 +22,77 @@ function formatDate(dateStr: string) {
 export default function BlogDetailPage() {
   const params = useParams<{ slug: string }>();
   const [, navigate] = useLocation();
-  const post = getBlogPostBySlug(params.slug);
+  const [post, setPost] = useState<ContentfulBlogPost | null>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "not-found" | "error">("loading");
 
-  useSEO({
-    path: `/blog/${params.slug}`,
-    title: post ? `${post.title} | Umeed Care Center` : "Article Not Found | Umeed Care Center",
-    description: post ? post.metaDescription : "This article could not be found.",
-    noindex: !post,
-    jsonLd: post
-      ? {
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: post.title,
-          description: post.metaDescription,
-          image: `${SITE_URL}${post.coverImage}`,
-          datePublished: post.date,
-          author: {
-            "@type": "Organization",
-            name: "Umeed Care Center",
-          },
-          publisher: {
-            "@type": "MedicalClinic",
-            name: "Umeed Care Center",
-          },
-          mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+  useEffect(() => {
+    let cancelled = false;
+    setStatus("loading");
+    fetchBlogPostBySlug(params.slug)
+      .then((data) => {
+        if (cancelled) return;
+        if (data) {
+          setPost(data);
+          setStatus("ready");
+        } else {
+          setStatus("not-found");
         }
-      : undefined,
-  });
+      })
+      .catch(() => {
+        if (!cancelled) setStatus("error");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [params.slug]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [params.slug]);
 
   useEffect(() => {
-    if (!post) {
+    if (status === "not-found") {
       navigate("/blog");
     }
-  }, [post, navigate]);
+  }, [status, navigate]);
+
+  useSEO({
+    path: `/blog/${params.slug}`,
+    title: post ? `${post.title} | Umeed Care Center` : "Article | Umeed Care Center",
+    description: post ? post.excerpt : "Umeed Care Center blog article.",
+    noindex: status !== "ready",
+    jsonLd: post
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          image: post.coverImageUrl,
+          datePublished: post.publishedDate,
+          author: { "@type": "Organization", name: "Umeed Care Center" },
+          publisher: { "@type": "MedicalClinic", name: "Umeed Care Center" },
+          mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+        }
+      : undefined,
+  });
+
+  if (status === "loading") {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow py-24">
+          <div className="container px-4 sm:px-6 mx-auto max-w-3xl animate-pulse space-y-4">
+            <div className="h-4 w-32 bg-muted rounded" />
+            <div className="h-10 w-3/4 bg-muted rounded" />
+            <div className="aspect-[16/9] bg-muted rounded-2xl" />
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!post) return null;
-
-  const otherPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -79,9 +111,7 @@ export default function BlogDetailPage() {
                 <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 font-medium text-primary">
                   {post.category}
                 </span>
-                <span>{formatDate(post.date)}</span>
-                <span>&middot;</span>
-                <span>{post.readTime}</span>
+                <span>{formatDate(post.publishedDate)}</span>
               </div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
                 {post.title}
@@ -97,40 +127,18 @@ export default function BlogDetailPage() {
         <section className="py-14 sm:py-20">
           <div className="container px-4 sm:px-6 mx-auto">
             <div className="max-w-3xl mx-auto">
-              <div className="rounded-2xl overflow-hidden aspect-[16/9] bg-muted mb-10">
-                <img
-                  src={post.coverImage}
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              {post.coverImageUrl && (
+                <div className="rounded-2xl overflow-hidden aspect-[16/9] bg-muted mb-10">
+                  <img
+                    src={post.coverImageUrl}
+                    alt={post.coverImageAlt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
-              <article className="prose prose-neutral max-w-none">
-                {post.content.map((block, i) => {
-                  if (block.type === "heading") {
-                    return (
-                      <h2 key={i} className="text-xl sm:text-2xl font-bold text-foreground mt-8 mb-3">
-                        {block.text}
-                      </h2>
-                    );
-                  }
-                  if (block.type === "list") {
-                    return (
-                      <ul key={i} className="space-y-2 my-4 list-disc pl-5">
-                        {block.items?.map((item, j) => (
-                          <li key={j} className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    );
-                  }
-                  return (
-                    <p key={i} className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4">
-                      {block.text}
-                    </p>
-                  );
-                })}
+              <article>
+                {renderRichText(post.body)}
               </article>
 
               <div className="mt-10 pt-8 border-t border-border/40">
@@ -144,41 +152,6 @@ export default function BlogDetailPage() {
                   Book a Consultation
                 </a>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Other posts */}
-        <section className="py-14 sm:py-20 bg-card border-y border-border/40">
-          <div className="container px-4 sm:px-6 mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">More Articles</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {otherPosts.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/blog/${p.slug}`}
-                  className="group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/30 transition-colors"
-                >
-                  <div className="aspect-[16/10] overflow-hidden">
-                    <img
-                      src={p.coverImage}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors leading-snug">{p.title}</h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-              >
-                View All Articles <ArrowRight className="w-4 h-4" />
-              </Link>
             </div>
           </div>
         </section>
