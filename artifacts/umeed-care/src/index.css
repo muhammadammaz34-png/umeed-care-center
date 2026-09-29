@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -116,15 +116,17 @@
 
 /* Urdu language mode — switched on by the site's language toggle, which
    sets dir="rtl" and lang="ur" on <html>. Right-to-left text direction
-   plus a proper Urdu (Nastaliq) typeface so translated copy reads
-   naturally instead of using the Latin font with Urdu glyphs. */
+   plus a clean Urdu typeface (Noto Naskh Arabic — same family used by
+   aqlimic.com's Urdu site) so translated copy reads naturally instead
+   of using the Latin font with Urdu glyphs. Naskh renders far more
+   legibly on the web than a Nastaliq calligraphic face at UI sizes. */
 html[dir="rtl"] {
-  --app-font-sans: 'Noto Nastaliq Urdu', 'Inter', sans-serif;
-  --app-font-serif: 'Noto Nastaliq Urdu', 'Inter', sans-serif;
+  --app-font-sans: 'Noto Naskh Arabic', 'Inter', sans-serif;
+  --app-font-serif: 'Noto Naskh Arabic', 'Inter', sans-serif;
 }
 
 html[dir="rtl"] body {
-  line-height: 2;
+  line-height: 1.9;
 }
 
 .dark {
