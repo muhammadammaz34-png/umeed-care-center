@@ -6,11 +6,13 @@ import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services, getServiceById } from "@/data/services";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
+import { useLanguage } from "@/lib/language-context";
 
 export default function ServiceDetailPage() {
   const params = useParams<{ id: string }>();
   const [, navigate] = useLocation();
   const service = getServiceById(params.id);
+  const { language, t } = useLanguage();
 
   useSEO({
     path: `/services/${params.id}`,
@@ -54,6 +56,12 @@ export default function ServiceDetailPage() {
   if (!service) return null;
 
   const otherServices = services.filter((s) => s.id !== service.id);
+  const title = language === "ur" ? service.titleUr : service.title;
+  const tagline = language === "ur" ? service.taglineUr : service.tagline;
+  const shortDescription = language === "ur" ? service.shortDescriptionUr : service.shortDescription;
+  const description = language === "ur" ? service.descriptionUr : service.description;
+  const benefits = language === "ur" ? service.benefitsUr : service.benefits;
+  const whoItHelps = language === "ur" ? service.whoItHelpsUr : service.whoItHelps;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -65,18 +73,18 @@ export default function ServiceDetailPage() {
           <div className="container px-4 sm:px-6 mx-auto">
             <Link href="/services" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
               <ChevronLeft className="w-4 h-4" />
-              Back to All Services
+              {t.serviceDetail.backAll}
             </Link>
             <div className="max-w-3xl">
               <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-4">
-                {service.tagline}
+                {tagline}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-                {service.title}
-                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">in Karachi, Pakistan</span>
+                {title}
+                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">{t.serviceDetail.inKarachi}</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                {service.shortDescription}
+                {shortDescription}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mt-7">
                 <Link
@@ -84,7 +92,7 @@ export default function ServiceDetailPage() {
                   className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  Book a Consultation
+                  {t.common.bookConsultation}
                 </Link>
               </div>
             </div>
@@ -101,7 +109,7 @@ export default function ServiceDetailPage() {
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-muted">
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={title}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -109,15 +117,15 @@ export default function ServiceDetailPage() {
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <p className="text-primary text-xs font-semibold uppercase tracking-widest mb-2">{service.tagline}</p>
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">About This Service</h2>
-                <p className="text-muted-foreground leading-relaxed mb-6 text-sm sm:text-base">{service.description}</p>
+                <p className="text-primary text-xs font-semibold uppercase tracking-widest mb-2">{tagline}</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">{t.serviceDetail.aboutTitle}</h2>
+                <p className="text-muted-foreground leading-relaxed mb-6 text-sm sm:text-base">{description}</p>
 
                 {/* Benefits */}
                 <div className="mb-6">
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-3">Key Benefits</h3>
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-3">{t.serviceDetail.keyBenefits}</h3>
                   <ul className="space-y-2">
-                    {service.benefits.map((b, i) => (
+                    {benefits.map((b, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                         {b}
@@ -128,15 +136,15 @@ export default function ServiceDetailPage() {
 
                 {/* Who it helps */}
                 <div className="rounded-xl bg-primary/5 border border-primary/10 px-4 py-3 mb-6">
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Who This Helps</p>
-                  <p className="text-sm text-muted-foreground">{service.whoItHelps}</p>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{t.serviceDetail.whoHelps}</p>
+                  <p className="text-sm text-muted-foreground">{whoItHelps}</p>
                 </div>
 
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
                 >
-                  Enquire about this service <ArrowRight className="w-4 h-4" />
+                  {t.serviceDetail.enquire} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -146,7 +154,7 @@ export default function ServiceDetailPage() {
         {/* Other services */}
         <section className="py-14 sm:py-20 bg-card border-y border-border/40">
           <div className="container px-4 sm:px-6 mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">Explore Other Services</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">{t.serviceDetail.exploreOthers}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {otherServices.slice(0, 4).map((s) => (
                 <Link
@@ -162,7 +170,9 @@ export default function ServiceDetailPage() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">{s.title}</h3>
+                    <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
+                      {language === "ur" ? s.titleUr : s.title}
+                    </h3>
                   </div>
                 </Link>
               ))}
@@ -172,7 +182,7 @@ export default function ServiceDetailPage() {
                 href="/services"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
               >
-                View All Services <ArrowRight className="w-4 h-4" />
+                {t.serviceDetail.viewAll} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -182,9 +192,9 @@ export default function ServiceDetailPage() {
         <section className="bg-primary py-14 sm:py-20 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
           <div className="container px-4 sm:px-6 mx-auto text-center relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">Ready to Get Started?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">{t.common.readyTitle}</h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-sm sm:text-base">
-              Contact our team in Karachi to book your consultation. We'll assess your needs and recommend the right solution for you.
+              {t.common.readyDescription}
             </p>
             <div className="flex justify-center">
               <Link
@@ -192,7 +202,7 @@ export default function ServiceDetailPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
-                Book a Consultation
+                {t.common.bookConsultation}
               </Link>
             </div>
           </div>

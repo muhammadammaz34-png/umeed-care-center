@@ -7,21 +7,23 @@ import ScrollToTop from "@/components/ui/scroll-to-top";
 import { fetchBlogPostBySlug, type ContentfulBlogPost } from "@/lib/contentful";
 import { renderRichText } from "@/lib/render-rich-text";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
-
-function formatDate(dateStr: string) {
-  if (!dateStr) return "";
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { useLanguage } from "@/lib/language-context";
 
 export default function BlogDetailPage() {
   const params = useParams<{ slug: string }>();
   const [, navigate] = useLocation();
   const [post, setPost] = useState<ContentfulBlogPost | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "not-found" | "error">("loading");
+  const { language, t } = useLanguage();
+
+  function formatDate(dateStr: string) {
+    if (!dateStr) return "";
+    return new Date(dateStr).toLocaleDateString(language === "ur" ? "ur-PK" : "en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -102,7 +104,7 @@ export default function BlogDetailPage() {
           <div className="container px-4 sm:px-6 mx-auto">
             <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
               <ChevronLeft className="w-4 h-4" />
-              Back to Blog
+              {t.blogDetail.backToBlog}
             </Link>
             <div className="max-w-3xl">
               <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
@@ -145,7 +147,7 @@ export default function BlogDetailPage() {
                   className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  Book a Consultation
+                  {t.common.bookConsultation}
                 </Link>
               </div>
             </div>

@@ -6,8 +6,11 @@ import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import Contact from "@/components/sections/contact";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
+import { useLanguage } from "@/lib/language-context";
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+
   useSEO({
     path: "/contact",
     title: "Contact Us | Umeed Care Center — Karachi",
@@ -63,18 +66,18 @@ export default function ContactPage() {
           <div className="container px-4 sm:px-6 mx-auto">
             <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors mb-6">
               <ChevronLeft className="w-4 h-4" />
-              Back to Home
+              {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
               <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent mb-4">
-                Get in Touch
+                {t.contactPage.badge}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-                Contact Umeed Care Center{" "}
-                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">Karachi, Pakistan</span>
+                {t.contactPage.title}{" "}
+                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">{t.contactPage.subtitle}</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Have a question or ready to book a consultation? Fill in the form below and we'll open WhatsApp with your details pre-filled.
+                {t.contactPage.description}
               </p>
             </div>
           </div>

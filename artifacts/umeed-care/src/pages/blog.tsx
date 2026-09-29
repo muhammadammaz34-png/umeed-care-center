@@ -6,19 +6,21 @@ import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { useSEO } from "@/hooks/use-seo";
 import { fetchBlogPosts, type ContentfulBlogPost } from "@/lib/contentful";
-
-function formatDate(dateStr: string) {
-  if (!dateStr) return "";
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+import { useLanguage } from "@/lib/language-context";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<ContentfulBlogPost[]>([]);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const { language, t } = useLanguage();
+
+  function formatDate(dateStr: string) {
+    if (!dateStr) return "";
+    return new Date(dateStr).toLocaleDateString(language === "ur" ? "ur-PK" : "en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }
 
   useSEO({
     path: "/blog",
@@ -53,18 +55,18 @@ export default function BlogPage() {
           <div className="container px-4 sm:px-6 mx-auto">
             <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent transition-colors mb-6">
               <ChevronLeft className="w-4 h-4" />
-              Back to Home
+              {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
               <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent mb-4">
-                Umeed Care Center Blog
+                {t.blogPage.badge}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-                Insights on{" "}
-                <span className="text-primary">Mobility &amp; Care</span>
+                {t.blogPage.titlePrefix}
+                <span className="text-primary">{t.blogPage.titleHighlight}</span>
               </h1>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Practical guides on prosthetics, orthotics, pediatric care, and diabetic foot health from our specialists in Karachi.
+                {t.blogPage.description}
               </p>
             </div>
           </div>
@@ -91,7 +93,7 @@ export default function BlogPage() {
             {status === "error" && (
               <div className="max-w-md mx-auto text-center py-10">
                 <p className="text-muted-foreground text-sm">
-                  Couldn't load articles right now. Please refresh, or check back shortly.
+                  {t.blogPage.errorText}
                 </p>
               </div>
             )}
@@ -101,9 +103,9 @@ export default function BlogPage() {
                 <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
                   <Newspaper className="w-7 h-7 text-accent" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Coming Soon</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">{t.blogPage.comingSoonTitle}</h2>
                 <p className="text-muted-foreground text-sm sm:text-base">
-                  We're preparing helpful articles on orthotic and prosthetic care. Check back soon.
+                  {t.blogPage.comingSoonText}
                 </p>
               </div>
             )}
@@ -138,7 +140,7 @@ export default function BlogPage() {
                       <div className="flex items-center justify-between mt-auto pt-3 border-t border-border/40">
                         <span className="text-xs text-muted-foreground">{formatDate(post.publishedDate)}</span>
                         <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                          Read <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                          {t.blogPage.readMore} <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                         </span>
                       </div>
                     </div>
