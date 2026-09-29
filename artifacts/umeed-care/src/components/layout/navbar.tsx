@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { useLocation, Link } from "wouter";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 import { services as SERVICES } from "@/data/services";
+import { useLanguage } from "@/lib/language-context";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [companyOpen, setCompanyOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
+  const { language, toggleLanguage, t } = useLanguage();
   const isHome = location === "/";
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const companyCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -60,19 +62,19 @@ export default function Navbar() {
   // Nav links differ by page
   const navLinks = isHome
     ? [
-        { href: "#hero", label: "Home" },
-        { href: "#gallery", label: "Gallery" },
-        { href: "#why-us", label: "Why Choose Us" },
+        { href: "#hero", label: t.nav.home },
+        { href: "#gallery", label: t.nav.gallery },
+        { href: "#why-us", label: t.nav.whyUs },
       ]
     : [
-        { href: "/", label: "Home" },
-        { href: "/#gallery", label: "Gallery" },
+        { href: "/", label: t.nav.home },
+        { href: "/#gallery", label: t.nav.gallery },
       ];
 
   const companyLinks = [
-    { href: "/about", label: "About Us" },
-    { href: "/contact", label: "Contact Us" },
-    { href: "/blog", label: "Blogs" },
+    { href: "/about", label: t.nav.aboutUs },
+    { href: "/contact", label: t.nav.contactUs },
+    { href: "/blog", label: t.nav.blogs },
   ];
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
@@ -127,6 +129,18 @@ export default function Navbar() {
     );
   };
 
+  const LanguageToggle = ({ className = "" }: { className?: string }) => (
+    <button
+      type="button"
+      onClick={toggleLanguage}
+      className={`inline-flex items-center gap-1.5 rounded-lg h-9 px-3 text-xs font-semibold border border-border text-foreground/80 hover:border-primary hover:text-primary transition-colors duration-200 ${className}`}
+      aria-label={language === "en" ? "اردو میں دیکھیں" : "View in English"}
+    >
+      <Languages className="w-3.5 h-3.5" />
+      {language === "en" ? "اردو" : "English"}
+    </button>
+  );
+
   return (
     <header
       className={`sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300 ${
@@ -165,7 +179,7 @@ export default function Navbar() {
               }`}
               onClick={() => setServicesOpen(false)}
             >
-              Services
+              {t.nav.services}
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
             </Link>
 
@@ -183,7 +197,7 @@ export default function Navbar() {
                       className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
                       onClick={() => setServicesOpen(false)}
                     >
-                      {service.title}
+                      {language === "ur" ? service.titleUr : service.title}
                     </Link>
                   ))}
                 </div>
@@ -192,7 +206,7 @@ export default function Navbar() {
                   className="block px-4 py-2.5 text-sm font-semibold text-primary border-t border-border/40 hover:bg-primary/5 transition-colors"
                   onClick={() => setServicesOpen(false)}
                 >
-                  View All Services
+                  {t.nav.viewAllServices}
                 </Link>
               </div>
             </div>
@@ -214,7 +228,7 @@ export default function Navbar() {
                 companyOpen ? "text-accent after:w-full" : "text-foreground/80 hover:text-accent"
               }`}
             >
-              Company
+              {t.nav.company}
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${companyOpen ? "rotate-180" : ""}`} />
             </button>
 
@@ -248,6 +262,8 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
+          <LanguageToggle />
         </nav>
 
         <div className="flex items-center gap-2">
@@ -255,12 +271,14 @@ export default function Navbar() {
             href="/contact"
             className="hidden xl:inline-flex items-center justify-center rounded-lg h-10 px-5 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
-            Book Now
+            {t.nav.bookNow}
           </Link>
+          {/* Compact language toggle for tablet/mobile, next to the hamburger */}
+          <LanguageToggle className="xl:hidden" />
           {/* Mobile/tablet hamburger */}
           <button
             className="xl:hidden p-2 rounded-lg text-foreground hover:text-primary transition-colors"
-            aria-label="Toggle menu"
+            aria-label={t.nav.toggleMenu}
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -271,7 +289,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         className={`xl:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
         } bg-background border-t border-border/40`}
       >
         <div className="px-4 py-4 flex flex-col gap-1 overflow-y-auto max-h-[70vh]">
@@ -291,7 +309,7 @@ export default function Navbar() {
                 }}
                 className={location === "/services" ? "text-primary" : ""}
               >
-                Services
+                {t.nav.services}
               </Link>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
@@ -314,7 +332,7 @@ export default function Navbar() {
                     className="py-2 px-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {service.title}
+                    {language === "ur" ? service.titleUr : service.title}
                   </Link>
                 ))}
               </div>
@@ -331,7 +349,7 @@ export default function Navbar() {
               className="w-full flex items-center justify-between py-3 px-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors"
               onClick={() => setMobileCompanyOpen((v) => !v)}
             >
-              Company
+              {t.nav.company}
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${mobileCompanyOpen ? "rotate-180" : ""}`}
               />
@@ -373,7 +391,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center rounded-lg h-12 px-6 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
             >
-              Book a Consultation
+              {t.common.bookConsultation}
             </Link>
           </div>
         </div>

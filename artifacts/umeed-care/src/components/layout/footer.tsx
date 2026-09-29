@@ -2,11 +2,13 @@ import { Facebook, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
 import { services } from "@/data/services";
+import { useLanguage } from "@/lib/language-context";
 
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { language, t } = useLanguage();
 
   return (
     <footer className="bg-dark text-dark-foreground pt-10 sm:pt-14 pb-8">
@@ -27,24 +29,24 @@ export default function Footer() {
               </div>
             </a>
             <p className="text-dark-foreground/70 font-serif text-sm sm:text-base max-w-xs leading-relaxed">
-              Restoring Mobility. Inspiring Hope.
+              {t.footer.tagline}
             </p>
             <p className="text-dark-foreground/50 text-xs mt-3 max-w-xs">
-              Leading orthotic and prosthetic solutions provider in Karachi, Pakistan — serving patients of all ages.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest text-white mb-4 sm:mb-5">Contact Info</h4>
+            <h4 className="font-bold text-sm uppercase tracking-widest text-white mb-4 sm:mb-5">{t.footer.contactInfo}</h4>
             <ul className="space-y-3 sm:space-y-4 text-dark-foreground/70">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                <span className="text-sm">Karachi, Sindh, Pakistan</span>
+                <span className="text-sm">{t.footer.address}</span>
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-sm font-medium">0313 6422564 (WhatsApp)</span>
+                <span className="text-sm font-medium">0313 6422564 {t.footer.whatsapp}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-accent shrink-0 mt-0.5" />
@@ -55,7 +57,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest text-white mb-4 sm:mb-5">Our Services</h4>
+            <h4 className="font-bold text-sm uppercase tracking-widest text-white mb-4 sm:mb-5">{t.footer.ourServices}</h4>
             <ul className="space-y-2 text-sm text-dark-foreground/70">
               {services.map((service) => (
                 <li key={service.id}>
@@ -63,7 +65,7 @@ export default function Footer() {
                     href={`/services/${service.id}`}
                     className="hover:text-accent transition-colors"
                   >
-                    {service.title}
+                    {language === "ur" ? service.titleUr : service.title}
                   </Link>
                 </li>
               ))}
@@ -79,15 +81,15 @@ export default function Footer() {
                 <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-colors">
                   <Facebook className="w-4 h-4" />
                 </span>
-                <span>Follow on Facebook</span>
+                <span>{t.footer.followFacebook}</span>
               </a>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-5 sm:pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4 text-xs text-dark-foreground/50 text-center sm:text-left">
-          <p>&copy; {currentYear} Umeed Care Center — Orthotics &amp; Prosthetics, Karachi.</p>
-          <p className="hidden sm:block">Best orthotic and prosthetic clinic in Karachi, Pakistan</p>
+          <p>{t.footer.copyright(currentYear)}</p>
+          <p className="hidden sm:block">{t.footer.bestClinic}</p>
         </div>
       </div>
     </footer>
