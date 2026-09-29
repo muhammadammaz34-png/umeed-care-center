@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -112,6 +112,19 @@
   --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* Urdu language mode — switched on by the site's language toggle, which
+   sets dir="rtl" and lang="ur" on <html>. Right-to-left text direction
+   plus a proper Urdu (Nastaliq) typeface so translated copy reads
+   naturally instead of using the Latin font with Urdu glyphs. */
+html[dir="rtl"] {
+  --app-font-sans: 'Noto Nastaliq Urdu', 'Inter', sans-serif;
+  --app-font-serif: 'Noto Nastaliq Urdu', 'Inter', sans-serif;
+}
+
+html[dir="rtl"] body {
+  line-height: 2;
 }
 
 .dark {
