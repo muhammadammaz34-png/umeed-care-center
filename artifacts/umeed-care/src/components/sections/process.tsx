@@ -1,33 +1,17 @@
 import { CalendarCheck, Ruler, Package } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
 
-const steps = [
-  {
-    number: "01",
-    icon: <CalendarCheck className="w-7 h-7 text-accent" />,
-    accent: "accent" as const,
-    title: "Book a Consultation",
-    description:
-      "Reach us via WhatsApp, phone, or the form below. We'll confirm a convenient appointment time — no long waiting lists.",
-  },
-  {
-    number: "02",
-    icon: <Ruler className="w-7 h-7 text-primary" />,
-    accent: "primary" as const,
-    title: "Assessment & Measurement",
-    description:
-      "Our specialist evaluates your condition, takes precise measurements, and discusses your mobility goals to design the ideal solution.",
-  },
-  {
-    number: "03",
-    icon: <Package className="w-7 h-7 text-accent" />,
-    accent: "accent" as const,
-    title: "Custom Fitting & Follow-Up",
-    description:
-      "Your device is crafted, fitted, and fine-tuned in-house. We stay with you through follow-up visits until you're fully comfortable.",
-  },
+const stepIcons = [
+  <CalendarCheck className="w-7 h-7 text-accent" />,
+  <Ruler className="w-7 h-7 text-primary" />,
+  <Package className="w-7 h-7 text-accent" />,
 ];
+const stepAccents = ["accent", "primary", "accent"] as const;
+const stepNumbers = ["01", "02", "03"];
 
 export default function Process() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 sm:py-24 bg-background relative overflow-hidden border-b border-border/30">
       {/* Subtle top accent */}
@@ -37,14 +21,14 @@ export default function Process() {
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16 scroll-animate opacity-0 transition-all duration-700 translate-y-8">
           <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs sm:text-sm font-medium text-primary mb-4">
-            Simple Process
+            {t.process.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
-            From First Contact to{" "}
-            <span className="text-primary">Full Mobility</span>
+            {t.process.titlePrefix}
+            <span className="text-primary">{t.process.titleHighlight}</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
-            We make the journey to better mobility as simple and stress-free as possible — three clear steps from consultation to custom fit.
+            {t.process.description}
           </p>
         </div>
 
@@ -53,24 +37,24 @@ export default function Process() {
           {/* Connector line — desktop only */}
           <div className="hidden md:block absolute top-14 left-[calc(16.67%+1.5rem)] right-[calc(16.67%+1.5rem)] h-px bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 pointer-events-none" />
 
-          {steps.map((step, i) => (
+          {t.process.steps.map((step, i) => (
             <div
               key={i}
               className={`scroll-animate opacity-0 transition-all duration-700 translate-y-8 stagger-${i + 1} flex flex-col items-center md:items-start text-center md:text-left`}
             >
               {/* Step circle */}
               <div className="relative mb-5">
-                <div className={`w-[60px] h-[60px] rounded-full ${step.accent === "accent" ? "bg-accent/10 border-accent/20" : "bg-primary/10 border-primary/20"} border flex items-center justify-center relative z-10`}>
-                  {step.icon}
+                <div className={`w-[60px] h-[60px] rounded-full ${stepAccents[i] === "accent" ? "bg-accent/10 border-accent/20" : "bg-primary/10 border-primary/20"} border flex items-center justify-center relative z-10`}>
+                  {stepIcons[i]}
                 </div>
-                <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full ${step.accent === "accent" ? "bg-accent" : "bg-primary"} text-white text-[10px] font-bold flex items-center justify-center z-20`}>
+                <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full ${stepAccents[i] === "accent" ? "bg-accent" : "bg-primary"} text-white text-[10px] font-bold flex items-center justify-center z-20`}>
                   {i + 1}
                 </span>
               </div>
 
               {/* Content card */}
-              <div className={`bg-card border border-border/50 rounded-2xl p-6 w-full ${step.accent === "accent" ? "hover:border-accent/30" : "hover:border-primary/30"} hover:transition-all duration-300 card-tilt`}>
-                <p className={`${step.accent === "accent" ? "text-accent" : "text-primary"} font-mono text-xs font-bold tracking-[0.15em] mb-2 opacity-60`}>{step.number}</p>
+              <div className={`bg-card border border-border/50 rounded-2xl p-6 w-full ${stepAccents[i] === "accent" ? "hover:border-accent/30" : "hover:border-primary/30"} hover:transition-all duration-300 card-tilt`}>
+                <p className={`${stepAccents[i] === "accent" ? "text-accent" : "text-primary"} font-mono text-xs font-bold tracking-[0.15em] mb-2 opacity-60`}>{stepNumbers[i]}</p>
                 <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
@@ -84,7 +68,7 @@ export default function Process() {
             href="#contact"
             className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
-            Start Your Journey Today
+            {t.process.cta}
           </a>
         </div>
       </div>

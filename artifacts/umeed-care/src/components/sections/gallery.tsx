@@ -22,6 +22,7 @@ import img20 from "@assets/480552562_1122580806232248_1128370728482231093_n_1776
 import img21 from "@assets/480749826_1121874242969571_2627881248593712257_n_1776609811100.jpg";
 import img22 from "@assets/506793321_3249070958576771_9142112043904167513_n_1776609811100.jpg";
 import img23 from "@assets/mmm_1776610475278.jpeg";
+import { useLanguage } from "@/lib/language-context";
 
 type Category = "All" | "Footwear" | "Orthotics" | "Prosthetics";
 
@@ -65,8 +66,10 @@ export default function Gallery() {
   const [active, setActive] = useState<Category>("All");
   const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
   const facebookUrl = "https://www.facebook.com/profile.php?id=100054410172615";
+  const { t } = useLanguage();
 
   const filtered = active === "All" ? items : items.filter((i) => i.category === active);
+  const itemLabel = (item: GalleryItem) => t.gallery.items[item.title] ?? item.title;
 
   return (
     <section id="gallery" className="py-14 sm:py-20 md:py-28 bg-secondary/30 relative overflow-hidden">
@@ -79,13 +82,13 @@ export default function Gallery() {
         {/* Header */}
         <div className="text-center mb-10 scroll-animate opacity-0 transition-all duration-700 translate-y-8">
           <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-4">
-            Our Products
+            {t.gallery.badge}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-serif mb-4">
-            Crafted for Comfort &amp; Mobility
+            {t.gallery.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-base md:text-lg">
-            From custom orthotic footwear to prosthetic components — every product is designed with care and precision to restore independence and improve quality of life.
+            {t.gallery.description}
           </p>
         </div>
 
@@ -101,7 +104,7 @@ export default function Gallery() {
                   : "bg-white border-primary/30 text-foreground hover:border-primary hover:text-primary"
               }`}
             >
-              {cat}
+              {t.gallery.categories[cat]}
             </button>
           ))}
         </div>
@@ -126,10 +129,10 @@ export default function Gallery() {
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                 <span className="inline-block self-start rounded-full px-2.5 py-0.5 text-xs font-semibold bg-primary/90 text-white mb-1.5">
-                  {item.category}
+                  {t.gallery.categories[item.category]}
                 </span>
                 <p className="text-white font-semibold text-sm leading-tight drop-shadow-md">
-                  {item.title}
+                  {itemLabel(item)}
                 </p>
               </div>
             </div>
@@ -138,14 +141,14 @@ export default function Gallery() {
 
         {/* Facebook CTA */}
         <div className="text-center mt-12 scroll-animate opacity-0 transition-all duration-700 translate-y-8">
-          <p className="text-muted-foreground text-sm mb-4">Want to see more of our work?</p>
+          <p className="text-muted-foreground text-sm mb-4">{t.gallery.ctaText}</p>
           <a
             href={facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
           >
-            See all photos on Facebook &rarr;
+            {t.gallery.ctaButton}
           </a>
         </div>
       </div>
@@ -164,7 +167,7 @@ export default function Gallery() {
             <button
               className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 text-white flex items-center justify-center text-xl hover:bg-black/80 transition-colors"
               onClick={() => setLightbox(null)}
-              aria-label="Close"
+              aria-label={t.gallery.close}
             >
               &times;
             </button>
@@ -175,9 +178,9 @@ export default function Gallery() {
             />
             <div className="w-full px-4 py-3 sm:py-4 text-center bg-black/60 backdrop-blur-sm">
               <span className="inline-block rounded-full px-3 py-0.5 text-xs font-semibold bg-primary text-white mr-2">
-                {lightbox.category}
+                {t.gallery.categories[lightbox.category]}
               </span>
-              <span className="text-white font-semibold text-sm sm:text-base">{lightbox.title}</span>
+              <span className="text-white font-semibold text-sm sm:text-base">{itemLabel(lightbox)}</span>
             </div>
           </div>
         </div>

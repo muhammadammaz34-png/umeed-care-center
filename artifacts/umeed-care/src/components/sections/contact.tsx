@@ -1,20 +1,13 @@
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
+import { translations } from "@/lib/translations";
 
 const WHATSAPP_BASE = "https://wa.me/923136422564";
-const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=100054410172615";
 
-const SERVICES = [
-  "Lower Limb Prosthetics",
-  "Upper Limb Prosthetics",
-  "Pediatric Orthotics & Prosthetics",
-  "Spinal Orthotics",
-  "Lower Limb Orthotics",
-  "Upper Limb Orthotics",
-  "Custom Foot Orthotics",
-  "Diabetic & Pressure-Relief Footwear",
-  "General Inquiry",
-];
+// Canonical (English) service names — always sent to WhatsApp regardless of
+// the UI language, so the clinic's messages stay consistent to read.
+const SERVICES_EN = translations.en.contactSection.services;
 
 interface FormState {
   name: string;
@@ -24,15 +17,16 @@ interface FormState {
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [form, setForm] = useState<FormState>({ name: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<FormState>>({});
 
   function validate(): boolean {
     const e: Partial<FormState> = {};
-    if (!form.name.trim()) e.name = "Please enter your name";
-    if (!form.phone.trim()) e.phone = "Please enter your phone number";
-    if (!form.service) e.service = "Please select a service";
+    if (!form.name.trim()) e.name = t.contactSection.errorName;
+    if (!form.phone.trim()) e.phone = t.contactSection.errorPhone;
+    if (!form.service) e.service = t.contactSection.errorService;
     setErrors(e);
     return Object.keys(e).length === 0;
   }
@@ -74,13 +68,13 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center mb-10 sm:mb-14">
           <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs sm:text-sm font-medium text-white/90 mb-4">
-            Free Consultation
+            {t.contactSection.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
-            Book a Consultation
+            {t.contactSection.title}
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto text-sm sm:text-base">
-            Fill in the form and we'll open WhatsApp with your details pre-filled — just hit send.
+            {t.contactSection.description}
           </p>
         </div>
 
@@ -92,39 +86,39 @@ export default function Contact() {
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">WhatsApp Opened!</h3>
+              <h3 className="text-xl font-bold text-foreground">{t.contactSection.successTitle}</h3>
               <p className="text-muted-foreground text-sm max-w-xs">
-                Your consultation details are pre-filled in WhatsApp. Just hit send and we'll get back to you shortly.
+                {t.contactSection.successText}
               </p>
               <button
                 onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", service: "", message: "" }); }}
                 className="mt-2 text-sm text-primary underline hover:no-underline"
               >
-                Submit another request
+                {t.contactSection.submitAnother}
               </button>
             </div>
           ) : (
             /* ── Form ── */
             <div className="p-6 sm:p-8 md:p-10">
-              <h3 className="text-xl sm:text-2xl font-bold font-serif mb-1">Consultation Request</h3>
-              <p className="text-muted-foreground text-sm mb-6">We'll pre-fill your WhatsApp message — no typing needed on your end.</p>
+              <h3 className="text-xl sm:text-2xl font-bold font-serif mb-1">{t.contactSection.formTitle}</h3>
+              <p className="text-muted-foreground text-sm mb-6">{t.contactSection.formSubtitle}</p>
 
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 {/* Name + Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Field label="Full Name *" error={errors.name}>
+                  <Field label={t.contactSection.labelName} error={errors.name}>
                     <input
                       type="text"
-                      placeholder="e.g. Ahmed Khan"
+                      placeholder={t.contactSection.placeholderName}
                       value={form.name}
                       onChange={(e) => handleChange("name", e.target.value)}
                       className={fieldClass(!!errors.name)}
                     />
                   </Field>
-                  <Field label="Phone Number *" error={errors.phone}>
+                  <Field label={t.contactSection.labelPhone} error={errors.phone}>
                     <input
                       type="tel"
-                      placeholder="e.g. 0313 6422564"
+                      placeholder={t.contactSection.placeholderPhone}
                       value={form.phone}
                       onChange={(e) => handleChange("phone", e.target.value)}
                       className={fieldClass(!!errors.phone)}
@@ -133,24 +127,24 @@ export default function Contact() {
                 </div>
 
                 {/* Service */}
-                <Field label="Service Needed *" error={errors.service}>
+                <Field label={t.contactSection.labelService} error={errors.service}>
                   <select
                     value={form.service}
                     onChange={(e) => handleChange("service", e.target.value)}
                     className={fieldClass(!!errors.service)}
                   >
-                    <option value="">Select a service…</option>
-                    {SERVICES.map((s) => (
-                      <option key={s} value={s}>{s}</option>
+                    <option value="">{t.contactSection.placeholderService}</option>
+                    {SERVICES_EN.map((s, i) => (
+                      <option key={s} value={s}>{t.contactSection.services[i]}</option>
                     ))}
                   </select>
                 </Field>
 
                 {/* Message */}
-                <Field label="Additional Details (optional)">
+                <Field label={t.contactSection.labelMessage}>
                   <textarea
                     rows={4}
-                    placeholder="Briefly describe your condition, symptoms, or any questions you have…"
+                    placeholder={t.contactSection.placeholderMessage}
                     value={form.message}
                     onChange={(e) => handleChange("message", e.target.value)}
                     className={`${fieldClass(false)} resize-none`}
@@ -162,11 +156,11 @@ export default function Contact() {
                   className="w-full inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-green-700 active:scale-95 transition-all duration-200"
                 >
                   <Send className="w-4 h-4" />
-                  Send via WhatsApp
+                  {t.contactSection.submitButton}
                 </button>
 
                 <p className="text-xs text-center text-muted-foreground">
-                  Clicking opens WhatsApp with your details pre-filled. No data is stored on this site.
+                  {t.contactSection.disclaimer}
                 </p>
               </form>
             </div>

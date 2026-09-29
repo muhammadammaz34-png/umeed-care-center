@@ -1,20 +1,23 @@
 import { Footprints, Activity, Baby, AlignCenter, Hand, Dumbbell, Scissors, Shield } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
 
-const items = [
-  { icon: <Activity className="w-4 h-4" />, label: "Lower Limb Prosthetics" },
-  { icon: <Hand className="w-4 h-4" />, label: "Upper Limb Prosthetics" },
-  { icon: <Baby className="w-4 h-4" />, label: "Pediatric Orthotics & Prosthetics" },
-  { icon: <AlignCenter className="w-4 h-4" />, label: "Spinal Orthotics" },
-  { icon: <Dumbbell className="w-4 h-4" />, label: "Lower Limb Orthotics" },
-  { icon: <Scissors className="w-4 h-4" />, label: "Upper Limb Orthotics" },
-  { icon: <Footprints className="w-4 h-4" />, label: "Custom Foot Orthotics" },
-  { icon: <Shield className="w-4 h-4" />, label: "Diabetic Footwear" },
+const icons = [
+  <Activity className="w-4 h-4" />,
+  <Hand className="w-4 h-4" />,
+  <Baby className="w-4 h-4" />,
+  <AlignCenter className="w-4 h-4" />,
+  <Dumbbell className="w-4 h-4" />,
+  <Scissors className="w-4 h-4" />,
+  <Footprints className="w-4 h-4" />,
+  <Shield className="w-4 h-4" />,
 ];
 
-// Duplicate for seamless loop
-const marqueeItems = [...items, ...items];
-
 export default function TrustStrip() {
+  const { t } = useLanguage();
+  const items = t.trustStrip.map((label, i) => ({ icon: icons[i], label }));
+  // Duplicate for seamless loop
+  const marqueeItems = [...items, ...items];
+
   return (
     <div className="bg-dark py-4 overflow-hidden border-y border-dark relative">
       {/* Fade edges */}
