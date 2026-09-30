@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "wouter";
-import { MessageCircle, CheckCircle, ArrowRight, ChevronLeft } from "lucide-react";
+import { MessageCircle, CheckCircle, ArrowRight, ChevronLeft, ChevronDown } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
@@ -24,24 +24,41 @@ export default function ServiceDetailPage() {
     jsonLd: service
       ? {
           "@context": "https://schema.org",
-          "@type": "MedicalTherapy",
-          name: service.title,
-          description: service.description,
-          url: `${SITE_URL}/services/${service.id}`,
-          provider: {
-            "@type": "MedicalClinic",
-            name: "Umeed Care Center",
-            telephone: "+92-313-6422564",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Karachi",
-              addressRegion: "Sindh",
-              addressCountry: "PK",
+          "@graph": [
+            {
+              "@type": "MedicalTherapy",
+              name: service.title,
+              description: service.description,
+              url: `${SITE_URL}/services/${service.id}`,
+              provider: {
+                "@type": "MedicalClinic",
+                name: "Umeed Care Center",
+                telephone: "+92-313-6422564",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Karachi",
+                  addressRegion: "Sindh",
+                  addressCountry: "PK",
+                },
+              },
             },
-          },
+            {
+              "@type": "FAQPage",
+              mainEntity: service.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ],
         }
       : undefined,
   });
+
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -62,6 +79,7 @@ export default function ServiceDetailPage() {
   const description = language === "ur" ? service.descriptionUr : service.description;
   const benefits = language === "ur" ? service.benefitsUr : service.benefits;
   const whoItHelps = language === "ur" ? service.whoItHelpsUr : service.whoItHelps;
+  const faqs = language === "ur" ? service.faqsUr : service.faqs;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -147,6 +165,40 @@ export default function ServiceDetailPage() {
                   {t.serviceDetail.enquire} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-14 sm:py-20">
+          <div className="container px-4 sm:px-6 mx-auto">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-8 text-center">{t.serviceDetail.faqTitle}</h2>
+            <div className="max-w-3xl mx-auto space-y-3">
+              {faqs.map((faq, i) => {
+                const isOpen = openFaqIndex === i;
+                return (
+                  <div
+                    key={i}
+                    className="border border-border/60 rounded-xl bg-card overflow-hidden"
+                    onMouseEnter={() => setOpenFaqIndex(i)}
+                  >
+                    <button
+                      type="button"
+                      className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 text-sm sm:text-base font-semibold text-foreground"
+                      onClick={() => setOpenFaqIndex(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                    >
+                      {faq.question}
+                      <ChevronDown className={`w-4 h-4 shrink-0 text-primary transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-64" : "max-h-0"}`}>
+                      <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
