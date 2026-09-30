@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="iNWalJ160nJtdUppg6lvPFH6a5IYDS_JFKq5FhpwhHU" />
 
-    <!-- Canonical + Hreflang -->
-    <link rel="canonical" href="https://umeedcarecenter.vercel.app/" />
+    <!-- Hreflang (canonical is set per-route by useSEO in JS, not hardcoded here —
+         a static canonical would point every route at the homepage before JS runs,
+         which risks Google folding service/blog pages into the homepage) -->
     <link rel="alternate" hreflang="en-PK" href="https://umeedcarecenter.vercel.app/" />
     <link rel="alternate" hreflang="x-default" href="https://umeedcarecenter.vercel.app/" />
 
