@@ -188,6 +188,7 @@ export interface Translations {
     enquire: string;
     exploreOthers: string;
     viewAll: string;
+    faqTitle: string;
   };
   contactPage: {
     badge: string;
@@ -489,6 +490,7 @@ const en: Translations = {
     enquire: "Enquire about this service",
     exploreOthers: "Explore Other Services",
     viewAll: "View All Services",
+    faqTitle: "Frequently Asked Questions",
   },
   contactPage: {
     badge: "Get in Touch",
@@ -785,6 +787,7 @@ const ur: Translations = {
     enquire: "اس خدمت کے بارے میں پوچھیں",
     exploreOthers: "دیگر خدمات دیکھیں",
     viewAll: "تمام خدمات دیکھیں",
+    faqTitle: "اکثر پوچھے گئے سوالات",
   },
   contactPage: {
     badge: "رابطہ کریں",
