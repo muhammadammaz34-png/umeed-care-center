@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { fetchBlogPostBySlug, type ContentfulBlogPost } from "@/lib/contentful";
-import { renderRichText } from "@/lib/render-rich-text";
+import { renderRichText, extractFaqsFromRichText } from "@/lib/render-rich-text";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
 import { useLanguage } from "@/lib/language-context";
 
@@ -56,6 +56,8 @@ export default function BlogDetailPage() {
     }
   }, [status, navigate]);
 
+  const faqs = post ? extractFaqsFromRichText(post.body) : [];
+
   useSEO({
     path: `/blog/${params.slug}`,
     title: post ? `${post.title} | Umeed Care Center` : "Article | Umeed Care Center",
@@ -64,14 +66,33 @@ export default function BlogDetailPage() {
     jsonLd: post
       ? {
           "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: post.title,
-          description: post.excerpt,
-          image: post.coverImageUrl,
-          datePublished: post.publishedDate,
-          author: { "@type": "Organization", name: "Umeed Care Center" },
-          publisher: { "@type": "MedicalClinic", name: "Umeed Care Center" },
-          mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+          "@graph": [
+            {
+              "@type": "BlogPosting",
+              headline: post.title,
+              description: post.excerpt,
+              image: post.coverImageUrl,
+              datePublished: post.publishedDate,
+              author: { "@type": "Organization", name: "Umeed Care Center" },
+              publisher: { "@type": "MedicalClinic", name: "Umeed Care Center" },
+              mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+            },
+            ...(faqs.length
+              ? [
+                  {
+                    "@type": "FAQPage",
+                    mainEntity: faqs.map((faq) => ({
+                      "@type": "Question",
+                      name: faq.question,
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: faq.answer,
+                      },
+                    })),
+                  },
+                ]
+              : []),
+          ],
         }
       : undefined,
   });
