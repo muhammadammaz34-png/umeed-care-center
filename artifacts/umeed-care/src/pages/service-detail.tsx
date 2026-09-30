@@ -1,12 +1,34 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "wouter";
-import { MessageCircle, CheckCircle, ArrowRight, ChevronLeft, ChevronDown } from "lucide-react";
+import { MessageCircle, CheckCircle, ArrowRight, ChevronLeft, ChevronDown, BookOpen } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services, getServiceById } from "@/data/services";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
 import { useLanguage } from "@/lib/language-context";
+
+// Maps a service to its matching in-depth blog guide, so each service page
+// links out to longer-form content and each blog post's traffic can flow
+// back to the service that converts it — internal linking that reinforces
+// topical relevance for both pages instead of leaving them isolated.
+const relatedArticles: Record<string, { slug: string; title: string; titleUr: string }> = {
+  "lower-limb-prosthetics": {
+    slug: "prosthetic-leg-price-pakistan",
+    title: "Prosthetic Leg Price in Pakistan: What Determines the Cost",
+    titleUr: "پاکستان میں مصنوعی ٹانگ کی قیمت کیا طے کرتی ہے",
+  },
+  "lower-limb-orthotics": {
+    slug: "afo-brace-foot-drop-karachi",
+    title: "AFO Brace for Foot Drop: Types, Cost & What to Expect",
+    titleUr: "فٹ ڈراپ کے لیے اے ایف او بریس: اقسام، قیمت اور توقعات",
+  },
+  "pediatric-orthotics-prosthetics": {
+    slug: "does-my-child-need-orthotics",
+    title: "Does My Child Need Orthotics? A Parent's Guide",
+    titleUr: "کیا میرے بچے کو آرتھوٹکس کی ضرورت ہے؟ والدین کے لیے رہنما",
+  },
+};
 
 export default function ServiceDetailPage() {
   const params = useParams<{ id: string }>();
@@ -80,6 +102,7 @@ export default function ServiceDetailPage() {
   const benefits = language === "ur" ? service.benefitsUr : service.benefits;
   const whoItHelps = language === "ur" ? service.whoItHelpsUr : service.whoItHelps;
   const faqs = language === "ur" ? service.faqsUr : service.faqs;
+  const relatedArticle = relatedArticles[service.id];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -202,6 +225,33 @@ export default function ServiceDetailPage() {
             </div>
           </div>
         </section>
+
+        {/* Related reading */}
+        {relatedArticle && (
+          <section className="pb-14 sm:pb-20">
+            <div className="container px-4 sm:px-6 mx-auto">
+              <div className="max-w-3xl mx-auto">
+                <Link
+                  href={`/blog/${relatedArticle.slug}`}
+                  className="group flex items-center gap-4 rounded-2xl border border-border/60 bg-card px-5 py-4 hover:border-primary/30 transition-colors"
+                >
+                  <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <BookOpen className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+                      {language === "ur" ? "مزید پڑھیں" : "Related reading"}
+                    </p>
+                    <p className="text-sm sm:text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {language === "ur" ? relatedArticle.titleUr : relatedArticle.title}
+                    </p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Other services */}
         <section className="py-14 sm:py-20 bg-card border-y border-border/40">
