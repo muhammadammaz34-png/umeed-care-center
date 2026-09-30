@@ -103,3 +103,94 @@ export function renderRichText(document: RichTextNode | null): ReactNode {
   if (!document) return null;
   return renderNode(document, 0);
 }
+
+// --- FAQ extraction for structured data ---
+// Looks for a "Frequently Asked Questions" heading in the article body, then
+// reads the Q&A pairs that follow (question as a bold-only paragraph,
+// answer as the plain paragraph right after it) so FAQPage schema can be
+// generated automatically from whatever editors write in Contentful,
+// without a separate FAQ field or manual JSON-LD per post.
+
+function getPlainText(node: RichTextNode): string {
+  if (node.nodeType === "text") return node.value ?? "";
+  return (node.content ?? []).map(getPlainText).join("");
+}
+
+function isHeading(node: RichTextNode): boolean {
+  return node.nodeType === "heading-1" || node.nodeType === "heading-2";
+}
+
+function isBold(node: RichTextNode): boolean {
+  return (node.marks ?? []).some((m) => m.type === "bold");
+}
+
+function isBoldOnlyParagraph(node: RichTextNode): boolean {
+  if (node.nodeType !== "paragraph") return false;
+  const textNodes = (node.content ?? []).filter((c) => c.nodeType === "text" && (c.value ?? "").trim());
+  if (!textNodes.length) return false;
+  return textNodes.every(isBold);
+}
+
+// Handles "**Question?** Answer text." written as a single paragraph, where
+// the leading run of text nodes is bold (the question) and the rest isn't
+// (the answer) — the pattern Contentful's editor produces for inline bold.
+function extractInlineQA(node: RichTextNode): ExtractedFaq | null {
+  if (node.nodeType !== "paragraph") return null;
+  const textNodes = (node.content ?? []).filter((c) => c.nodeType === "text");
+  if (!textNodes.length || !isBold(textNodes[0])) return null;
+
+  let i = 0;
+  let question = "";
+  while (i < textNodes.length && isBold(textNodes[i])) {
+    question += textNodes[i].value ?? "";
+    i++;
+  }
+  let answer = "";
+  for (; i < textNodes.length; i++) answer += textNodes[i].value ?? "";
+
+  question = question.trim();
+  answer = answer.trim();
+  return question && answer ? { question, answer } : null;
+}
+
+export interface ExtractedFaq {
+  question: string;
+  answer: string;
+}
+
+export function extractFaqsFromRichText(document: RichTextNode | null): ExtractedFaq[] {
+  if (!document?.content) return [];
+
+  const faqHeadingIndex = document.content.findIndex(
+    (n) => isHeading(n) && getPlainText(n).trim().toLowerCase().includes("frequently asked questions")
+  );
+  if (faqHeadingIndex === -1) return [];
+
+  const faqs: ExtractedFaq[] = [];
+  const nodes = document.content;
+  for (let i = faqHeadingIndex + 1; i < nodes.length; i++) {
+    const node = nodes[i];
+    if (isHeading(node)) break;
+
+    // Pattern 1: question and answer share one paragraph (bold lead-in).
+    const inline = extractInlineQA(node);
+    if (inline) {
+      faqs.push(inline);
+      continue;
+    }
+
+    // Pattern 2: question is its own bold-only paragraph, answer follows.
+    if (isBoldOnlyParagraph(node)) {
+      const question = getPlainText(node).trim();
+      const answerNode = nodes[i + 1];
+      if (answerNode?.nodeType === "paragraph") {
+        const answer = getPlainText(answerNode).trim();
+        if (question && answer) {
+          faqs.push({ question, answer });
+          i++;
+        }
+      }
+    }
+  }
+  return faqs;
+}
