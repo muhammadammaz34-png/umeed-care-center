@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/blog/afo-brace-for-foot-drop-in-pakistan", "destination": "/blog/afo-brace-foot-drop-karachi", "permanent": true },
+    { "source": "/blog/prosthetic-leg-cost-pakistan", "destination": "/blog/prosthetic-leg-price-pakistan", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
