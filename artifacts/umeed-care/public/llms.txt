@@ -1,6 +1,6 @@
 # Umeed Care Center
 
-> Umeed Care Center is a leading orthotic and prosthetic clinic in Karachi, Pakistan, providing expert care to patients of all ages. "Umeed" means hope — and restoring mobility and independence is the foundation of everything we do.
+> Umeed Care Center is a leading orthotic and prosthetic clinic in Karachi, Pakistan, providing expert care to patients of all ages. "Umeed" means hope, and restoring mobility and independence is the foundation of everything we do.
 
 ## About
 
@@ -8,14 +8,14 @@ Umeed Care Center offers a complete range of orthotic and prosthetic services un
 
 ## Services
 
-- **Lower Limb Prosthetics** — Custom prosthetic legs and feet for patients with lower limb amputation
-- **Upper Limb Prosthetics** — Functional prosthetic arms and hands for daily independence
-- **Pediatric Orthotics & Prosthetics** — Specialist solutions designed for children's growing bodies
-- **Spinal Orthotics** — Back braces and spinal supports for scoliosis and spinal conditions
-- **Lower Limb Orthotics** — Ankle-foot orthoses (AFO), knee braces, and full-leg supports (HKAFO)
-- **Upper Limb Orthotics** — Wrist splints, elbow braces, and dynamic hand orthoses
-- **Custom Foot Orthotics** — Precision insoles and arch supports tailored to individual feet
-- **Diabetic & Pressure-Relief Footwear** — Specialist sandals and shoes for diabetic patients in Karachi
+- **Lower Limb Prosthetics**, Custom prosthetic legs and feet for patients with lower limb amputation
+- **Upper Limb Prosthetics**, Functional prosthetic arms and hands for daily independence
+- **Pediatric Orthotics & Prosthetics**, Specialist solutions designed for children's growing bodies
+- **Spinal Orthotics**, Back braces and spinal supports for scoliosis and spinal conditions
+- **Lower Limb Orthotics**, Ankle-foot orthoses (AFO), knee braces, and full-leg supports (HKAFO)
+- **Upper Limb Orthotics**, Wrist splints, elbow braces, and dynamic hand orthoses
+- **Custom Foot Orthotics**, Precision insoles and arch supports tailored to individual feet
+- **Diabetic & Pressure-Relief Footwear**, Specialist sandals and shoes for diabetic patients in Karachi
 
 ## Contact
 
@@ -28,6 +28,6 @@ Umeed Care Center offers a complete range of orthotic and prosthetic services un
 ## Key Information
 
 - Serves patients of all ages including children and elderly
-- Located in Karachi, Pakistan — serving patients across the city
+- Located in Karachi, Pakistan, serving patients across the city
 - Languages: English, Urdu
-- Specialty: Orthopedic — Orthotics and Prosthetics
+- Specialty: Orthopedic, Orthotics and Prosthetics
