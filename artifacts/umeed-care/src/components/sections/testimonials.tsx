@@ -17,8 +17,8 @@ export default function Testimonials() {
 
       <div className="container px-4 sm:px-6 mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 scroll-animate opacity-0 transition-all duration-700 translate-y-8">
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs sm:text-sm font-medium text-primary mb-4">
+        <div className="text-center mb-12 sm:mb-16 reveal">
+          <div className="block text-sm font-semibold text-primary mb-3">
             {t.testimonials.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -35,7 +35,7 @@ export default function Testimonials() {
           {t.testimonials.items.map((item, i) => (
             <div
               key={i}
-              className={`scroll-animate opacity-0 translate-y-8 stagger-${i + 1} bg-card border border-border/50 rounded-2xl p-6 flex flex-col gap-4 card-tilt hover:border-primary/20`}
+              className={`reveal stagger-${i + 1} bg-card border border-border/50 rounded-2xl p-6 flex flex-col gap-4 hover:border-primary/20`}
             >
               {/* Quote icon */}
               <Quote className="w-6 h-6 text-primary/30 shrink-0" />

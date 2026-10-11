@@ -14,56 +14,56 @@ export default function FAQ() {
   const { t } = useLanguage();
 
   return (
-    <section id="faq" className="py-14 sm:py-20 md:py-28 bg-background">
-      <div className="container px-4 sm:px-6 mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 scroll-animate opacity-0 transition-all duration-700 translate-y-8">
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs sm:text-sm font-medium text-primary mb-4">
-            {t.faq.badge}
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
+    <section id="faq" className="py-16 sm:py-24 border-b border-border">
+      <div className="container px-4 md:px-6 mx-auto grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20">
+        <div className="reveal">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-balance">
             {t.faq.titlePrefix}
-            <span className="text-primary">{t.faq.titleHighlight}</span>
+            {t.faq.titleHighlight}
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base">
-            {t.faq.description}
-          </p>
+          <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-md">{t.faq.description}</p>
+          <Link
+            href="/contact"
+            className="mt-6 inline-flex items-center justify-center rounded-md h-11 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            {t.faq.cta}
+          </Link>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="border-t border-foreground/15">
           {t.faq.items.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
-                key={i}
-                className="border border-border/60 rounded-xl bg-card overflow-hidden"
-                onMouseEnter={() => setOpenIndex(i)}
-              >
-                <button
-                  type="button"
-                  className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 text-sm sm:text-base font-semibold text-foreground"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  aria-expanded={isOpen}
+              <div key={i} className="border-b border-foreground/15">
+                <h3>
+                  <button
+                    type="button"
+                    className="w-full flex items-center justify-between gap-4 text-start py-5 text-base sm:text-lg font-semibold text-foreground"
+                    onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${i}`}
+                    id={`faq-button-${i}`}
+                  >
+                    {faq.question}
+                    <ChevronDown
+                      className={`w-5 h-5 shrink-0 text-muted-foreground transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </h3>
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-button-${i}`}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                 >
-                  {faq.question}
-                  <ChevronDown className={`w-4 h-4 shrink-0 text-primary transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-64" : "max-h-0"}`}>
-                  <p className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="overflow-hidden">
+                    <p className="pb-5 pe-8 text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        <div className="text-center mt-10">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
-          >
-            {t.faq.cta}
-          </Link>
         </div>
       </div>
     </section>

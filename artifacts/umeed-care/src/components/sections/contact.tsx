@@ -56,18 +56,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-14 sm:py-20 md:py-28 bg-primary text-primary-foreground relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }}
-      />
-      <div className="absolute -top-32 -right-32 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="contact" className="py-14 sm:py-20 md:py-28 bg-primary text-primary-foreground ">
       <div className="container px-4 sm:px-6 mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs sm:text-sm font-medium text-white/90 mb-4">
+        <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-14">
+          <div className="block text-sm font-semibold text-primary-foreground/80 mb-3">
             {t.contactSection.badge}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
@@ -79,7 +72,7 @@ export default function Contact() {
         </div>
 
         {/* Card */}
-        <div className="max-w-2xl mx-auto bg-card text-card-foreground rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl scroll-animate opacity-0 transition-all duration-1000 translate-y-8">
+        <div className="max-w-2xl mx-auto bg-card text-card-foreground rounded-lg overflow-hidden reveal">
           {submitted ? (
             /* ── Success state ── */
             <div className="flex flex-col items-center justify-center text-center p-12 gap-4">
@@ -153,7 +146,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-green-700 active:scale-95 transition-all duration-200"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-primary bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 transition-all duration-200"
                 >
                   <Send className="w-4 h-4" />
                   {t.contactSection.submitButton}
