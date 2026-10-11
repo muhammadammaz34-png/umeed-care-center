@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { MessageCircle, ArrowRight, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import CtaBand from "@/components/ui/cta-band";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services } from "@/data/services";
 import { useSEO } from "@/hooks/use-seo";
@@ -29,32 +30,26 @@ export default function ServicesPage() {
       <main className="flex-grow">
 
         {/* Page Hero */}
-        <section className="bg-primary/5 border-b border-border/40 py-14 sm:py-20">
-          <div className="container px-4 sm:px-6 mx-auto">
-            <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-              <ChevronLeft className="w-4 h-4" />
+        <section className="relative overflow-hidden bg-dark text-dark-foreground">
+          <div aria-hidden="true" className="pointer-events-none absolute -top-40 -right-32 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -bottom-48 left-0 h-[24rem] w-[24rem] rounded-full bg-primary/20 blur-3xl" />
+          <div className="container px-4 sm:px-6 mx-auto relative py-16 sm:py-24">
+            <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-white/65 hover:text-white transition-colors mb-8">
+              <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
               {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
-              <span className="block text-sm font-semibold text-primary mb-3">
+              <span className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 mb-5">
+                <span className="h-px w-8 bg-primary" aria-hidden="true" />
                 {t.servicesPage.badge}
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-                {t.servicesPage.titlePrefix}{" "}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05] text-balance">
+                {t.servicesPage.titlePrefix}
                 <span className="text-primary">{t.servicesPage.titleHighlight}</span>
               </h1>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="mt-6 text-base sm:text-lg text-white/75 max-w-2xl leading-relaxed">
                 {t.servicesPage.description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 mt-7">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-md h-11 sm:h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  {t.common.bookConsultation}
-                </Link>
-              </div>
             </div>
           </div>
         </section>
@@ -122,25 +117,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section className="bg-primary py-14 sm:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-          <div className="container px-4 sm:px-6 mx-auto text-center relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">{t.common.readyTitle}</h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-sm sm:text-base">
-              {t.common.readyDescription}
-            </p>
-            <div className="flex justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
-              >
-                <MessageCircle className="w-4 h-4" />
-                {t.common.bookConsultation}
-              </Link>
-            </div>
-          </div>
-        </section>
+        <CtaBand />
 
       </main>
       <Footer />

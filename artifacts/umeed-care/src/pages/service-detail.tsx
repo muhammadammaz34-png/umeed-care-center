@@ -3,6 +3,7 @@ import { Link, useParams, useLocation } from "wouter";
 import { MessageCircle, CheckCircle, ArrowRight, ChevronLeft, ChevronDown, BookOpen } from "lucide-react";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import CtaBand from "@/components/ui/cta-band";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services, getServiceById } from "@/data/services";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
@@ -118,29 +119,38 @@ export default function ServiceDetailPage() {
       <main className="flex-grow">
 
         {/* Page Hero */}
-        <section className="bg-primary/5 border-b border-border/40 py-14 sm:py-20">
-          <div className="container px-4 sm:px-6 mx-auto">
-            <Link href="/services" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-              <ChevronLeft className="w-4 h-4" />
+        <section className="relative overflow-hidden bg-dark text-dark-foreground">
+          <img
+            src={service.image}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-50"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-dark/10" />
+          <div className="container px-4 sm:px-6 mx-auto relative py-16 sm:py-24 lg:py-28">
+            <Link href="/services" className="inline-flex items-center gap-1.5 text-sm text-white/65 hover:text-white transition-colors mb-8">
+              <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
               {t.serviceDetail.backAll}
             </Link>
             <div className="max-w-3xl">
-              <span className="block text-sm font-semibold text-primary mb-3">
+              <span className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 mb-5">
+                <span className="h-px w-8 bg-primary" aria-hidden="true" />
                 {tagline}
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05] text-balance">
                 {title}
-                <span className="block text-lg sm:text-xl md:text-2xl text-muted-foreground font-medium mt-1">{t.serviceDetail.inKarachi}</span>
               </h1>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="mt-3 text-lg sm:text-xl text-primary font-medium">{t.serviceDetail.inKarachi}</p>
+              <p className="mt-6 text-base sm:text-lg text-white/75 max-w-2xl leading-relaxed">
                 {shortDescription}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 mt-7">
+              <div className="flex flex-col sm:flex-row gap-3 mt-9">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-md h-11 sm:h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-full h-12 px-7 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4" aria-hidden="true" />
                   {t.common.bookConsultation}
                 </Link>
               </div>
@@ -298,25 +308,7 @@ export default function ServiceDetailPage() {
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section className="bg-primary py-14 sm:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-          <div className="container px-4 sm:px-6 mx-auto text-center relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">{t.common.readyTitle}</h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-sm sm:text-base">
-              {t.common.readyDescription}
-            </p>
-            <div className="flex justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
-              >
-                <MessageCircle className="w-4 h-4" />
-                {t.common.bookConsultation}
-              </Link>
-            </div>
-          </div>
-        </section>
+        <CtaBand />
 
       </main>
       <Footer />
