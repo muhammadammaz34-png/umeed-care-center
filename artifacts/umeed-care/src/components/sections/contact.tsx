@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Mail, MapPin, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
 
@@ -17,7 +17,7 @@ interface FormState {
 }
 
 export default function Contact() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [form, setForm] = useState<FormState>({ name: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<FormState>>({});
@@ -56,33 +56,58 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-14 sm:py-20 md:py-28 bg-primary text-primary-foreground ">
-      <div className="container px-4 sm:px-6 mx-auto relative z-10">
-        {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-10 sm:mb-14">
-          <div className="block text-sm font-semibold text-primary-foreground/80 mb-3">
-            {t.contactSection.badge}
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
+    <section id="contact" className="relative overflow-hidden py-20 sm:py-28 bg-dark text-dark-foreground">
+      <div aria-hidden="true" className="pointer-events-none absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-primary/20 blur-3xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 -right-24 h-[26rem] w-[26rem] rounded-full bg-accent/25 blur-3xl" />
+      <div className="container px-4 sm:px-6 mx-auto relative z-10 grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">
+        {/* Left: intro and direct contact */}
+        <div className="reveal">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">{t.contactSection.badge}</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-balance">
             {t.contactSection.title}
           </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="mt-5 text-base sm:text-lg text-white/70 leading-relaxed max-w-md">
             {t.contactSection.description}
           </p>
+
+          <ul className="mt-10 space-y-4 text-white/80">
+            <li>
+              <a href={WHATSAPP_BASE} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 hover:border-primary/60 transition-colors">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/15 text-primary"><MessageCircle className="w-5 h-5" /></span>
+                <span>
+                  <span className="block text-xs uppercase tracking-widest text-white/50">WhatsApp</span>
+                  <span className="block font-semibold text-white">0313 6422564</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:shahsahab022@gmail.com" className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 hover:border-accent/70 transition-colors">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-white"><Mail className="w-5 h-5" /></span>
+                <span className="min-w-0">
+                  <span className="block text-xs uppercase tracking-widest text-white/50">Email</span>
+                  <span className="block font-semibold text-white break-all">shahsahab022@gmail.com</span>
+                </span>
+              </a>
+            </li>
+            <li className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white"><MapPin className="w-5 h-5" /></span>
+              <span>
+                <span className="block text-xs uppercase tracking-widest text-white/50">{language === "ur" ? "مقام" : "Location"}</span>
+                <span className="block font-semibold text-white">{language === "ur" ? "کراچی، سندھ، پاکستان" : "Karachi, Sindh, Pakistan"}</span>
+              </span>
+            </li>
+          </ul>
         </div>
 
-        {/* Card */}
-        <div className="max-w-2xl mx-auto bg-card text-card-foreground rounded-lg overflow-hidden reveal">
+        {/* Right: form card */}
+        <div className="reveal rounded-3xl bg-card text-card-foreground shadow-2xl shadow-black/30 overflow-hidden">
           {submitted ? (
-            /* ── Success state ── */
             <div className="flex flex-col items-center justify-center text-center p-12 gap-4">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-xl font-bold text-foreground">{t.contactSection.successTitle}</h3>
-              <p className="text-muted-foreground text-sm max-w-xs">
-                {t.contactSection.successText}
-              </p>
+              <p className="text-muted-foreground text-sm max-w-xs">{t.contactSection.successText}</p>
               <button
                 onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", service: "", message: "" }); }}
                 className="mt-2 text-sm text-primary underline hover:no-underline"
@@ -91,41 +116,22 @@ export default function Contact() {
               </button>
             </div>
           ) : (
-            /* ── Form ── */
-            <div className="p-6 sm:p-8 md:p-10">
-              <h3 className="text-xl sm:text-2xl font-bold font-serif mb-1">{t.contactSection.formTitle}</h3>
-              <p className="text-muted-foreground text-sm mb-6">{t.contactSection.formSubtitle}</p>
+            <div className="p-6 sm:p-9">
+              <h3 className="text-xl sm:text-2xl font-bold mb-1">{t.contactSection.formTitle}</h3>
+              <p className="text-muted-foreground text-sm mb-7">{t.contactSection.formSubtitle}</p>
 
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                {/* Name + Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Field label={t.contactSection.labelName} error={errors.name}>
-                    <input
-                      type="text"
-                      placeholder={t.contactSection.placeholderName}
-                      value={form.name}
-                      onChange={(e) => handleChange("name", e.target.value)}
-                      className={fieldClass(!!errors.name)}
-                    />
+                    <input type="text" placeholder={t.contactSection.placeholderName} value={form.name} onChange={(e) => handleChange("name", e.target.value)} className={fieldClass(!!errors.name)} />
                   </Field>
                   <Field label={t.contactSection.labelPhone} error={errors.phone}>
-                    <input
-                      type="tel"
-                      placeholder={t.contactSection.placeholderPhone}
-                      value={form.phone}
-                      onChange={(e) => handleChange("phone", e.target.value)}
-                      className={fieldClass(!!errors.phone)}
-                    />
+                    <input type="tel" placeholder={t.contactSection.placeholderPhone} value={form.phone} onChange={(e) => handleChange("phone", e.target.value)} className={fieldClass(!!errors.phone)} />
                   </Field>
                 </div>
 
-                {/* Service */}
                 <Field label={t.contactSection.labelService} error={errors.service}>
-                  <select
-                    value={form.service}
-                    onChange={(e) => handleChange("service", e.target.value)}
-                    className={fieldClass(!!errors.service)}
-                  >
+                  <select value={form.service} onChange={(e) => handleChange("service", e.target.value)} className={fieldClass(!!errors.service)}>
                     <option value="">{t.contactSection.placeholderService}</option>
                     {SERVICES_EN.map((s, i) => (
                       <option key={s} value={s}>{t.contactSection.services[i]}</option>
@@ -133,33 +139,23 @@ export default function Contact() {
                   </select>
                 </Field>
 
-                {/* Message */}
                 <Field label={t.contactSection.labelMessage}>
-                  <textarea
-                    rows={4}
-                    placeholder={t.contactSection.placeholderMessage}
-                    value={form.message}
-                    onChange={(e) => handleChange("message", e.target.value)}
-                    className={`${fieldClass(false)} resize-none`}
-                  />
+                  <textarea rows={4} placeholder={t.contactSection.placeholderMessage} value={form.message} onChange={(e) => handleChange("message", e.target.value)} className={`${fieldClass(false)} resize-none`} />
                 </Field>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-primary bg-primary text-primary-foreground hover:bg-primary/90 active:scale-95 transition-all duration-200"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full h-12 px-8 text-sm font-semibold bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 active:scale-[0.98] transition-all duration-200"
                 >
                   <Send className="w-4 h-4" />
                   {t.contactSection.submitButton}
                 </button>
 
-                <p className="text-xs text-center text-muted-foreground">
-                  {t.contactSection.disclaimer}
-                </p>
+                <p className="text-xs text-center text-muted-foreground">{t.contactSection.disclaimer}</p>
               </form>
             </div>
           )}
         </div>
-
       </div>
     </section>
   );
