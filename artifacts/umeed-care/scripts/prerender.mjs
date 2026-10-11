@@ -213,7 +213,11 @@ function buildHtml(template, route, meta) {
   let html = template;
           html = replaceTag(html, /<title>.*?<\/title>/s, `<title>${title}</title>`);
           html = replaceTag(html, /(<meta name="description" content=")[^"]*(")/, `$1${description}$2`);
-          html = replaceTag(html, /(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`);
+          if (/<link rel="canonical" href="/.test(html)) {
+                      html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`);
+          } else {
+                      html = html.replace("</head>", `    <link rel="canonical" href="${url}" />\n  </head>`);
+          }
           html = replaceTag(html, /(<link rel="alternate" hreflang="en-PK" href=")[^"]*(")/, `$1${url}$2`);
           html = replaceTag(html, /(<link rel="alternate" hreflang="x-default" href=")[^"]*(")/, `$1${url}$2`);
           html = replaceTag(html, /(<meta property="og:type" content=")[^"]*(")/, `$1${ogType}$2`);
