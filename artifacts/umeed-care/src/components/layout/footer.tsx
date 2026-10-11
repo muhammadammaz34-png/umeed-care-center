@@ -11,12 +11,12 @@ export default function Footer() {
   const { language, t } = useLanguage();
 
   return (
-    <footer className="bg-dark text-dark-foreground pt-10 sm:pt-14 pb-8">
+    <footer className="bg-dark text-dark-foreground pt-16 sm:pt-20 pb-8 border-t border-white/5">
       <div className="container px-4 sm:px-6 mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 mb-12 sm:mb-14">
 
           {/* Brand */}
-          <div className="sm:col-span-2 md:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-1">
             <a href="#hero" className="inline-flex items-center gap-3 mb-4">
               <img
                 src={logoImg}
@@ -36,9 +36,20 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Company */}
+          <div>
+            <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-white/90 mb-5">{t.nav.company}</h4>
+            <ul className="space-y-3 text-sm text-dark-foreground/70">
+              <li><Link href="/about" className="hover:text-white transition-colors">{t.nav.aboutUs}</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">{t.nav.services}</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">{t.nav.blogs}</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">{t.nav.contactUs}</Link></li>
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest text-white mb-4 sm:mb-5">{t.footer.contactInfo}</h4>
+            <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-white/90 mb-5">{t.footer.contactInfo}</h4>
             <ul className="space-y-3 sm:space-y-4 text-dark-foreground/70">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-accent mt-0.5 shrink-0" />
@@ -57,13 +68,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-widest text-white mb-4 sm:mb-5">{t.footer.ourServices}</h4>
+            <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-white/90 mb-5">{t.footer.ourServices}</h4>
             <ul className="space-y-2 text-sm text-dark-foreground/70">
               {services.map((service) => (
                 <li key={service.id}>
                   <Link
                     href={`/services/${service.id}`}
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-white transition-colors"
                   >
                     {language === "ur" ? service.titleUr : service.title}
                   </Link>
