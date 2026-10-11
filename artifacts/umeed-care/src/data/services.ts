@@ -1,11 +1,11 @@
-import lowerLimbProsthetic from "@/assets/images/service-lower-limb-prosthetic.png";
-import upperLimbProsthetic from "@/assets/images/service-upper-limb-prosthetic.png";
-import pediatricOrthotics from "@/assets/images/service-pediatric-orthotics.png";
-import spinalOrthotics from "@/assets/images/service-spinal-orthotics.png";
-import lowerLimbOrthotics from "@/assets/images/service-lower-limb-orthotics.png";
-import upperLimbOrthotics from "@/assets/images/service-upper-limb-orthotics.png";
-import customFootOrthotics from "@/assets/images/service-custom-foot-orthotics.png";
-import diabeticFootwear from "@/assets/images/service-diabetic-footwear.png";
+import lowerLimbProsthetic from "@/assets/images/service-lower-limb-prosthetic.webp";
+import upperLimbProsthetic from "@/assets/images/service-upper-limb-prosthetic.webp";
+import pediatricOrthotics from "@/assets/images/service-pediatric-orthotics.webp";
+import spinalOrthotics from "@/assets/images/service-spinal-orthotics.webp";
+import lowerLimbOrthotics from "@/assets/images/service-lower-limb-orthotics.webp";
+import upperLimbOrthotics from "@/assets/images/service-upper-limb-orthotics.webp";
+import customFootOrthotics from "@/assets/images/service-custom-foot-orthotics.webp";
+import diabeticFootwear from "@/assets/images/service-diabetic-footwear.webp";
 
 export interface ServiceFaq {
   question: string;
@@ -68,7 +68,7 @@ export const services: Service[] = [
       },
       {
         question: "Will a prosthetic leg hurt or cause skin problems?",
-        answer: "A new socket can feel unfamiliar at first, but ongoing pain, redness, or skin breakdown usually means the fit needs adjusting. Don't ignore persistent discomfort — bring it to your next visit promptly.",
+        answer: "A new socket can feel unfamiliar at first, but ongoing pain, redness, or skin breakdown usually means the fit needs adjusting. Don't ignore persistent discomfort: bring it to your next visit promptly.",
       },
       {
         question: "Can patients from outside Karachi get fitted here?",
@@ -132,7 +132,7 @@ export const services: Service[] = [
       },
       {
         question: "How much does a prosthetic arm or hand cost in Pakistan?",
-        answer: "Cost depends heavily on whether you choose a cosmetic, body-powered, or myoelectric hand, plus the socket and components used. We assess your case first and give a clear, itemized estimate — not a generic number.",
+        answer: "Cost depends heavily on whether you choose a cosmetic, body-powered, or myoelectric hand, plus the socket and components used. We assess your case first and give a clear, itemized estimate, not a generic number.",
       },
       {
         question: "Can a prosthetic hand help with daily tasks like eating, dressing, or work?",
@@ -200,7 +200,7 @@ export const services: Service[] = [
     faqs: [
       {
         question: "At what age can a child start wearing orthotics?",
-        answer: "There's no single age that applies to every child. It depends on their diagnosis, walking pattern, joint alignment, and functional goals — an assessment is the only way to know if and when a brace is appropriate.",
+        answer: "There's no single age that applies to every child. It depends on their diagnosis, walking pattern, joint alignment, and functional goals, an assessment is the only way to know if and when a brace is appropriate.",
       },
       {
         question: "Does every child with flat feet need orthotics?",
@@ -212,7 +212,7 @@ export const services: Service[] = [
       },
       {
         question: "How often will my child's brace need to be replaced?",
-        answer: "Growing children typically need sizing reviews and replacement more often than adults — how often depends on growth rate, device type, and how the child uses it day to day.",
+        answer: "Growing children typically need sizing reviews and replacement more often than adults, how often depends on growth rate, device type, and how the child uses it day to day.",
       },
       {
         question: "What if the brace causes redness or my child refuses to wear it?",
@@ -234,7 +234,7 @@ export const services: Service[] = [
     faqsUr: [
       {
         question: "بچہ کس عمر میں آرتھوٹکس پہننا شروع کر سکتا ہے؟",
-        answer: "ہر بچے کے لیے کوئی ایک عمر لاگو نہیں ہوتی۔ یہ اس کی تشخیص، چلنے کے انداز، جوڑوں کی سیدھ اور مقاصد پر منحصر ہے — صرف معائنے سے معلوم ہو سکتا ہے کہ برٹھ کی ضرورت ہے یا نہیں۔",
+        answer: "ہر بچے کے لیے کوئی ایک عمر لاگو نہیں ہوتی۔ یہ اس کی تشخیص، چلنے کے انداز، جوڑوں کی سیدھ اور مقاصد پر منحصر ہے, صرف معائنے سے معلوم ہو سکتا ہے کہ برٹھ کی ضرورت ہے یا نہیں۔",
       },
       {
         question: "کیا فلیٹ فٹ والے ہر بچے کو آرتھوٹکس کی ضرورت ہے؟",
@@ -246,7 +246,7 @@ export const services: Service[] = [
       },
       {
         question: "میرے بچے کا برٹھ کتنی بار تبدیل کرنا پڑے گا؟",
-        answer: "بڑھتے بچوں کو بالغوں کے مقابلے میں زیادہ کثرت سے سائز کے جائزے اور تبدیلی کی ضرورت ہوتی ہے — یہ نشوونما کی رفتار، آلے کی قسم اور بچے کے استعمال پر منحصر ہے۔",
+        answer: "بڑھتے بچوں کو بالغوں کے مقابلے میں زیادہ کثرت سے سائز کے جائزے اور تبدیلی کی ضرورت ہوتی ہے, یہ نشوونما کی رفتار، آلے کی قسم اور بچے کے استعمال پر منحصر ہے۔",
       },
       {
         question: "اگر برٹھ سے لالی ہو یا بچہ پہننے سے انکار کرے تو کیا کریں؟",
@@ -259,7 +259,7 @@ export const services: Service[] = [
     title: "Spinal Orthotics",
     tagline: "Supporting your spine, protecting your future",
     shortDescription: "Supportive braces to stabilize the spine, relieve pain, and aid in recovery.",
-    description: "Spinal orthotics — including lumbar supports, thoracolumbosacral orthoses (TLSO), and scoliosis braces — are precisely fitted to immobilise, correct, or support the spine. Our clinicians conduct thorough assessments and work with your medical team to prescribe and fabricate the appropriate spinal device for your condition and recovery goals.",
+    description: "Spinal orthotics: including lumbar supports, thoracolumbosacral orthoses (TLSO), and scoliosis braces, are precisely fitted to immobilise, correct, or support the spine. Our clinicians conduct thorough assessments and work with your medical team to prescribe and fabricate the appropriate spinal device for your condition and recovery goals.",
     benefits: [
       "Conditions treated: scoliosis, kyphosis, fractures, post-surgical support",
       "Custom-moulded for maximum contact and effectiveness",
@@ -276,7 +276,7 @@ export const services: Service[] = [
       },
       {
         question: "How many hours a day does a scoliosis brace need to be worn?",
-        answer: "Wear schedules are set individually by the prescribing team based on the case. Some protocols call for extended daily wear — always follow the specific plan rather than a general rule.",
+        answer: "Wear schedules are set individually by the prescribing team based on the case. Some protocols call for extended daily wear: always follow the specific plan rather than a general rule.",
       },
       {
         question: "Is a ready-made back belt the same as a custom spinal brace?",
@@ -284,17 +284,17 @@ export const services: Service[] = [
       },
       {
         question: "Can a child go to school or sleep while wearing a spinal brace?",
-        answer: "Many prescribed spinal braces are designed to be worn under clothing during normal daily activities, including school. Sleep-wear schedules vary by case — your specialist will confirm what's right for your situation.",
+        answer: "Many prescribed spinal braces are designed to be worn under clothing during normal daily activities, including school. Sleep-wear schedules vary by case: your specialist will confirm what's right for your situation.",
       },
       {
         question: "Will a back brace weaken my muscles over time?",
-        answer: "This is a common concern. Appropriately prescribed and monitored bracing, combined with any recommended physiotherapy, is generally managed to avoid this — regular follow-up is part of how we watch for it.",
+        answer: "This is a common concern. Appropriately prescribed and monitored bracing, combined with any recommended physiotherapy, is generally managed to avoid this, regular follow-up is part of how we watch for it.",
       },
     ],
     titleUr: "اسپائنل آرتھوٹکس",
     taglineUr: "آپ کی ریڑھ کی ہڈی کو سہارا، آپ کے مستقبل کی حفاظت",
     shortDescriptionUr: "ریڑھ کی ہڈی کو مستحکم کرنے، درد کم کرنے اور صحت یابی میں مدد دینے والے معاون بریسز۔",
-    descriptionUr: "اسپائنل آرتھوٹکس — بشمول لمبر سپورٹ، تھوراکولمبوسیکرل آرتھوسس (ٹی ایل ایس او) اور اسکولیوسس بریسز — ریڑھ کی ہڈی کو ساکن، درست یا سہارا دینے کے لیے درستگی سے فٹ کیے جاتے ہیں۔ ہمارے معالجین مکمل معائنہ کرتے ہیں اور آپ کی حالت اور صحت یابی کے اہداف کے مطابق موزوں اسپائنل آلہ تجویز اور تیار کرنے کے لیے آپ کی طبی ٹیم کے ساتھ کام کرتے ہیں۔",
+    descriptionUr: "اسپائنل آرتھوٹکس: بشمول لمبر سپورٹ، تھوراکولمبوسیکرل آرتھوسس (ٹی ایل ایس او) اور اسکولیوسس بریسز, ریڑھ کی ہڈی کو ساکن، درست یا سہارا دینے کے لیے درستگی سے فٹ کیے جاتے ہیں۔ ہمارے معالجین مکمل معائنہ کرتے ہیں اور آپ کی حالت اور صحت یابی کے اہداف کے مطابق موزوں اسپائنل آلہ تجویز اور تیار کرنے کے لیے آپ کی طبی ٹیم کے ساتھ کام کرتے ہیں۔",
     benefitsUr: [
       "علاج کی جانے والی حالتیں: اسکولیوسس، کائفوسس، فریکچر، سرجری کے بعد سہارا",
       "زیادہ سے زیادہ رابطے اور اثر کے لیے کسٹم مولڈڈ",
@@ -310,7 +310,7 @@ export const services: Service[] = [
       },
       {
         question: "اسکولیوسس بریس روزانہ کتنے گھنٹے پہننا چاہیے؟",
-        answer: "پہننے کا شیڈول علاج کرنے والی ٹیم کیس کے مطابق طے کرتی ہے۔ کچھ صورتوں میں طویل روزانہ پہننا ضروری ہوتا ہے — عمومی اصول کی بجائے اپنے مخصوص منصوبے پر عمل کریں۔",
+        answer: "پہننے کا شیڈول علاج کرنے والی ٹیم کیس کے مطابق طے کرتی ہے۔ کچھ صورتوں میں طویل روزانہ پہننا ضروری ہوتا ہے, عمومی اصول کی بجائے اپنے مخصوص منصوبے پر عمل کریں۔",
       },
       {
         question: "کیا تیار شدہ کمر بیلٹ اور کسٹم اسپائنل بریس ایک جیسے ہیں؟",
@@ -322,7 +322,7 @@ export const services: Service[] = [
       },
       {
         question: "کیا کمر بریس وقت کے ساتھ پٹھے کمزور کر دیتا ہے؟",
-        answer: "یہ ایک عام تشویش ہے۔ صحیح طریقے سے تجویز کردہ اور نگرانی شدہ بریسنگ، فزیوتھراپی کے ساتھ، عام طور پر اس سے بچنے کے لیے منظم کی جاتی ہے — باقاعدہ فالو اپ اسی نگرانی کا حصہ ہے۔",
+        answer: "یہ ایک عام تشویش ہے۔ صحیح طریقے سے تجویز کردہ اور نگرانی شدہ بریسنگ، فزیوتھراپی کے ساتھ، عام طور پر اس سے بچنے کے لیے منظم کی جاتی ہے, باقاعدہ فالو اپ اسی نگرانی کا حصہ ہے۔",
       },
     ],
   },
@@ -344,7 +344,7 @@ export const services: Service[] = [
     faqs: [
       {
         question: "Can an AFO help foot drop after a stroke?",
-        answer: "An AFO can improve foot clearance and walking stability for many stroke patients, but the right design depends on strength, muscle tone, knee control, and footwear — an assessment is needed to confirm it's the right fit for you.",
+        answer: "An AFO can improve foot clearance and walking stability for many stroke patients, but the right design depends on strength, muscle tone, knee control, and footwear, an assessment is needed to confirm it's the right fit for you.",
       },
       {
         question: "What is the difference between an AFO and a KAFO?",
@@ -352,7 +352,7 @@ export const services: Service[] = [
       },
       {
         question: "Can I wear an AFO inside normal shoes?",
-        answer: "Often, yes — but the shoe needs enough width and depth to accommodate the brace comfortably. Bringing your usual shoes to the fitting helps us confirm the right fit from the start.",
+        answer: "Often, yes, but the shoe needs enough width and depth to accommodate the brace comfortably. Bringing your usual shoes to the fitting helps us confirm the right fit from the start.",
       },
       {
         question: "How much does an AFO or KAFO cost in Pakistan?",
@@ -360,7 +360,7 @@ export const services: Service[] = [
       },
       {
         question: "Does wearing a leg brace mean my muscles will get weaker?",
-        answer: "Not when it's properly prescribed. An AFO or KAFO is meant to support safe, functional walking — often alongside physiotherapy, not instead of it. Your device and therapy plan should work together.",
+        answer: "Not when it's properly prescribed. An AFO or KAFO is meant to support safe, functional walking, often alongside physiotherapy, not instead of it. Your device and therapy plan should work together.",
       },
     ],
     titleUr: "لوئر لمب آرتھوٹکس",
@@ -386,7 +386,7 @@ export const services: Service[] = [
       },
       {
         question: "کیا میں اے ایف او کے ساتھ عام جوتے پہن سکتا ہوں؟",
-        answer: "اکثر ہاں — لیکن جوتے میں برٹھ کے لیے کافی چوڑائی اور گہرائی ہونی چاہیے۔ فٹنگ کے وقت اپنے عام جوتے ساتھ لانے سے شروع سے ہی صحیح فٹ یقینی بنتی ہے۔",
+        answer: "اکثر ہاں: لیکن جوتے میں برٹھ کے لیے کافی چوڑائی اور گہرائی ہونی چاہیے۔ فٹنگ کے وقت اپنے عام جوتے ساتھ لانے سے شروع سے ہی صحیح فٹ یقینی بنتی ہے۔",
       },
       {
         question: "پاکستان میں اے ایف او یا کے اے ایف او کی قیمت کتنی ہے؟",
@@ -394,7 +394,7 @@ export const services: Service[] = [
       },
       {
         question: "کیا لیگ برٹھ پہننے سے پٹھے کمزور ہو جاتے ہیں؟",
-        answer: "صحیح طریقے سے تجویز کیے جانے پر ایسا نہیں ہوتا۔ اے ایف او یا کے اے ایف او کا مقصد محفوظ اور فعال چلنے میں مدد دینا ہے — اکثر فزیوتھراپی کے ساتھ، اس کی جگہ نہیں۔",
+        answer: "صحیح طریقے سے تجویز کیے جانے پر ایسا نہیں ہوتا۔ اے ایف او یا کے اے ایف او کا مقصد محفوظ اور فعال چلنے میں مدد دینا ہے, اکثر فزیوتھراپی کے ساتھ، اس کی جگہ نہیں۔",
       },
     ],
   },
@@ -496,7 +496,7 @@ export const services: Service[] = [
       },
       {
         question: "How are custom insoles made?",
-        answer: "We take a detailed impression or scan of your foot along with a gait assessment, then fabricate the insole around your specific foot shape and walking pattern — not a generic mold.",
+        answer: "We take a detailed impression or scan of your foot along with a gait assessment, then fabricate the insole around your specific foot shape and walking pattern, not a generic mold.",
       },
       {
         question: "Will custom orthotics fit in my regular shoes?",
@@ -547,7 +547,7 @@ export const services: Service[] = [
     title: "Diabetic & Pressure-Relief Footwear",
     tagline: "Protecting sensitive feet every day",
     shortDescription: "Specialized shoes and inserts to protect sensitive feet and prevent complications.",
-    description: "Diabetic neuropathy and poor circulation put feet at serious risk of ulcers, infections, and even amputation. Our specialist diabetic footwear — including custom therapeutic sandals, extra-depth shoes, and pressure-relief insoles — redistributes pressure away from high-risk areas, reduces friction, and keeps feet protected during daily life.",
+    description: "Diabetic neuropathy and poor circulation put feet at serious risk of ulcers, infections, and even amputation. Our specialist diabetic footwear: including custom therapeutic sandals, extra-depth shoes, and pressure-relief insoles, redistributes pressure away from high-risk areas, reduces friction, and keeps feet protected during daily life.",
     benefits: [
       "Pressure-mapping for ulcer-risk assessment",
       "Custom sandals, shoes, and insoles",
@@ -564,7 +564,7 @@ export const services: Service[] = [
       },
       {
         question: "Can diabetic footwear heal an existing foot ulcer?",
-        answer: "No — footwear helps reduce pressure and prevent further injury, but an active ulcer needs proper medical assessment and treatment. Don't rely on footwear alone if a wound is already present.",
+        answer: "No: footwear helps reduce pressure and prevent further injury, but an active ulcer needs proper medical assessment and treatment. Don't rely on footwear alone if a wound is already present.",
       },
       {
         question: "What should I check on my feet every day if I have diabetes?",
@@ -572,7 +572,7 @@ export const services: Service[] = [
       },
       {
         question: "Can I wear sandals if I have diabetic neuropathy?",
-        answer: "It depends on your specific risk level — some patients need closed, protective shoes while others can safely use certain sandal designs. This is worth confirming individually rather than assuming either way.",
+        answer: "It depends on your specific risk level: some patients need closed, protective shoes while others can safely use certain sandal designs. This is worth confirming individually rather than assuming either way.",
       },
       {
         question: "How much does diabetic footwear cost in Pakistan?",
@@ -582,7 +582,7 @@ export const services: Service[] = [
     titleUr: "ذیابیطس اینڈ پریشر ریلیف فٹ ویئر",
     taglineUr: "ہر روز حساس پاؤں کی حفاظت",
     shortDescriptionUr: "حساس پاؤں کی حفاظت اور پیچیدگیوں سے بچاؤ کے لیے خصوصی جوتے اور انسرٹس۔",
-    descriptionUr: "ذیابیطس نیوروپیتھی اور کمزور خون کی گردش پاؤں کو السر، انفیکشن اور یہاں تک کہ کٹوانے کے سنگین خطرے میں ڈال دیتی ہے۔ ہمارے خصوصی ذیابیطس فٹ ویئر — بشمول کسٹم علاجی سینڈل، اضافی گہرائی والے جوتے اور پریشر ریلیف انسولز — زیادہ خطرے والے حصوں سے دباؤ ہٹاتے ہیں، رگڑ کم کرتے ہیں اور روزمرہ زندگی میں پاؤں کو محفوظ رکھتے ہیں۔",
+    descriptionUr: "ذیابیطس نیوروپیتھی اور کمزور خون کی گردش پاؤں کو السر، انفیکشن اور یہاں تک کہ کٹوانے کے سنگین خطرے میں ڈال دیتی ہے۔ ہمارے خصوصی ذیابیطس فٹ ویئر, بشمول کسٹم علاجی سینڈل، اضافی گہرائی والے جوتے اور پریشر ریلیف انسولز, زیادہ خطرے والے حصوں سے دباؤ ہٹاتے ہیں، رگڑ کم کرتے ہیں اور روزمرہ زندگی میں پاؤں کو محفوظ رکھتے ہیں۔",
     benefitsUr: [
       "السر کے خطرے کا جائزہ لینے کے لیے پریشر میپنگ",
       "کسٹم سینڈل، جوتے اور انسولز",
@@ -598,7 +598,7 @@ export const services: Service[] = [
       },
       {
         question: "کیا ذیابیطس فٹ ویئر موجودہ پاؤں کے السر کو ٹھیک کر سکتا ہے؟",
-        answer: "نہیں — فٹ ویئر دباؤ کم کرنے اور مزید نقصان سے بچانے میں مدد دیتا ہے، لیکن فعال السر کو طبی معائنے اور علاج کی ضرورت ہوتی ہے۔ زخم موجود ہو تو صرف جوتوں پر انحصار نہ کریں۔",
+        answer: "نہیں: فٹ ویئر دباؤ کم کرنے اور مزید نقصان سے بچانے میں مدد دیتا ہے، لیکن فعال السر کو طبی معائنے اور علاج کی ضرورت ہوتی ہے۔ زخم موجود ہو تو صرف جوتوں پر انحصار نہ کریں۔",
       },
       {
         question: "اگر مجھے ذیابیطس ہے تو روزانہ اپنے پاؤں پر کیا چیک کرنا چاہیے؟",
@@ -606,7 +606,7 @@ export const services: Service[] = [
       },
       {
         question: "کیا ذیابیطس نیوروپیتھی میں سینڈل پہن سکتے ہیں؟",
-        answer: "یہ آپ کے مخصوص خطرے کی سطح پر منحصر ہے — کچھ مریضوں کو بند، حفاظتی جوتوں کی ضرورت ہوتی ہے جبکہ کچھ محفوظ طریقے سے مخصوص سینڈل استعمال کر سکتے ہیں۔ انفرادی طور پر تصدیق کروانا بہتر ہے۔",
+        answer: "یہ آپ کے مخصوص خطرے کی سطح پر منحصر ہے: کچھ مریضوں کو بند، حفاظتی جوتوں کی ضرورت ہوتی ہے جبکہ کچھ محفوظ طریقے سے مخصوص سینڈل استعمال کر سکتے ہیں۔ انفرادی طور پر تصدیق کروانا بہتر ہے۔",
       },
       {
         question: "پاکستان میں ذیابیطس فٹ ویئر کی قیمت کتنی ہے؟",
