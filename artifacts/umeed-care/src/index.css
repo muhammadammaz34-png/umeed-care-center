@@ -188,33 +188,18 @@ html[dir="rtl"] body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Scroll-reveal animate-in ── */
-.scroll-animate.animate-in {
-  opacity: 1 !important;
-  transform: none !important;
+/* ── Reveal on scroll (class toggled by SmoothScroll) ── */
+.reveal {
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-/* ── Float — retired (kept as no-ops so existing class names don't break markup) ── */
-.animate-float,
-.animate-float-slow,
-.animate-float-delay {
-  animation: none;
+.js .reveal:not(.is-in) {
+  opacity: 0;
+  transform: translateY(14px);
 }
-
-/* ── Blob morph — retired (kept as no-op) ── */
-.animate-blob,
-.animate-blob-delay {
-  animation: none;
-}
-
-/* ── Shimmer sweep — retired (kept as no-op, badge renders as a plain static pill) ── */
-.animate-shimmer {
-  position: relative;
-}
-
-/* ── Pulse ring — retired (kept as no-op, button renders without the pulsing ring) ── */
-.animate-pulse-ring {
-  position: relative;
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; }
+  .js .reveal:not(.is-in) { opacity: 1; transform: none; }
+  .fade-in-up { animation: none; opacity: 1; transform: none; }
 }
 
 /* ── Bounce soft (scroll-to-top) ── */
@@ -245,24 +230,9 @@ html[dir="rtl"] body {
   display: none;
 }
 
-/* ── Marquee ticker ── */
-.animate-marquee {
-  display: inline-flex;
-  animation: marquee 32s linear infinite;
-}
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ── Card hover — flat, restrained lift (no bounce/scale) ── */
-.card-tilt {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-.card-tilt:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px -14px rgba(0,0,0,0.16);
-}
+/* ── Smooth scroll (Lenis) ── */
+html { scroll-padding-top: 5rem; }
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }

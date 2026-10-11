@@ -11,6 +11,7 @@ import BlogPage from "@/pages/blog";
 import BlogDetailPage from "@/pages/blog-detail";
 import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
+import SmoothScroll from "@/components/smooth-scroll";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ function App() {
       <LanguageProvider>
         <TooltipProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <SmoothScroll />
             <Router />
           </WouterRouter>
           <Toaster />
