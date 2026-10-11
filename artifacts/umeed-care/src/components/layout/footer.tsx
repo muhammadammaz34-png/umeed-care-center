@@ -1,6 +1,6 @@
 import { Facebook, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
-import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
+import logoImg from "@/assets/images/logo.webp";
 import { services } from "@/data/services";
 import { useLanguage } from "@/lib/language-context";
 
@@ -20,7 +20,7 @@ export default function Footer() {
             <a href="#hero" className="inline-flex items-center gap-3 mb-4">
               <img
                 src={logoImg}
-                alt="Umeed Care Center Logo — Orthotic & Prosthetics Karachi"
+                alt="Umeed Care Center Logo: Orthotic & Prosthetics Karachi"
                 className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-contain"
               />
               <div className="flex flex-col leading-tight">

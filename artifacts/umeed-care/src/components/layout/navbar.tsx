@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { useLocation, Link } from "wouter";
-import logoImg from "@assets/Screenshot_2026-04-18_230504_1776538457084.png";
+import logoImg from "@/assets/images/logo.webp";
 import { services as SERVICES } from "@/data/services";
 import { useLanguage } from "@/lib/language-context";
+import { scrollToTop } from "@/components/smooth-scroll";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function Navbar() {
   function handleLogoClick(e: React.MouseEvent) {
     if (isHome) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollToTop();
       setMobileOpen(false);
     }
   }
@@ -133,7 +134,7 @@ export default function Navbar() {
     <button
       type="button"
       onClick={toggleLanguage}
-      className={`inline-flex items-center gap-1.5 rounded-lg h-9 px-3 text-xs font-semibold border border-border text-foreground/80 hover:border-primary hover:text-primary transition-colors duration-200 ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-md h-9 px-3 text-xs font-semibold border border-border text-foreground/80 hover:border-primary hover:text-primary transition-colors duration-200 ${className}`}
       aria-label={language === "en" ? "اردو میں دیکھیں" : "View in English"}
     >
       <Languages className="w-3.5 h-3.5" />
@@ -269,7 +270,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="hidden xl:inline-flex items-center justify-center rounded-lg h-10 px-5 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200"
+            className="hidden xl:inline-flex items-center justify-center rounded-md h-10 px-5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             {t.nav.bookNow}
           </Link>
@@ -389,7 +390,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center rounded-lg h-12 px-6 text-sm font-semibold shadow-sm border border-primary bg-primary text-white hover:bg-white hover:text-primary transition-all duration-200 w-full"
+              className="flex items-center justify-center rounded-md h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors w-full"
             >
               {t.common.bookConsultation}
             </Link>
