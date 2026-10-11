@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services } from "@/data/services";
 import { useSEO } from "@/hooks/use-seo";
+import { categoryOf, categoryLabels } from "@/lib/service-category";
 import { useLanguage } from "@/lib/language-context";
 
 export default function ServicesPage() {
@@ -58,41 +59,66 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services grid */}
+        {/* Services, grouped by category */}
         <section className="py-14 sm:py-20">
-          <div className="container px-4 sm:px-6 mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {services.map((service, index) => (
-                <Link
-                  key={service.id}
-                  href={`/services/${service.id}`}
-                  className={`group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/30 reveal duration-500 stagger-${Math.min(index + 1, 8)}`}
-                >
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="container px-4 sm:px-6 mx-auto space-y-16 sm:space-y-24">
+            {(["prosthetics", "orthotics", "footwear"] as const).map((cat) => {
+              const group = services.filter((s) => categoryOf(s.id) === cat);
+              const label = categoryLabels[cat];
+              return (
+                <div key={cat}>
+                  <div className="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 pb-5 border-b border-foreground/15">
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+                      {language === "ur" ? label.ur : label.en}
+                    </h2>
+                    <p className="text-sm text-muted-foreground">{language === "ur" ? label.noteUr : label.noteEn}</p>
                   </div>
-                  <div className="p-6">
-                    <p className="text-primary text-[11px] font-semibold uppercase tracking-widest mb-2">
-                      {language === "ur" ? service.taglineUr : service.tagline}
-                    </p>
-                    <h3 className="font-bold text-lg text-foreground mb-3 font-serif group-hover:text-primary transition-colors">
-                      {language === "ur" ? service.titleUr : service.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {language === "ur" ? service.shortDescriptionUr : service.shortDescription}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                      {t.servicesPage.learnMore} <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-                    </span>
+                  <div className="mt-8 grid gap-6 md:grid-cols-6">
+                    {group.map((service, i) => {
+                      const wide = group.length % 2 === 1 && i === 0 && group.length > 1;
+                      const full = group.length === 1;
+                      return (
+                        <Link
+                          key={service.id}
+                          href={`/services/${service.id}`}
+                          className={`reveal group relative overflow-hidden rounded-2xl bg-dark text-dark-foreground ${
+                            full || wide ? "md:col-span-6" : "md:col-span-3"
+                          }`}
+                        >
+                          <div className={`relative overflow-hidden ${full || wide ? "aspect-[4/5] sm:aspect-[16/8]" : "aspect-[4/5] sm:aspect-[4/3]"}`}>
+                            <img
+                              src={service.image}
+                              alt={language === "ur" ? service.titleUr : service.title}
+                              width={960}
+                              height={640}
+                              loading="lazy"
+                              decoding="async"
+                              className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent" />
+                          </div>
+                          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 flex items-center gap-2"><span className="h-px w-6 bg-primary" aria-hidden="true" />
+                              {language === "ur" ? service.taglineUr : service.tagline}
+                            </p>
+                            <h3 className="mt-2 text-xl sm:text-2xl font-semibold">
+                              {language === "ur" ? service.titleUr : service.title}
+                            </h3>
+                            <p className="mt-2 max-w-xl text-sm text-white/75 leading-relaxed line-clamp-2">
+                              {language === "ur" ? service.shortDescriptionUr : service.shortDescription}
+                            </p>
+                            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold">
+                              {t.servicesPage.learnMore}
+                              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 rtl:-scale-x-100" />
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
