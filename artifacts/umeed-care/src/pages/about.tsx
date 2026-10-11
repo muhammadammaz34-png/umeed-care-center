@@ -3,7 +3,7 @@ import { Heart, ShieldCheck, MessageCircle, ChevronLeft, Users, Home as HomeIcon
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
-import aboutImage from "@/assets/images/hero.png";
+import aboutImage from "@/assets/images/hero.webp";
 import { useSEO } from "@/hooks/use-seo";
 import { useLanguage } from "@/lib/language-context";
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
 
   useSEO({
     path: "/about",
-    title: "About Us | Umeed Care Center — Karachi",
+    title: "About Us | Umeed Care Center Karachi",
     description: "Umeed means hope. Learn about Umeed Care Center's mission, values, and compassionate team providing orthotic & prosthetic care in Karachi, Pakistan.",
   });
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
               {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent mb-4">
+              <span className="block text-sm font-semibold text-primary mb-3">
                 {t.aboutPage.badge}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
@@ -64,7 +64,7 @@ export default function AboutPage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center gap-2 rounded-md h-11 sm:h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
                   {t.common.bookConsultation}
@@ -128,14 +128,14 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 {t.common.bookConsultation}
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white/60 text-white hover:bg-white/10 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-white/60 text-white hover:bg-white/10 transition-all duration-200"
               >
                 <Stethoscope className="w-4 h-4" />
                 {t.common.exploreServices}

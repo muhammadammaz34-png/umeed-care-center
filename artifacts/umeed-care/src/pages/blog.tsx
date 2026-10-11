@@ -24,7 +24,7 @@ export default function BlogPage() {
 
   useSEO({
     path: "/blog",
-    title: "Blog | Orthotic & Prosthetic Care Guides — Umeed Care Center",
+    title: "Blog | Orthotic & Prosthetic Care Guides | Umeed Care Center",
     description: "Practical guides on prosthetics, orthotics, pediatric care, and diabetic foot health from Umeed Care Center's specialists in Karachi.",
   });
 
@@ -58,7 +58,7 @@ export default function BlogPage() {
               {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent mb-4">
+              <span className="block text-sm font-semibold text-primary mb-3">
                 {t.blogPage.badge}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
@@ -116,7 +116,7 @@ export default function BlogPage() {
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="group flex flex-col rounded-2xl overflow-hidden bg-card border border-border/50 card-tilt hover:border-primary/20"
+                    className="group flex flex-col rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-primary/20"
                   >
                     <div className="aspect-[16/10] overflow-hidden bg-muted">
                       {post.coverImageUrl && (

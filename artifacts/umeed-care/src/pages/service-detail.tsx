@@ -48,6 +48,14 @@ export default function ServiceDetailPage() {
           "@context": "https://schema.org",
           "@graph": [
             {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
+                { "@type": "ListItem", position: 3, name: service.title, item: `${SITE_URL}/services/${service.id}` },
+              ],
+            },
+            {
               "@type": "MedicalTherapy",
               name: service.title,
               description: service.description,
@@ -117,7 +125,7 @@ export default function ServiceDetailPage() {
               {t.serviceDetail.backAll}
             </Link>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-4">
+              <span className="block text-sm font-semibold text-primary mb-3">
                 {tagline}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
@@ -130,7 +138,7 @@ export default function ServiceDetailPage() {
               <div className="flex flex-col sm:flex-row gap-3 mt-7">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 rounded-md h-11 sm:h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
                   {t.common.bookConsultation}
@@ -301,7 +309,7 @@ export default function ServiceDetailPage() {
             <div className="flex justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 {t.common.bookConsultation}

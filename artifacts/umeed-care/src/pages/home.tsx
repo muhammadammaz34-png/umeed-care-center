@@ -1,11 +1,8 @@
-import { useEffect } from "react";
 import Hero from "@/components/sections/hero";
-import TrustStrip from "@/components/sections/trust-strip";
 import About from "@/components/sections/about";
 import Services from "@/components/sections/services";
 import Process from "@/components/sections/process";
 import Gallery from "@/components/sections/gallery";
-import Testimonials from "@/components/sections/testimonials";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import FAQ, { faqs } from "@/components/sections/faq";
 import Contact from "@/components/sections/contact";
@@ -33,38 +30,16 @@ export default function Home() {
     },
   });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-            entry.target.classList.remove("opacity-0");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll(".scroll-animate").forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <TrustStrip />
         <About />
-        <Process />
         <Services />
+        <Process />
         <Gallery />
-        <Testimonials />
         <WhyChooseUs />
         <FAQ />
         <Contact />

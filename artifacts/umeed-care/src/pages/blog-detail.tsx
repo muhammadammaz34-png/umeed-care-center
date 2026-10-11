@@ -68,11 +68,20 @@ export default function BlogDetailPage() {
           "@context": "https://schema.org",
           "@graph": [
             {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+                { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+              ],
+            },
+            {
               "@type": "BlogPosting",
               headline: post.title,
               description: post.excerpt,
               image: post.coverImageUrl,
               datePublished: post.publishedDate,
+              dateModified: post.publishedDate,
               author: { "@type": "Organization", name: "Umeed Care Center" },
               publisher: { "@type": "MedicalClinic", name: "Umeed Care Center" },
               mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
@@ -165,7 +174,7 @@ export default function BlogDetailPage() {
               <div className="mt-10 pt-8 border-t border-border/40">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 rounded-md h-11 sm:h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
                   {t.common.bookConsultation}

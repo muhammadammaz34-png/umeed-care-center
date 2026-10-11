@@ -13,7 +13,7 @@ export default function ContactPage() {
 
   useSEO({
     path: "/contact",
-    title: "Contact Us | Umeed Care Center — Karachi",
+    title: "Contact Us | Umeed Care Center Karachi",
     description: "Get in touch with Umeed Care Center in Karachi. Book a free consultation via WhatsApp, phone, or email for orthotic and prosthetic care.",
     jsonLd: {
       "@context": "https://schema.org",
@@ -35,26 +35,6 @@ export default function ContactPage() {
     },
   });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-            entry.target.classList.remove("opacity-0");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll(".scroll-animate").forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -69,7 +49,7 @@ export default function ContactPage() {
               {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-xs font-medium text-accent mb-4">
+              <span className="block text-sm font-semibold text-primary mb-3">
                 {t.contactPage.badge}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">

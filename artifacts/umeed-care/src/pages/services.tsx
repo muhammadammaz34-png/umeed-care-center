@@ -14,26 +14,12 @@ export default function ServicesPage() {
   useSEO({
     path: "/services",
     title: "Orthotic & Prosthetic Services in Karachi | Umeed Care Center",
-    description: "Browse all orthotic & prosthetic services at Umeed Care Center, Karachi — prosthetic limbs, orthotics, spinal braces, diabetic footwear & pediatric care.",
+    description: "Browse all orthotic & prosthetic services at Umeed Care Center, Karachi: prosthetic limbs, orthotics, spinal braces, diabetic footwear & pediatric care.",
   });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-            entry.target.classList.remove("opacity-0");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08 }
-    );
-    document.querySelectorAll(".scroll-animate").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
   }, []);
 
   return (
@@ -49,7 +35,7 @@ export default function ServicesPage() {
               {t.common.backHome}
             </Link>
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-4">
+              <span className="block text-sm font-semibold text-primary mb-3">
                 {t.servicesPage.badge}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
@@ -62,7 +48,7 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-3 mt-7">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg h-11 sm:h-12 px-6 text-sm font-semibold border border-green-600 bg-green-600 text-white hover:bg-white hover:text-green-600 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-2 rounded-md h-11 sm:h-12 px-6 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
                   {t.common.bookConsultation}
@@ -80,7 +66,7 @@ export default function ServicesPage() {
                 <Link
                   key={service.id}
                   href={`/services/${service.id}`}
-                  className={`group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/30 scroll-animate opacity-0 translate-y-8 transition-all duration-500 card-tilt stagger-${Math.min(index + 1, 8)}`}
+                  className={`group rounded-2xl overflow-hidden bg-background border border-border hover:border-primary/30 reveal duration-500 stagger-${Math.min(index + 1, 8)}`}
                 >
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <img
@@ -121,7 +107,7 @@ export default function ServicesPage() {
             <div className="flex justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-white bg-white text-primary hover:bg-transparent hover:text-white transition-all duration-200"
               >
                 <MessageCircle className="w-4 h-4" />
                 {t.common.bookConsultation}
