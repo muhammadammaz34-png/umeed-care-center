@@ -186,7 +186,7 @@ export const services: Service[] = [
     id: "pediatric-orthotics-prosthetics",
     title: "Pediatric Orthotics & Prosthetics",
     tagline: "Growing with your child, step by step",
-    shortDescription: "Gentle, compassionate fitting of supportive devices for children as they grow and develop.",
+    shortDescription: "Careful fitting of supportive devices for children as they grow and develop.",
     description: "Children's bodies grow and change rapidly, and their orthotic and prosthetic needs are unique. Our specialists have dedicated experience working with infants, toddlers, and teenagers, providing gentle assessments and devices that support healthy development. We work closely with families and referring physicians to ensure the best outcomes.",
     benefits: [
       "Experienced pediatric specialists",
