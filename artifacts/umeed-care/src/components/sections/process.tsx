@@ -15,10 +15,10 @@ export default function Process() {
           <p className="mt-5 text-base sm:text-lg text-muted-foreground">{t.process.description}</p>
         </div>
 
-        <ol className="relative mt-14 grid md:grid-cols-3 gap-5">
+        <ol className="relative mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           <div
             aria-hidden="true"
-            className="hidden md:block absolute top-[2.65rem] left-[16%] right-[16%] h-px bg-gradient-to-r from-primary/60 via-accent/50 to-primary/60"
+            className="hidden lg:block absolute top-[2.65rem] left-[12%] right-[12%] h-px bg-gradient-to-r from-primary/60 via-accent/50 to-primary/60"
           />
           {t.process.steps.map((step, i) => (
             <li key={i} className={`reveal stagger-${i + 1} relative rounded-3xl border border-border bg-card p-7 sm:p-8 hover:border-primary/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300`}>
