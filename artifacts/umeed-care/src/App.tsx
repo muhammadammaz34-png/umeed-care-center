@@ -12,6 +12,7 @@ import BlogDetailPage from "@/pages/blog-detail";
 import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import SmoothScroll from "@/components/smooth-scroll";
+import ChatWidget from "@/components/chat-widget";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ function App() {
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <SmoothScroll />
             <Router />
+            <ChatWidget />
           </WouterRouter>
           <Toaster />
         </TooltipProvider>
