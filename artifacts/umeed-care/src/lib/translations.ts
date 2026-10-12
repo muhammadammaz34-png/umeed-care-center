@@ -287,7 +287,7 @@ const en: Translations = {
     titlePrefix: "From first message to ",
     titleHighlight: "final fitting",
     description:
-      "Three steps from your first message to a device that fits.",
+      "Four steps from your first message to a device that fits.",
     steps: [
       {
         title: "Book a Consultation",
@@ -300,9 +300,14 @@ const en: Translations = {
           "Our specialist examines you, takes measurements, and talks through what you need the device to do.",
       },
       {
-        title: "Custom Fitting & Follow-Up",
+        title: "Making & Trial Fitting",
         description:
-          "Your device is made, fitted and adjusted in our clinic. We keep seeing you for follow-ups until it feels right.",
+          "Your device is made to your measurements in our clinic. You try it on and we adjust it before it is finalised.",
+      },
+      {
+        title: "Delivery & Follow-Up",
+        description:
+          "We fit the final device, show you how to use and care for it, and keep seeing you for adjustments until it feels right.",
       },
     ],
     cta: "Book a consultation",
@@ -416,6 +421,26 @@ const en: Translations = {
         question: "How do I book a consultation at Umeed Care Center?",
         answer: "The fastest way is WhatsApp, tap \"Book a Consultation\" anywhere on this site and send us your details. We'll confirm a convenient appointment time and answer any initial questions before your visit.",
       },
+      {
+        question: "What should I bring to my first appointment?",
+        answer: "Bring any earlier medical reports, X-rays or prescriptions, and the device you use now if you have one. If you do not have these, you can still come. We will assess you in person.",
+      },
+      {
+        question: "How much does a prosthetic or orthotic device cost?",
+        answer: "The cost depends on the type of device, the materials and how much custom work it needs, so we give a figure after the assessment. Our prosthetic leg price guide on the blog explains what affects the cost.",
+      },
+      {
+        question: "Do you adjust or repair devices after delivery?",
+        answer: "Follow-up visits and adjustments are part of our care. If something feels wrong or a device is damaged, send a photo on WhatsApp with a short description and we will tell you what can be done.",
+      },
+      {
+        question: "How long will I need to wear an orthotic brace?",
+        answer: "It depends on the condition. Some braces are worn during recovery, others long term. We explain the expected duration at your assessment and review it at follow-up visits.",
+      },
+      {
+        question: "Does a child's device need replacing as they grow?",
+        answer: "Often it can be adjusted for a while. Growing children are reviewed regularly, and a new device is made when adjustment is no longer enough.",
+      },
     ],
     cta: "Ask Us a Question",
   },
@@ -459,18 +484,18 @@ const en: Translations = {
     titleHighlight: "Umeed",
     subtitle: "\"Umeed\" means hope, the foundation of everything we do in Karachi's orthotic and prosthetic care.",
     paragraph1:
-      "At Umeed Care Center, we understand that finding the right orthotic or prosthetic solution is more than just a medical procedure, it is a journey toward regaining independence, confidence, and human dignity.",
+      "Choosing an orthotic or prosthetic device changes how you walk, work and get through the day. We treat that decision with the weight it deserves, and we explain every option before anything is made.",
     paragraph2:
-      "From children taking their first supported steps to elderly patients rediscovering the joy of walking, our compassionate team provides a complete range of expert services under one roof. You are not just a patient to us; you are family.",
+      "Measurement, making, fitting and follow-up all happen in one clinic in Karachi, with the same team. Children, working adults and older patients come to us, and each device is built around one person, not a standard size.",
     quote: "Every person deserves to move freely and live fully.",
     valuesTitlePrefix: "What Guides ",
     valuesTitleHighlight: "Us",
     valuesDescription: "The principles behind every consultation, fitting, and follow-up we provide.",
     values: [
-      { title: "Compassionate Care", description: "Every consultation is rooted in empathy and understanding. We listen first, treat second." },
-      { title: "Expert Precision", description: "Custom-fitted solutions designed for your unique body, backed by certified clinical expertise." },
-      { title: "All Under One Roof", description: "Measurement, fitting and follow-ups happen in the same place." },
-      { title: "Care for All Ages", description: "From children taking their first supported steps to elderly patients rediscovering mobility." },
+      { title: "We Listen First", description: "Every visit starts with your story, your daily routine and what you want to get back to doing." },
+      { title: "Made to Measure", description: "Each device is built around your own body. We measure, trial and adjust until it fits." },
+      { title: "One Clinic, One Team", description: "Measurement, fitting and follow-ups happen in the same place, with the same people." },
+      { title: "Children to Adults", description: "Children's devices are reviewed as they grow. Adults and older patients get the same follow-up." },
     ],
   },
   servicesPage: {
@@ -589,7 +614,7 @@ const ur: Translations = {
     titlePrefix: "پہلے پیغام سے ",
     titleHighlight: "آخری فٹنگ تک",
     description:
-      "پہلے پیغام سے لے کر آپ کے جسم پر ٹھیک بیٹھنے والے آلے تک تین مراحل۔",
+      "پہلے پیغام سے لے کر آپ کے جسم پر ٹھیک بیٹھنے والے آلے تک چار مراحل۔",
     steps: [
       {
         title: "مشاورت بک کریں",
@@ -600,8 +625,12 @@ const ur: Translations = {
         description: "ہمارے ماہر آپ کا معائنہ کرتے ہیں، پیمائش لیتے ہیں اور آپ سے بات کرتے ہیں کہ آلے سے آپ کو کیا کام لینا ہے۔",
       },
       {
-        title: "کسٹم فٹنگ اور فالو اپ",
-        description: "آپ کا آلہ ہمارے کلینک میں بنتا ہے، فٹ ہوتا ہے اور ایڈجسٹ کیا جاتا ہے۔ جب تک آرام نہ آ جائے، ہم فالو اپ وزٹس میں آپ کو دیکھتے رہتے ہیں۔",
+        title: "تیاری اور ٹرائل فٹنگ",
+        description: "آپ کا آلہ آپ کی پیمائش کے مطابق ہمارے کلینک میں بنتا ہے۔ آپ اسے پہن کر دیکھتے ہیں اور حتمی کرنے سے پہلے ہم ایڈجسٹ کرتے ہیں۔",
+      },
+      {
+        title: "حوالگی اور فالو اپ",
+        description: "ہم حتمی آلہ فٹ کرتے ہیں، اس کے استعمال اور دیکھ بھال کا طریقہ سمجھاتے ہیں، اور ٹھیک بیٹھنے تک ایڈجسٹمنٹ کے لیے آپ کو دیکھتے رہتے ہیں۔",
       },
     ],
     cta: "مشاورت بک کریں",
@@ -713,6 +742,26 @@ const ur: Translations = {
         question: "امید کیئر سینٹر میں مشاورت کیسے بک کروں؟",
         answer: "سب سے تیز طریقہ واٹس ایپ ہے, اس سائٹ پر کہیں بھی \"مشاورت بک کریں\" پر ٹیپ کریں اور اپنی تفصیلات بھیجیں۔ ہم آسان وقت پر ملاقات طے کریں گے اور آپ کی وزٹ سے پہلے ابتدائی سوالات کے جواب دیں گے۔",
       },
+      {
+        question: "پہلی اپائنٹمنٹ پر کیا ساتھ لانا چاہیے؟",
+        answer: "پرانی میڈیکل رپورٹس، ایکس رے یا نسخے، اور اگر کوئی آلہ استعمال کر رہے ہیں تو وہ ساتھ لائیں۔ یہ نہ ہوں تب بھی آپ آ سکتے ہیں، ہم آپ کا معائنہ خود کر لیں گے۔",
+      },
+      {
+        question: "پروستھیٹک یا آرتھوٹک آلے کی قیمت کتنی ہوتی ہے؟",
+        answer: "قیمت آلے کی قسم، مواد اور کسٹم کام کی مقدار پر منحصر ہے، اس لیے معائنے کے بعد رقم بتائی جاتی ہے۔ بلاگ پر مصنوعی ٹانگ کی قیمت کی گائیڈ بتاتی ہے کہ قیمت پر کیا اثر ڈالتا ہے۔",
+      },
+      {
+        question: "کیا آلہ ملنے کے بعد ایڈجسٹمنٹ یا مرمت ہوتی ہے؟",
+        answer: "فالو اپ وزٹس اور ایڈجسٹمنٹ ہماری دیکھ بھال کا حصہ ہیں۔ کچھ ٹھیک نہ لگے یا آلہ ٹوٹ جائے تو واٹس ایپ پر تصویر اور مختصر تفصیل بھیجیں، ہم بتا دیں گے کیا ہو سکتا ہے۔",
+      },
+      {
+        question: "آرتھوٹک بریس کتنے عرصے تک پہننا پڑتا ہے؟",
+        answer: "یہ مسئلے پر منحصر ہے۔ کچھ بریسز صحت یابی کے دوران پہنے جاتے ہیں اور کچھ طویل عرصے کے لیے۔ ہم معائنے میں متوقع مدت بتاتے ہیں اور فالو اپ میں اسے دیکھتے رہتے ہیں۔",
+      },
+      {
+        question: "کیا بچے کے بڑھنے پر آلہ بدلنا پڑتا ہے؟",
+        answer: "اکثر کچھ عرصہ ایڈجسٹ ہو سکتا ہے۔ بڑھتے بچوں کو باقاعدگی سے دیکھا جاتا ہے، اور ایڈجسٹمنٹ کافی نہ رہے تو نیا آلہ بنایا جاتا ہے۔",
+      },
     ],
     cta: "ہم سے سوال پوچھیں",
   },
@@ -756,18 +805,18 @@ const ur: Translations = {
     titleHighlight: "کہانی",
     subtitle: "\"امید\" کا مطلب ہے آسرا, کراچی میں ہماری آرتھوٹک اور پروستھیٹک دیکھ بھال کی بنیاد۔",
     paragraph1:
-      "امید کیئر سینٹر میں ہم سمجھتے ہیں کہ صحیح آرتھوٹک یا پروستھیٹک حل تلاش کرنا محض ایک طبی عمل نہیں بلکہ خودمختاری، اعتماد اور انسانی وقار کی طرف ایک سفر ہے۔",
+      "آرتھوٹک یا پروستھیٹک آلہ چننا آپ کے چلنے، کام کرنے اور روزمرہ زندگی کو بدل دیتا ہے۔ ہم اس فیصلے کو پوری سنجیدگی سے لیتے ہیں اور کچھ بنانے سے پہلے ہر آپشن سمجھا دیتے ہیں۔",
     paragraph2:
-      "پہلا سہارا لے کر چلنے والے بچوں سے لے کر دوبارہ چلنے کی خوشی محسوس کرنے والے بزرگ مریضوں تک، ہماری ہمدرد ٹیم ایک ہی چھت تلے ماہرانہ خدمات کا مکمل سلسلہ فراہم کرتی ہے۔ آپ ہمارے لیے صرف ایک مریض نہیں بلکہ خاندان کا حصہ ہیں۔",
+      "پیمائش، تیاری، فٹنگ اور فالو اپ، سب کچھ کراچی کے ایک ہی کلینک میں، ایک ہی ٹیم کرتی ہے۔ ہمارے پاس بچے، کام کرنے والے بالغ اور بزرگ مریض آتے ہیں، اور ہر آلہ ایک ہی فرد کے لیے بنتا ہے، کسی معیاری سائز کے مطابق نہیں۔",
     quote: "ہر انسان آزادی سے چلنے اور بھرپور زندگی گزارنے کا حق رکھتا ہے۔",
     valuesTitlePrefix: "ہماری رہنمائی کرنے والے ",
     valuesTitleHighlight: "اصول",
     valuesDescription: "ہر مشاورت، فٹنگ اور فالو اپ کے پیچھے یہی اصول کارفرما ہیں۔",
     values: [
-      { title: "ہمدردانہ نگہداشت", description: "ہر مشاورت ہمدردی اور سمجھ بوجھ پر مبنی ہے۔ ہم پہلے سنتے ہیں، پھر علاج کرتے ہیں۔" },
-      { title: "ماہرانہ درستگی", description: "آپ کے منفرد جسم کے مطابق کسٹم فٹ حل، تصدیق شدہ طبی مہارت کے ساتھ۔" },
-      { title: "سب کچھ ایک ہی چھت تلے", description: "پیمائش، فٹنگ اور فالو اپ ایک ہی جگہ ہوتے ہیں۔" },
-      { title: "ہر عمر کے لیے نگہداشت", description: "پہلا سہارا لے کر چلنے والے بچوں سے لے کر نقل و حرکت دوبارہ حاصل کرنے والے بزرگوں تک۔" },
+      { title: "ہم پہلے سنتے ہیں", description: "ہر وزٹ آپ کی بات، آپ کے روزمرہ معمول اور آپ کے مقصد سے شروع ہوتی ہے۔" },
+      { title: "ناپ کے مطابق", description: "ہر آلہ آپ کے اپنے جسم کے مطابق بنتا ہے۔ ہم ناپتے ہیں، ٹرائل کرتے ہیں اور ٹھیک بیٹھنے تک ایڈجسٹ کرتے ہیں۔" },
+      { title: "ایک کلینک، ایک ٹیم", description: "پیمائش، فٹنگ اور فالو اپ ایک ہی جگہ، ایک ہی لوگوں کے ساتھ ہوتے ہیں۔" },
+      { title: "بچوں سے بڑوں تک", description: "بچوں کے آلات نشوونما کے ساتھ دیکھے جاتے ہیں۔ بالغوں اور بزرگوں کو بھی یہی فالو اپ ملتا ہے۔" },
     ],
   },
   servicesPage: {
