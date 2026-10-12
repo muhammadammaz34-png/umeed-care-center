@@ -50,7 +50,7 @@ const STATIC_PAGES = {
           "/about": {
                       title: "About Us | Umeed Care Center — Karachi",
                       description:
-                                    "Umeed means hope. Learn about Umeed Care Center's mission, values, and compassionate team providing orthotic & prosthetic care in Karachi, Pakistan.",
+                                    "Umeed means hope. Learn about Umeed Care Center's mission, values and the one-clinic team providing orthotic & prosthetic care in Karachi, Pakistan.",
           },
           "/services": {
                       title: "Orthotic & Prosthetic Services in Karachi | Umeed Care Center",
@@ -86,7 +86,7 @@ const SERVICES = [
         {
                     id: "pediatric-orthotics-prosthetics",
                     title: "Pediatric Orthotics & Prosthetics",
-                    shortDescription: "Gentle, compassionate fitting of supportive devices for children as they grow and develop.",
+                    shortDescription: "Careful fitting of supportive devices for children as they grow and develop.",
                     whoItHelps:
                                   "Infants, children, and adolescents with congenital conditions, cerebral palsy, limb differences, or developmental issues requiring orthotic or prosthetic support.",
         },
