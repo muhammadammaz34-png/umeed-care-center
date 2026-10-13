@@ -45,12 +45,12 @@ const STATIC_PAGES = {
           "/": {
                       title: "Umeed Care Center | Orthotics & Prosthetics Karachi",
                       description:
-                                    "Expert orthotic & prosthetic clinic in Karachi. Custom prosthetic limbs, orthotics, spinal braces & diabetic footwear. Book a consultation: +92 313 6422564.",
+                                    "Orthotic & prosthetic home service in Karachi. Custom prosthetic limbs, orthotics, spinal braces & diabetic footwear. Book a consultation: +92 313 6422564.",
           },
           "/about": {
                       title: "About Us | Umeed Care Center — Karachi",
                       description:
-                                    "Umeed means hope. Learn about Umeed Care Center's mission, values and the one-clinic team providing orthotic & prosthetic care in Karachi, Pakistan.",
+                                    "Umeed means hope. Learn about Umeed Care Center's mission, values and the one team providing orthotic & prosthetic care at your home in Karachi, Pakistan.",
           },
           "/services": {
                       title: "Orthotic & Prosthetic Services in Karachi | Umeed Care Center",
