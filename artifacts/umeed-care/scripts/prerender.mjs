@@ -57,6 +57,11 @@ const STATIC_PAGES = {
                       description:
                                     "Browse all orthotic & prosthetic services at Umeed Care Center, Karachi — prosthetic limbs, orthotics, spinal braces, diabetic footwear & pediatric care.",
           },
+          "/gallery": {
+                      title: "Product Gallery: Orthotics, Prosthetics & Diabetic Footwear | Umeed Care Center",
+                      description:
+                                    "See the AFO braces, spinal braces, prosthetic hands and joints, orthotic sandals and children's boots made by Umeed Care Center in Karachi.",
+          },
           "/contact": {
                       title: "Contact Us | Umeed Care Center — Karachi",
                       description:
