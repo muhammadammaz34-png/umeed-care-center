@@ -64,12 +64,12 @@ export default function Navbar() {
   const navLinks = isHome
     ? [
         { href: "#hero", label: t.nav.home },
-        { href: "#gallery", label: t.nav.gallery },
+        { href: "/gallery", label: t.nav.gallery },
         { href: "#why-us", label: t.nav.whyUs },
       ]
     : [
         { href: "/", label: t.nav.home },
-        { href: "/#gallery", label: t.nav.gallery },
+        { href: "/gallery", label: t.nav.gallery },
       ];
 
   const companyLinks = [
