@@ -79,7 +79,7 @@ export default function Hero() {
               <Check className="w-5 h-5" aria-hidden="true" />
             </span>
             <span className="text-sm font-semibold text-foreground leading-tight">
-              {ur ? "ایک ہی کلینک میں بنایا اور فٹ کیا" : "Made and fitted in one clinic"}
+              {ur ? "آپ کے گھر پر پیمائش اور فٹنگ" : "Measured and fitted at your home"}
             </span>
           </div>
         </div>

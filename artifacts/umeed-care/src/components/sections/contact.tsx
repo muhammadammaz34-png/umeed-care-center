@@ -6,7 +6,7 @@ import { translations } from "@/lib/translations";
 const WHATSAPP_BASE = "https://wa.me/923136422564";
 
 // Canonical (English) service names — always sent to WhatsApp regardless of
-// the UI language, so the clinic's messages stay consistent to read.
+// the UI language, so the team's messages stay consistent to read.
 const SERVICES_EN = translations.en.contactSection.services;
 
 interface FormState {
