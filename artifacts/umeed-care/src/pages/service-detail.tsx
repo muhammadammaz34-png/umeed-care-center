@@ -4,6 +4,7 @@ import { MessageCircle, CheckCircle, ArrowRight, ChevronLeft, ChevronDown, BookO
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import CtaBand from "@/components/ui/cta-band";
+import ServicePackages from "@/components/sections/service-packages";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services, getServiceById, seoTitles } from "@/data/services";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
@@ -209,6 +210,8 @@ export default function ServiceDetailPage() {
             </div>
           </div>
         </section>
+
+        <ServicePackages serviceId={service.id} serviceTitle={title} />
 
         {/* FAQ */}
         <section className="py-14 sm:py-20">
