@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import img1 from "@/assets/gallery/img1.webp";
 import img2 from "@/assets/gallery/img2.webp";
 import img3 from "@/assets/gallery/img3.webp";
@@ -62,19 +63,33 @@ const items: GalleryItem[] = [
 
 const categories: Category[] = ["All", "Footwear", "Orthotics", "Prosthetics"];
 
-export default function Gallery() {
+// The home page shows a short preview (up to this many per category);
+// the /gallery page shows everything.
+const PREVIEW_PER_CATEGORY = 4;
+
+function previewItems(list: GalleryItem[]): GalleryItem[] {
+  const counts: Record<string, number> = {};
+  return list.filter((i) => {
+    counts[i.category] = (counts[i.category] ?? 0) + 1;
+    return counts[i.category] <= PREVIEW_PER_CATEGORY;
+  });
+}
+
+export default function Gallery({ full = false }: { full?: boolean }) {
   const [active, setActive] = useState<Category>("All");
   const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
   const facebookUrl = "https://www.facebook.com/profile.php?id=100054410172615";
   const { t } = useLanguage();
 
-  const filtered = active === "All" ? items : items.filter((i) => i.category === active);
+  const base = full ? items : previewItems(items);
+  const filtered = active === "All" ? base : base.filter((i) => i.category === active);
   const itemLabel = (item: GalleryItem) => t.gallery.items[item.title] ?? item.title;
 
   return (
-    <section id="gallery" className="py-16 sm:py-24 border-b border-border">
+    <section id="gallery" className={full ? "py-10 sm:py-14" : "py-16 sm:py-24 border-b border-border"}>
       <div className="container px-4 md:px-6 mx-auto">
         {/* Header */}
+        {!full && (
         <div className="max-w-2xl mb-10 reveal">
           <div className="block text-sm font-semibold text-primary mb-3">
             {t.gallery.badge}
@@ -86,6 +101,7 @@ export default function Gallery() {
             {t.gallery.description}
           </p>
         </div>
+        )}
 
         {/* Filter tabs */}
         <div className="flex flex-wrap gap-2 mb-10 reveal">
@@ -133,6 +149,17 @@ export default function Gallery() {
             </div>
           ))}
         </div>
+
+        {!full && (
+          <div className="mt-10 reveal">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center justify-center gap-2 rounded-md h-12 px-8 text-sm font-semibold border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              {t.gallery.viewAll}
+            </Link>
+          </div>
+        )}
 
         {/* Facebook CTA */}
         <div className="mt-12 reveal">
