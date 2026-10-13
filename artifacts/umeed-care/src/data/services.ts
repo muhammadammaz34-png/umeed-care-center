@@ -619,3 +619,14 @@ export const services: Service[] = [
 export function getServiceById(id: string | undefined): Service | undefined {
   return services.find((s) => s.id === id);
 }
+
+// Search-facing page titles. Patients search for "artificial leg", "AFO brace",
+// "diabetic shoes" and "insoles" far more than the clinical service names, so
+// the <title> uses those words while the on-page heading keeps the clinical name.
+export const seoTitles: Record<string, string> = {
+  "lower-limb-prosthetics": "Artificial Leg & Lower Limb Prosthetics in Karachi | Umeed Care Center",
+  "upper-limb-prosthetics": "Artificial Hand & Arm in Karachi | Umeed Care Center",
+  "lower-limb-orthotics": "AFO Brace & Leg Braces in Karachi | Umeed Care Center",
+  "custom-foot-orthotics": "Custom Insoles & Foot Orthotics in Karachi | Umeed Care Center",
+  "diabetic-footwear": "Diabetic Shoes & Footwear in Karachi | Umeed Care Center",
+};
