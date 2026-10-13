@@ -63,7 +63,7 @@ export default function ServiceDetailPage() {
               description: service.description,
               url: `${SITE_URL}/services/${service.id}`,
               provider: {
-                "@type": "MedicalClinic",
+                "@type": "MedicalBusiness",
                 name: "Umeed Care Center",
                 telephone: "+92-313-6422564",
                 address: {

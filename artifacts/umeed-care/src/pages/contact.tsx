@@ -21,7 +21,7 @@ export default function ContactPage() {
       name: "Contact Umeed Care Center",
       url: `${SITE_URL}/contact`,
       about: {
-        "@type": "MedicalClinic",
+        "@type": "MedicalBusiness",
         name: "Umeed Care Center",
         telephone: "+92-313-6422564",
         email: "shahsahab022@gmail.com",

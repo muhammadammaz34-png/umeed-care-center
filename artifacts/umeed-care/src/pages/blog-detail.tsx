@@ -83,7 +83,7 @@ export default function BlogDetailPage() {
               datePublished: post.publishedDate,
               dateModified: post.publishedDate,
               author: { "@type": "Organization", name: "Umeed Care Center" },
-              publisher: { "@type": "MedicalClinic", name: "Umeed Care Center" },
+              publisher: { "@type": "MedicalBusiness", name: "Umeed Care Center" },
               mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
             },
             ...(faqs.length

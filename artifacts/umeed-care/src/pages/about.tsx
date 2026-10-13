@@ -21,7 +21,7 @@ export default function AboutPage() {
   useSEO({
     path: "/about",
     title: "About Us | Umeed Care Center Karachi",
-    description: "Umeed means hope. Learn about Umeed Care Center's mission, values and the one-clinic team providing orthotic & prosthetic care in Karachi, Pakistan.",
+    description: "Umeed means hope. Learn about Umeed Care Center's mission, values and the one team providing orthotic & prosthetic care at your home in Karachi, Pakistan.",
   });
 
   return (
