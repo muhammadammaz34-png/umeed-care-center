@@ -127,10 +127,18 @@ const SERVICES = [
         },
         ];
 
+const SEO_TITLES = {
+  "lower-limb-prosthetics": "Artificial Leg & Lower Limb Prosthetics in Karachi | Umeed Care Center",
+  "upper-limb-prosthetics": "Artificial Hand & Arm in Karachi | Umeed Care Center",
+  "lower-limb-orthotics": "AFO Brace & Leg Braces in Karachi | Umeed Care Center",
+  "custom-foot-orthotics": "Custom Insoles & Foot Orthotics in Karachi | Umeed Care Center",
+  "diabetic-footwear": "Diabetic Shoes & Footwear in Karachi | Umeed Care Center",
+};
+
 function serviceMeta(service) {
           const who = service.whoItHelps.charAt(0).toLowerCase() + service.whoItHelps.slice(1);
           return {
-                      title: `${service.title} in Karachi | Umeed Care Center`,
+                      title: SEO_TITLES[service.id] ?? `${service.title} in Karachi | Umeed Care Center`,
                       description: `${service.shortDescription} Serving ${who} Book a consultation at Umeed Care Center, Karachi.`,
           };
 }
