@@ -235,22 +235,22 @@ const en: Translations = {
   },
   footer: {
     tagline: "Restoring Mobility. Inspiring Hope.",
-    description: "Orthotic and prosthetic clinic in Karachi, Pakistan, serving patients of all ages.",
+    description: "Home-visit orthotic and prosthetic service in Karachi, Pakistan, for patients of all ages.",
     contactInfo: "Contact Info",
     address: "Karachi, Sindh, Pakistan",
     whatsapp: "(WhatsApp)",
     ourServices: "Our Services",
     followFacebook: "Follow on Facebook",
     copyright: (year) => `© ${year} Umeed Care Center, Orthotics & Prosthetics, Karachi.`,
-    bestClinic: "Best orthotic and prosthetic clinic in Karachi, Pakistan",
+    bestClinic: "Home-visit orthotic and prosthetic service in Karachi, Pakistan",
   },
   hero: {
     badge: "Karachi, Pakistan",
-    headlineSmall: "Orthotic & Prosthetic Clinic in Karachi",
+    headlineSmall: "Orthotic & Prosthetic Home Service in Karachi",
     headlinePrefix: "Orthotic and prosthetic care in Karachi, ",
     headlineHighlight: "made to fit you",
     description:
-      "Artificial limbs, braces, custom insoles and diabetic footwear, made and fitted in one clinic. Message us on WhatsApp to book a time.",
+      "Artificial limbs, braces, custom insoles and diabetic footwear, measured and fitted at your home in Karachi. Message us on WhatsApp to book a time.",
     ctaBook: "Book a Consultation",
     ctaExplore: "Explore Services",
     stats: [
@@ -275,7 +275,7 @@ const en: Translations = {
     paragraph1:
       "\"Umeed\" means hope. Choosing an orthotic or prosthetic device is not only a medical decision. It affects how you walk, work and get through the day, and we treat it that way.",
     paragraph2:
-      "Children come to us for their first supported steps, and older patients come to get back to walking. Everything happens in one clinic, with the same team, from the first measurement to the last follow-up.",
+      "Children come to us for their first supported steps, and older patients come to get back to walking. Our team comes to your home, and the same people handle everything from the first measurement to the last follow-up.",
     card1Title: "We listen first",
     card1Text: "Every consultation starts with your story and your goals.",
     card2Title: "Made to measure",
@@ -302,7 +302,7 @@ const en: Translations = {
       {
         title: "Making & Trial Fitting",
         description:
-          "Your device is made to your measurements in our clinic. You try it on and we adjust it before it is finalised.",
+          "Your device is made to your measurements. We bring it to your home, you try it on and we adjust it before it is finalised.",
       },
       {
         title: "Delivery & Follow-Up",
@@ -383,7 +383,7 @@ const en: Translations = {
     titleLine1: "Why patients",
     titleHighlight: "choose Umeed",
     description:
-      "What to expect when you come to us.",
+      "What to expect when we visit you.",
     reasons: [
       { title: "Expert Team", description: "Specialists who handle the assessment, casting and fitting themselves." },
       { title: "Personalized Care", description: "Each device is made for one body and one set of goals." },
@@ -394,16 +394,16 @@ const en: Translations = {
   faq: {
     badge: "Frequently Asked Questions",
     titlePrefix: "Common Questions About ",
-    titleHighlight: "Our Karachi Clinic",
+    titleHighlight: "Our Home Service",
     description: "Answers to what patients usually ask before their first visit. Still have a question? Message us on WhatsApp.",
     items: [
       {
         question: "Where is Umeed Care Center located in Karachi?",
-        answer: "Umeed Care Center is based in Karachi, Sindh, Pakistan. Message us on WhatsApp and we'll share the exact clinic address and directions for your appointment.",
+        answer: "We do not have a walk-in outlet. Umeed Care Center is a home-visit service in Karachi, Sindh, Pakistan: our team comes to your home for assessment, measurement and fitting. Message us on WhatsApp with your area and we will arrange a time.",
       },
       {
         question: "Do you treat patients from outside Karachi?",
-        answer: "Yes. We regularly see patients travelling from other cities across Sindh and Pakistan. WhatsApp us your details in advance so we can plan your visit, measurements, and fitting around your travel schedule.",
+        answer: "Our home service is based in Karachi. If you are outside Karachi, WhatsApp us your city and details and we will tell you what is possible for your case.",
       },
       {
         question: "How long does it take to get a custom prosthetic or orthotic device?",
@@ -419,11 +419,11 @@ const en: Translations = {
       },
       {
         question: "How do I book a consultation at Umeed Care Center?",
-        answer: "The fastest way is WhatsApp, tap \"Book a Consultation\" anywhere on this site and send us your details. We'll confirm a convenient appointment time and answer any initial questions before your visit.",
+        answer: "The fastest way is WhatsApp, tap \"Book a Consultation\" anywhere on this site and send us your details. We'll confirm a convenient time for a home visit and answer any initial questions beforehand.",
       },
       {
         question: "What should I bring to my first appointment?",
-        answer: "Bring any earlier medical reports, X-rays or prescriptions, and the device you use now if you have one. If you do not have these, you can still come. We will assess you in person.",
+        answer: "Bring any earlier medical reports, X-rays or prescriptions, and the device you use now if you have one. If you do not have these, that is fine. We will assess you in person at your home.",
       },
       {
         question: "How much does a prosthetic or orthotic device cost?",
@@ -486,7 +486,7 @@ const en: Translations = {
     paragraph1:
       "Choosing an orthotic or prosthetic device changes how you walk, work and get through the day. We treat that decision with the weight it deserves, and we explain every option before anything is made.",
     paragraph2:
-      "Measurement, making, fitting and follow-up all happen in one clinic in Karachi, with the same team. Children, working adults and older patients come to us, and each device is built around one person, not a standard size.",
+      "Measurement, making, fitting and follow-up are handled by the same team, and we come to your home in Karachi. Children, working adults and older patients all use our service, and each device is built around one person, not a standard size.",
     quote: "Every person deserves to move freely and live fully.",
     valuesTitlePrefix: "What Guides ",
     valuesTitleHighlight: "Us",
@@ -494,7 +494,7 @@ const en: Translations = {
     values: [
       { title: "We Listen First", description: "Every visit starts with your story, your daily routine and what you want to get back to doing." },
       { title: "Made to Measure", description: "Each device is built around your own body. We measure, trial and adjust until it fits." },
-      { title: "One Clinic, One Team", description: "Measurement, fitting and follow-ups happen in the same place, with the same people." },
+      { title: "At Your Home, One Team", description: "Measurement, fitting and follow-ups happen at your home, with the same people." },
       { title: "Children to Adults", description: "Children's devices are reviewed as they grow. Adults and older patients get the same follow-up." },
     ],
   },
@@ -562,22 +562,22 @@ const ur: Translations = {
   },
   footer: {
     tagline: "نقل و حرکت کی بحالی، امید کی روشنی",
-    description: "کراچی، پاکستان میں آرتھوٹک اور پروستھیٹک کلینک، ہر عمر کے مریضوں کی خدمت میں۔",
+    description: "کراچی، پاکستان میں گھر پر آ کر آرتھوٹک اور پروستھیٹک سروس، ہر عمر کے مریضوں کے لیے۔",
     contactInfo: "رابطہ کی معلومات",
     address: "کراچی، سندھ، پاکستان",
     whatsapp: "(واٹس ایپ)",
     ourServices: "ہماری خدمات",
     followFacebook: "فیس بک پر فالو کریں",
     copyright: (year) => `© ${year} امید کیئر سینٹر, آرتھوٹکس اینڈ پروستھیٹکس، کراچی۔`,
-    bestClinic: "کراچی، پاکستان کا بہترین آرتھوٹک اور پروستھیٹک کلینک",
+    bestClinic: "کراچی، پاکستان میں گھر پر آرتھوٹک اور پروستھیٹک سروس",
   },
   hero: {
     badge: "کراچی، پاکستان",
-    headlineSmall: "کراچی میں آرتھوٹک اینڈ پروستھیٹک کلینک",
+    headlineSmall: "کراچی میں آرتھوٹک اینڈ پروستھیٹک ہوم سروس",
     headlinePrefix: "کراچی میں آرتھوٹک اور پروستھیٹک نگہداشت، ",
     headlineHighlight: "آپ کے جسم کے مطابق",
     description:
-      "مصنوعی اعضاء، بریسز، کسٹم انسولز اور ذیابیطس کے جوتے، سب ایک ہی کلینک میں بنائے اور فٹ کیے جاتے ہیں۔ وقت لینے کے لیے واٹس ایپ پر پیغام بھیجیں۔",
+      "مصنوعی اعضاء، بریسز، کسٹم انسولز اور ذیابیطس کے جوتے، آپ کے گھر پر پیمائش اور فٹنگ کی جاتی ہے۔ وقت لینے کے لیے واٹس ایپ پر پیغام بھیجیں۔",
     ctaBook: "مشاورت بک کریں",
     ctaExplore: "خدمات دیکھیں",
     stats: [
@@ -602,7 +602,7 @@ const ur: Translations = {
     paragraph1:
       "\"امید\" کا مطلب ہے آسرا۔ آرتھوٹک یا پروستھیٹک آلہ چننا صرف طبی فیصلہ نہیں ہوتا۔ یہ آپ کے چلنے، کام کرنے اور روزمرہ زندگی پر اثر ڈالتا ہے، اور ہم اسے اسی نظر سے دیکھتے ہیں۔",
     paragraph2:
-      "ہمارے پاس پہلا سہارا لے کر چلنے والے بچے بھی آتے ہیں اور دوبارہ چلنے کے قابل ہونے والے بزرگ بھی۔ پہلی پیمائش سے آخری فالو اپ تک سب کچھ ایک ہی کلینک میں، ایک ہی ٹیم کرتی ہے۔",
+      "ہماری سروس پہلا سہارا لے کر چلنے والے بچے بھی لیتے ہیں اور دوبارہ چلنے کے قابل ہونے والے بزرگ بھی۔ ہماری ٹیم آپ کے گھر آتی ہے، اور پہلی پیمائش سے آخری فالو اپ تک سب کچھ ایک ہی ٹیم کرتی ہے۔",
     card1Title: "ہم پہلے سنتے ہیں",
     card1Text: "ہر مشاورت آپ کی بات اور آپ کے اہداف سے شروع ہوتی ہے۔",
     card2Title: "ناپ کے مطابق",
@@ -626,7 +626,7 @@ const ur: Translations = {
       },
       {
         title: "تیاری اور ٹرائل فٹنگ",
-        description: "آپ کا آلہ آپ کی پیمائش کے مطابق ہمارے کلینک میں بنتا ہے۔ آپ اسے پہن کر دیکھتے ہیں اور حتمی کرنے سے پہلے ہم ایڈجسٹ کرتے ہیں۔",
+        description: "آپ کا آلہ آپ کی پیمائش کے مطابق بنتا ہے۔ ہم اسے آپ کے گھر لاتے ہیں، آپ پہن کر دیکھتے ہیں اور حتمی کرنے سے پہلے ہم ایڈجسٹ کرتے ہیں۔",
       },
       {
         title: "حوالگی اور فالو اپ",
@@ -714,17 +714,17 @@ const ur: Translations = {
   },
   faq: {
     badge: "اکثر پوچھے گئے سوالات",
-    titlePrefix: "ہمارے کراچی کلینک کے بارے میں ",
+    titlePrefix: "ہماری ہوم سروس کے بارے میں ",
     titleHighlight: "عام سوالات",
     description: "پہلی وزٹ سے پہلے مریضوں کے عام سوالات کے جوابات۔ مزید سوال ہے؟ ہمیں واٹس ایپ پر پیغام بھیجیں۔",
     items: [
       {
         question: "امید کیئر سینٹر کراچی میں کہاں واقع ہے؟",
-        answer: "امید کیئر سینٹر کراچی، سندھ، پاکستان میں واقع ہے۔ ہمیں واٹس ایپ پر پیغام بھیجیں اور ہم آپ کی ملاقات کے لیے کلینک کا مکمل پتہ اور راستہ بتائیں گے۔",
+        answer: "ہمارا کوئی واک اِن آؤٹ لیٹ نہیں ہے۔ امید کیئر سینٹر کراچی، سندھ میں ہوم وزٹ سروس ہے: ہماری ٹیم معائنے، پیمائش اور فٹنگ کے لیے آپ کے گھر آتی ہے۔ واٹس ایپ پر اپنا علاقہ بتائیں اور ہم وقت طے کر لیں گے۔",
       },
       {
         question: "کیا آپ کراچی سے باہر کے مریضوں کا علاج کرتے ہیں؟",
-        answer: "جی ہاں۔ ہمارے پاس سندھ اور پاکستان بھر سے سفر کر کے آنے والے مریض باقاعدگی سے آتے ہیں۔ اپنی تفصیلات پہلے سے واٹس ایپ کریں تاکہ ہم آپ کے سفر کے مطابق ملاقات، پیمائش اور فٹنگ کی منصوبہ بندی کر سکیں۔",
+        answer: "ہماری ہوم سروس کراچی میں ہے۔ اگر آپ کراچی سے باہر ہیں تو واٹس ایپ پر اپنا شہر اور تفصیلات بھیجیں، ہم بتا دیں گے آپ کے کیس میں کیا ممکن ہے۔",
       },
       {
         question: "کسٹم پروستھیٹک یا آرتھوٹک آلہ بننے میں کتنا وقت لگتا ہے؟",
@@ -740,11 +740,11 @@ const ur: Translations = {
       },
       {
         question: "امید کیئر سینٹر میں مشاورت کیسے بک کروں؟",
-        answer: "سب سے تیز طریقہ واٹس ایپ ہے, اس سائٹ پر کہیں بھی \"مشاورت بک کریں\" پر ٹیپ کریں اور اپنی تفصیلات بھیجیں۔ ہم آسان وقت پر ملاقات طے کریں گے اور آپ کی وزٹ سے پہلے ابتدائی سوالات کے جواب دیں گے۔",
+        answer: "سب سے تیز طریقہ واٹس ایپ ہے, اس سائٹ پر کہیں بھی \"مشاورت بک کریں\" پر ٹیپ کریں اور اپنی تفصیلات بھیجیں۔ ہم آسان وقت پر ہوم وزٹ طے کریں گے اور پہلے ہی ابتدائی سوالات کے جواب دیں گے۔",
       },
       {
         question: "پہلی اپائنٹمنٹ پر کیا ساتھ لانا چاہیے؟",
-        answer: "پرانی میڈیکل رپورٹس، ایکس رے یا نسخے، اور اگر کوئی آلہ استعمال کر رہے ہیں تو وہ ساتھ لائیں۔ یہ نہ ہوں تب بھی آپ آ سکتے ہیں، ہم آپ کا معائنہ خود کر لیں گے۔",
+        answer: "پرانی میڈیکل رپورٹس، ایکس رے یا نسخے، اور اگر کوئی آلہ استعمال کر رہے ہیں تو وہ ساتھ لائیں۔ یہ نہ ہوں تب بھی کوئی بات نہیں، ہم آپ کے گھر پر خود معائنہ کر لیں گے۔",
       },
       {
         question: "پروستھیٹک یا آرتھوٹک آلے کی قیمت کتنی ہوتی ہے؟",
@@ -807,7 +807,7 @@ const ur: Translations = {
     paragraph1:
       "آرتھوٹک یا پروستھیٹک آلہ چننا آپ کے چلنے، کام کرنے اور روزمرہ زندگی کو بدل دیتا ہے۔ ہم اس فیصلے کو پوری سنجیدگی سے لیتے ہیں اور کچھ بنانے سے پہلے ہر آپشن سمجھا دیتے ہیں۔",
     paragraph2:
-      "پیمائش، تیاری، فٹنگ اور فالو اپ، سب کچھ کراچی کے ایک ہی کلینک میں، ایک ہی ٹیم کرتی ہے۔ ہمارے پاس بچے، کام کرنے والے بالغ اور بزرگ مریض آتے ہیں، اور ہر آلہ ایک ہی فرد کے لیے بنتا ہے، کسی معیاری سائز کے مطابق نہیں۔",
+      "پیمائش، تیاری، فٹنگ اور فالو اپ، ایک ہی ٹیم کرتی ہے، اور ہم کراچی میں آپ کے گھر آتے ہیں۔ بچے، کام کرنے والے بالغ اور بزرگ مریض ہماری سروس لیتے ہیں، اور ہر آلہ ایک ہی فرد کے لیے بنتا ہے، کسی معیاری سائز کے مطابق نہیں۔",
     quote: "ہر انسان آزادی سے چلنے اور بھرپور زندگی گزارنے کا حق رکھتا ہے۔",
     valuesTitlePrefix: "ہماری رہنمائی کرنے والے ",
     valuesTitleHighlight: "اصول",
@@ -815,7 +815,7 @@ const ur: Translations = {
     values: [
       { title: "ہم پہلے سنتے ہیں", description: "ہر وزٹ آپ کی بات، آپ کے روزمرہ معمول اور آپ کے مقصد سے شروع ہوتی ہے۔" },
       { title: "ناپ کے مطابق", description: "ہر آلہ آپ کے اپنے جسم کے مطابق بنتا ہے۔ ہم ناپتے ہیں، ٹرائل کرتے ہیں اور ٹھیک بیٹھنے تک ایڈجسٹ کرتے ہیں۔" },
-      { title: "ایک کلینک، ایک ٹیم", description: "پیمائش، فٹنگ اور فالو اپ ایک ہی جگہ، ایک ہی لوگوں کے ساتھ ہوتے ہیں۔" },
+      { title: "آپ کے گھر پر، ایک ٹیم", description: "پیمائش، فٹنگ اور فالو اپ آپ کے گھر پر، ایک ہی لوگوں کے ساتھ ہوتے ہیں۔" },
       { title: "بچوں سے بڑوں تک", description: "بچوں کے آلات نشوونما کے ساتھ دیکھے جاتے ہیں۔ بالغوں اور بزرگوں کو بھی یہی فالو اپ ملتا ہے۔" },
     ],
   },

@@ -271,8 +271,8 @@ function topicReply(topic: Topic, lang: Language): BotReply {
   return {
     text: `${pick(topic.lead, lang)} ${
       lang === "ur"
-        ? "حتمی فیصلہ کلینک میں معائنے کے بعد ہوتا ہے۔"
-        : "The final choice is made after an in-clinic assessment."
+        ? "حتمی فیصلہ گھر پر معائنے کے بعد ہوتا ہے۔"
+        : "The final choice is made after we assess you at home."
     }`,
     links: [
       {
