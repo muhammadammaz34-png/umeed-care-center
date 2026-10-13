@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "If you or a family member is facing this decision, message us on WhatsApp with your situation. We'll walk you through what's realistic for your case before you come in, so your first visit is focused on assessment rather than starting from zero.",
+        text: "If you or a family member is facing this decision, message us on WhatsApp with your situation. We'll walk you through what's realistic for your case before we visit, so your first visit is focused on assessment rather than starting from zero.",
       },
     ],
   },

@@ -28,8 +28,8 @@ export interface ServicePackages {
   tiers: PackageTier[];
 }
 
-const COMMON_EN = ["Free first consultation", "Measurement and fitting in our clinic"];
-const COMMON_UR = ["پہلی مشاورت مفت", "ہمارے کلینک میں پیمائش اور فٹنگ"];
+const COMMON_EN = ["Free first consultation", "Measurement and fitting at your home"];
+const COMMON_UR = ["پہلی مشاورت مفت", "آپ کے گھر پر پیمائش اور فٹنگ"];
 
 export const packages: Record<string, ServicePackages> = {
   "lower-limb-prosthetics": {

@@ -71,8 +71,8 @@ export const services: Service[] = [
         answer: "A new socket can feel unfamiliar at first, but ongoing pain, redness, or skin breakdown usually means the fit needs adjusting. Don't ignore persistent discomfort: bring it to your next visit promptly.",
       },
       {
-        question: "Can patients from outside Karachi get fitted here?",
-        answer: "Yes. We regularly see patients from Hyderabad, Sukkur, and other parts of Sindh. Message us on WhatsApp beforehand so we can plan your measurement, fitting, and follow-up visits around your travel.",
+        question: "Can patients from outside Karachi use your service?",
+        answer: "Our home service is based in Karachi. If you are in Hyderabad, Sukkur or another part of Sindh, message us on WhatsApp with your city and details and we will tell you what is possible.",
       },
     ],
     titleUr: "لوئر لمب پروستھیٹکس",
@@ -105,8 +105,8 @@ export const services: Service[] = [
         answer: "نئے ساکٹ کا احساس ابتدا میں اجنبی لگ سکتا ہے، لیکن مسلسل درد، لالی یا جلد خراب ہونا عام طور پر فٹنگ میں تبدیلی کی ضرورت کا اشارہ ہے۔ مستقل تکلیف کو نظر انداز نہ کریں، اگلی وزٹ پر بتائیں۔",
       },
       {
-        question: "کیا کراچی سے باہر کے مریض یہاں فٹنگ کروا سکتے ہیں؟",
-        answer: "جی ہاں۔ ہمارے پاس حیدرآباد، سکھر اور سندھ کے دیگر علاقوں سے باقاعدگی سے مریض آتے ہیں۔ پیشگی واٹس ایپ کریں تاکہ ہم آپ کے سفر کے مطابق پیمائش، فٹنگ اور فالو اپ وزٹس کی منصوبہ بندی کر سکیں۔",
+        question: "کیا کراچی سے باہر کے مریض آپ کی سروس لے سکتے ہیں؟",
+        answer: "ہماری ہوم سروس کراچی میں ہے۔ اگر آپ حیدرآباد، سکھر یا سندھ کے کسی اور علاقے میں ہیں تو واٹس ایپ پر اپنا شہر اور تفصیلات بھیجیں، ہم بتا دیں گے کیا ممکن ہے۔",
       },
     ],
   },
