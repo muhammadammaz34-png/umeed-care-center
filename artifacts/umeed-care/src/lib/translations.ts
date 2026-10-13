@@ -399,7 +399,7 @@ const en: Translations = {
     items: [
       {
         question: "Where is Umeed Care Center located in Karachi?",
-        answer: "We do not have a walk-in outlet. Umeed Care Center is a home-visit service in Karachi, Sindh, Pakistan: our team comes to your home for assessment, measurement and fitting. Message us on WhatsApp with your area and we will arrange a time.",
+        answer: "We do not have a walk-in outlet. Umeed Care Center is a home-visit service in Karachi, Sindh, Pakistan: our team comes to your home anywhere in Karachi for assessment, measurement and fitting. Message us on WhatsApp with your area and we will arrange a time.",
       },
       {
         question: "Do you treat patients from outside Karachi?",
@@ -720,7 +720,7 @@ const ur: Translations = {
     items: [
       {
         question: "امید کیئر سینٹر کراچی میں کہاں واقع ہے؟",
-        answer: "ہمارا کوئی واک اِن آؤٹ لیٹ نہیں ہے۔ امید کیئر سینٹر کراچی، سندھ میں ہوم وزٹ سروس ہے: ہماری ٹیم معائنے، پیمائش اور فٹنگ کے لیے آپ کے گھر آتی ہے۔ واٹس ایپ پر اپنا علاقہ بتائیں اور ہم وقت طے کر لیں گے۔",
+        answer: "ہمارا کوئی واک اِن آؤٹ لیٹ نہیں ہے۔ امید کیئر سینٹر کراچی، سندھ میں ہوم وزٹ سروس ہے: ہماری ٹیم پورے کراچی میں معائنے، پیمائش اور فٹنگ کے لیے آپ کے گھر آتی ہے۔ واٹس ایپ پر اپنا علاقہ بتائیں اور ہم وقت طے کر لیں گے۔",
       },
       {
         question: "کیا آپ کراچی سے باہر کے مریضوں کا علاج کرتے ہیں؟",
