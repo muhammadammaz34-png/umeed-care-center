@@ -16,7 +16,7 @@ let uid = 0;
 
 export default function ChatWidget() {
   const { language } = useLanguage();
-  const [location, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -75,15 +75,6 @@ export default function ChatWidget() {
     const isMobile = window.matchMedia("(max-width: 639px)").matches;
     if (isMobile) setOpen(false);
 
-    if (link.dest.kind === "gallery") {
-      const scroll = () => document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (location === "/") scroll();
-      else {
-        setLocation("/");
-        window.setTimeout(scroll, 450);
-      }
-      return;
-    }
     setLocation(path);
   }
 
