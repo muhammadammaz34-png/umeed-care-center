@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import CtaBand from "@/components/ui/cta-band";
 import ScrollToTop from "@/components/ui/scroll-to-top";
-import { services, getServiceById } from "@/data/services";
+import { services, getServiceById, seoTitles } from "@/data/services";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
 import { useLanguage } from "@/lib/language-context";
 
@@ -39,7 +39,7 @@ export default function ServiceDetailPage() {
 
   useSEO({
     path: `/services/${params.id}`,
-    title: service ? `${service.title} in Karachi | Umeed Care Center` : "Service Not Found | Umeed Care Center",
+    title: service ? (seoTitles[service.id] ?? `${service.title} in Karachi | Umeed Care Center`) : "Service Not Found | Umeed Care Center",
     description: service
       ? `${service.shortDescription} Serving ${service.whoItHelps.charAt(0).toLowerCase()}${service.whoItHelps.slice(1)} Book a consultation at Umeed Care Center, Karachi.`
       : "This service could not be found.",
