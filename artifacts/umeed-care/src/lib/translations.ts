@@ -113,6 +113,7 @@ export interface Translations {
     ctaText: string;
     ctaButton: string;
     close: string;
+    viewAll: string;
   };
   testimonials: {
     badge: string;
@@ -354,6 +355,7 @@ const en: Translations = {
     ctaText: "Want to see more of our work?",
     ctaButton: "See all photos on Facebook →",
     close: "Close",
+    viewAll: "View full gallery",
   },
   testimonials: {
     badge: "Patient Stories",
@@ -676,6 +678,7 @@ const ur: Translations = {
     ctaText: "ہمارا مزید کام دیکھنا چاہتے ہیں؟",
     ctaButton: "فیس بک پر تمام تصاویر دیکھیں ←",
     close: "بند کریں",
+    viewAll: "پوری گیلری دیکھیں",
   },
   testimonials: {
     badge: "مریضوں کی کہانیاں",

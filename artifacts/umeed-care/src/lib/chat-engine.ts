@@ -426,6 +426,6 @@ export function destPath(d: Dest): string {
     case "contact":
       return "/contact";
     case "gallery":
-      return "/#gallery";
+      return "/gallery";
   }
 }
