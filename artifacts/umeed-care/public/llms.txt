@@ -1,33 +1,44 @@
 # Umeed Care Center
 
-> Umeed Care Center is a home-visit orthotic and prosthetic service in Karachi, Pakistan, for patients of all ages. There is no walk-in outlet: the team comes to the patient's home. "Umeed" means hope, and restoring mobility and independence is the foundation of everything we do.
+> Umeed Care Center is a home-visit orthotic and prosthetic service in Karachi, Pakistan, for patients of all ages. There is no walk-in outlet: a specialist comes to the patient's home anywhere in Karachi for assessment, measurement, trial fitting and follow-up. The first consultation is free. "Umeed" means hope.
 
-## About
+## Quick facts
 
-Umeed Care Center offers a complete range of orthotic and prosthetic services, delivered at the patient's home. Our prosthetists and orthotists provide personalised care tailored to each patient's unique needs.
+- Service: artificial limbs, braces, custom insoles and diabetic footwear
+- Area: all of Karachi, Sindh, Pakistan (home visits only)
+- Booking: WhatsApp or call +92 313 6422564
+- Email: shahsahab022@gmail.com
+- Languages: English and Urdu
+- First consultation: free. Device price is given after assessment.
+- Published Karachi price range for artificial legs (from other providers): below-knee PKR 80,000 to 350,000, above-knee PKR 150,000 to 600,000. Exact price depends on components.
+- Website: https://umeedcarecenter.vercel.app/
+- Facebook: https://www.facebook.com/profile.php?id=100054410172615
 
 ## Services
 
-- **Lower Limb Prosthetics**, Custom prosthetic legs and feet for patients with lower limb amputation
-- **Upper Limb Prosthetics**, Functional prosthetic arms and hands for daily independence
-- **Pediatric Orthotics & Prosthetics**, Specialist solutions designed for children's growing bodies
-- **Spinal Orthotics**, Back braces and spinal supports for scoliosis and spinal conditions
-- **Lower Limb Orthotics**, Ankle-foot orthoses (AFO), knee braces, and full-leg supports (HKAFO)
-- **Upper Limb Orthotics**, Wrist splints, elbow braces, and dynamic hand orthoses
-- **Custom Foot Orthotics**, Precision insoles and arch supports tailored to individual feet
-- **Diabetic & Pressure-Relief Footwear**, Specialist sandals and shoes for diabetic patients in Karachi
+- [Lower Limb Prosthetics](https://umeedcarecenter.vercel.app/services/lower-limb-prosthetics): below-knee and above-knee artificial legs
+- [Upper Limb Prosthetics](https://umeedcarecenter.vercel.app/services/upper-limb-prosthetics): artificial hands and arms
+- [Pediatric Orthotics and Prosthetics](https://umeedcarecenter.vercel.app/services/pediatric-orthotics-prosthetics): devices for growing children, clubfoot braces
+- [Spinal Orthotics](https://umeedcarecenter.vercel.app/services/spinal-orthotics): back braces and scoliosis braces
+- [Lower Limb Orthotics](https://umeedcarecenter.vercel.app/services/lower-limb-orthotics): AFO, KAFO and knee braces
+- [Upper Limb Orthotics](https://umeedcarecenter.vercel.app/services/upper-limb-orthotics): wrist, elbow and hand splints
+- [Custom Foot Orthotics](https://umeedcarecenter.vercel.app/services/custom-foot-orthotics): custom insoles and arch supports
+- [Diabetic Footwear](https://umeedcarecenter.vercel.app/services/diabetic-footwear): therapeutic shoes and pressure-relief footwear
 
-## Contact
+## Guides (answer-first, updated 2026-10-15)
 
-- **Service area:** Home visits across all of Karachi, Pakistan (no physical outlet)
-- **Phone / WhatsApp:** +92 313 6422564
-- **Email:** shahsahab022@gmail.com
-- **Facebook:** https://www.facebook.com/profile.php?id=100054410172615
-- **Website:** https://1a22ec90-c150-4fdf-bc6b-5629fbd351d2-00-2jpk3jrb164lt.kirk.replit.dev/
+- [Prosthetist and Orthotist Home Visit in Karachi](https://umeedcarecenter.vercel.app/guides/home-visit-prosthetist-orthotist-karachi): How home visits for artificial limbs, braces and insoles work in Karachi: who they suit, what happens at the visit, what to keep ready and how to book.
+- [KAFO Brace for Polio in Karachi: What It Is and Who Needs It](https://umeedcarecenter.vercel.app/guides/kafo-brace-polio-karachi): A plain guide to the KAFO (knee-ankle-foot orthosis) for polio and leg weakness: how it works, how it is made and what to expect when you get one in Karachi.
+- [Clubfoot (CTEV) Braces and Denis Browne Shoes in Karachi](https://umeedcarecenter.vercel.app/guides/clubfoot-ctev-shoes-denis-browne-karachi): What a clubfoot brace is, why it is worn after casting, how Denis Browne shoes work and what parents in Karachi should know about fit and follow-up.
+- [Artificial Leg Types in Karachi: Below-Knee, Above-Knee and Components](https://umeedcarecenter.vercel.app/guides/artificial-leg-types-karachi): Below-knee and above-knee artificial legs explained, with how sockets, knees and feet differ in cost and use, plus the typical price range in Karachi.
+- [How the Artificial Leg Process Works: Steps and Timeline](https://umeedcarecenter.vercel.app/guides/artificial-leg-process-and-timeline-karachi): The steps from first assessment to walking with an artificial leg, what affects how long it takes and why several adjustment visits are normal.
+- [Diabetic Foot Care: Therapeutic Shoes, Insoles and Offloading in Karachi](https://umeedcarecenter.vercel.app/guides/diabetic-foot-offloading-footwear-karachi): How therapeutic footwear and custom insoles protect a diabetic foot, which warning signs need a doctor, and what offloading boots are for.
+- [AFO vs KAFO vs Knee Brace: Which Leg Brace Do You Need?](https://umeedcarecenter.vercel.app/guides/afo-vs-kafo-vs-knee-brace-karachi): A side-by-side guide to AFO, KAFO and knee braces: what each supports, which conditions they suit and how to tell which one applies to you.
+- [Scoliosis Brace for Children in Karachi: How Bracing Works](https://umeedcarecenter.vercel.app/guides/scoliosis-brace-karachi): How a scoliosis brace works, who needs one, how many hours it is worn and what to do if a child finds it hard to wear.
 
-## Key Information
+## Other pages
 
-- Serves patients of all ages including children and elderly
-- Located in Karachi, Pakistan, serving patients across the city
-- Languages: English, Urdu
-- Specialty: Orthopedic, Orthotics and Prosthetics
+- [Product gallery](https://umeedcarecenter.vercel.app/gallery)
+- [Blog](https://umeedcarecenter.vercel.app/blog)
+- [Contact](https://umeedcarecenter.vercel.app/contact)
+- [About](https://umeedcarecenter.vercel.app/about)
