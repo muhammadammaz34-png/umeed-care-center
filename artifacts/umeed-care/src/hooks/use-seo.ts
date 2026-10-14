@@ -59,6 +59,8 @@ export function useSEO({ title, description, path, image, noindex, jsonLd }: SEO
 
     let ldScript: HTMLScriptElement | null = null;
     if (jsonLd) {
+      // Drop the copy the prerender step wrote into the static HTML.
+      document.head.querySelectorAll("script[data-prerender-ld]").forEach((el) => el.remove());
       ldScript = document.createElement("script");
       ldScript.type = "application/ld+json";
       ldScript.text = JSON.stringify(jsonLd);
