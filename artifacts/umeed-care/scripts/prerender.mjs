@@ -201,6 +201,66 @@ async function fetchBlogRoutes() {
   }
 }
 
+// Guides: same JSON file the app imports. Gives crawlers that do not run
+// JavaScript (most AI bots) the full text and structured data.
+const GUIDES = JSON.parse(fsSync.readFileSync(path.resolve(__dirname, "..", "src", "data", "guides.json"), "utf-8"));
+
+function guideRoute(g) {
+          const url = `${SITE_URL}/guides/${g.slug}`;
+          const ld = {
+                      "@context": "https://schema.org",
+                      "@graph": [
+                                    {
+                                                  "@type": "BreadcrumbList",
+                                                  itemListElement: [
+                                                                { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+                                                                { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+                                                                { "@type": "ListItem", position: 3, name: g.title, item: url },
+                                                  ],
+                                    },
+                                    {
+                                                  "@type": "Article",
+                                                  headline: g.title,
+                                                  description: g.description,
+                                                  dateModified: g.updated,
+                                                  datePublished: g.updated,
+                                                  inLanguage: "en",
+                                                  mainEntityOfPage: url,
+                                                  author: { "@type": "Organization", name: "Umeed Care Center", url: `${SITE_URL}/` },
+                                                  publisher: { "@type": "MedicalBusiness", name: "Umeed Care Center", url: `${SITE_URL}/` },
+                                                  speakable: { "@type": "SpeakableSpecification", cssSelector: [".guide-answer"] },
+                                    },
+                                    {
+                                                  "@type": "FAQPage",
+                                                  mainEntity: g.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+                                    },
+                      ],
+          };
+          const body = [
+                      `<h1>${escapeHtml(g.title)}</h1>`,
+                      `<p><strong>Short answer:</strong> ${escapeHtml(g.answer)}</p>`,
+                      ...g.sections.map(
+                                    (s) =>
+                                                  `<h2>${escapeHtml(s.heading)}</h2>` +
+                                                  s.paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join("") +
+                                                  (s.list.length ? `<ul>${s.list.map((li) => `<li>${escapeHtml(li)}</li>`).join("")}</ul>` : ""),
+                      ),
+                      `<h2>Frequently asked questions</h2>`,
+                      ...g.faqs.map((f) => `<h3>${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p>`),
+                      `<p>Book a free home consultation anywhere in Karachi: WhatsApp +92 313 6422564. <a href="/guides">All guides</a> | <a href="/services/${g.serviceId}">Related service</a></p>`,
+          ].join("\n        ");
+          return { title: g.seoTitle, description: g.description, type: "article", jsonLd: ld, noscript: body };
+}
+
+function guidesIndexRoute() {
+          const list = GUIDES.map((g) => `<li><a href="/guides/${g.slug}">${escapeHtml(g.title)}</a>, ${escapeHtml(g.description)}</li>`).join("\n          ");
+          return {
+                      title: "Orthotic & Prosthetic Guides for Karachi | Umeed Care Center",
+                      description: "Plain answers on artificial legs, KAFO and AFO braces, clubfoot shoes, scoliosis braces and diabetic footwear, and how home visits work in Karachi.",
+                      noscript: `<h1>Orthotic and prosthetic guides for Karachi</h1>\n        <ul>\n          ${list}\n        </ul>`,
+          };
+}
+
 function escapeHtml(str) {
           return str
             .replace(/&/g, "&amp;")
@@ -240,6 +300,19 @@ function buildHtml(template, route, meta) {
           html = replaceTag(html, /(<meta name="twitter:title" content=")[^"]*(")/, `$1${title}$2`);
           html = replaceTag(html, /(<meta name="twitter:description" content=")[^"]*(")/, `$1${description}$2`);
 
+  if (meta.jsonLd) {
+              html = html.replace(
+                          "</head>",
+                          `    <script type="application/ld+json" data-prerender-ld="true">${JSON.stringify(meta.jsonLd).replace(/</g, "\\u003c")}</script>\n  </head>`,
+              );
+  }
+  if (meta.noscript) {
+              html = html.replace(
+                          /<noscript>[\s\S]*?<\/noscript>/,
+                          `<noscript>\n      <main style="font-family:sans-serif;max-width:800px;margin:0 auto;padding:2rem">\n        ${meta.noscript}\n      </main>\n    </noscript>`,
+              );
+  }
+
   if (meta.image) {
               const image = escapeHtml(meta.image);
               html = replaceTag(html, /(<meta property="og:image" content=")[^"]*(")/, `$1${image}$2`);
@@ -263,6 +336,8 @@ async function main() {
   const ROUTES = {
               ...STATIC_PAGES,
               ...Object.fromEntries(SERVICES.map((s) => [`/services/${s.id}`, serviceMeta(s)])),
+              "/guides": guidesIndexRoute(),
+              ...Object.fromEntries(GUIDES.map((g) => [`/guides/${g.slug}`, guideRoute(g)])),
               ...blogRoutes,
   };
 
