@@ -76,6 +76,7 @@ export default function Navbar() {
     { href: "/about", label: t.nav.aboutUs },
     { href: "/contact", label: t.nav.contactUs },
     { href: "/blog", label: t.nav.blogs },
+    { href: "/guides", label: t.nav.guides },
   ];
 
   const NavLink = ({ href, label }: { href: string; label: string }) => {
