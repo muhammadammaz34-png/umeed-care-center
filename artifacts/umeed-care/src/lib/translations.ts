@@ -53,6 +53,7 @@ export interface Translations {
     aboutUs: string;
     contactUs: string;
     blogs: string;
+    guides: string;
     bookNow: string;
     toggleMenu: string;
   };
@@ -231,6 +232,7 @@ const en: Translations = {
     aboutUs: "About Us",
     contactUs: "Contact Us",
     blogs: "Blogs",
+    guides: "Guides",
     bookNow: "Book Now",
     toggleMenu: "Toggle menu",
   },
@@ -559,6 +561,7 @@ const ur: Translations = {
     aboutUs: "ہمارے بارے میں",
     contactUs: "رابطہ کریں",
     blogs: "بلاگز",
+    guides: "گائیڈز",
     bookNow: "ابھی بک کریں",
     toggleMenu: "مینیو کھولیں یا بند کریں",
   },
