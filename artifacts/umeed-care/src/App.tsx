@@ -12,6 +12,8 @@ import BlogDetailPage from "@/pages/blog-detail";
 import AboutPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import GalleryPage from "@/pages/gallery";
+import GuidesPage from "@/pages/guides";
+import GuideDetailPage from "@/pages/guide-detail";
 import SmoothScroll from "@/components/smooth-scroll";
 import ChatWidget from "@/components/chat-widget";
 
@@ -27,6 +29,8 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:slug" component={BlogDetailPage} />
       <Route path="/gallery" component={GalleryPage} />
+      <Route path="/guides" component={GuidesPage} />
+      <Route path="/guides/:slug" component={GuideDetailPage} />
       <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
