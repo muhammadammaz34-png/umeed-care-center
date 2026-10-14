@@ -9,6 +9,7 @@ import ScrollToTop from "@/components/ui/scroll-to-top";
 import { services, getServiceById, seoTitles } from "@/data/services";
 import { useSEO, SITE_URL } from "@/hooks/use-seo";
 import { useLanguage } from "@/lib/language-context";
+import { guidesForService } from "@/data/guides";
 
 // Maps a service to its matching in-depth blog guide, so each service page
 // links out to longer-form content and each blog post's traffic can flow
@@ -212,6 +213,26 @@ export default function ServiceDetailPage() {
         </section>
 
         <ServicePackages serviceId={service.id} serviceTitle={title} />
+
+        {/* Related guides */}
+        {guidesForService(service.id).length > 0 && (
+          <section className="py-12 sm:py-16 border-b border-border/40">
+            <div className="container px-4 sm:px-6 mx-auto">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-5" dir="ltr">
+                {language === "ur" ? "متعلقہ گائیڈز (انگریزی)" : "Related guides"}
+              </h2>
+              <ul className="grid gap-3 sm:grid-cols-2" dir="ltr">
+                {guidesForService(service.id).map((g) => (
+                  <li key={g.slug}>
+                    <Link href={`/guides/${g.slug}`} className="block rounded-xl border border-border/50 bg-card p-4 text-primary font-semibold hover:border-primary/40 transition-colors">
+                      {g.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         {/* FAQ */}
         <section className="py-14 sm:py-20">

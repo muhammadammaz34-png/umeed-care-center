@@ -6,6 +6,7 @@ import Gallery from "@/components/sections/gallery";
 import WhyChooseUs from "@/components/sections/why-choose-us";
 import FAQ, { faqs } from "@/components/sections/faq";
 import Contact from "@/components/sections/contact";
+import GuidesTeaser from "@/components/sections/guides-teaser";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
@@ -42,6 +43,7 @@ export default function Home() {
         <Gallery />
         <WhyChooseUs />
         <FAQ />
+        <GuidesTeaser />
         <Contact />
       </main>
       <Footer />
