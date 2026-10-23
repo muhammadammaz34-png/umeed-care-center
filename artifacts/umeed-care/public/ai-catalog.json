@@ -1,0 +1,11 @@
+{
+  "specVersion": "1.0",
+  "name": "Umeed Care Center",
+  "description": "Home-visit orthotic and prosthetic service in Karachi, Pakistan.",
+  "url": "https://umeedcarecenter.vercel.app/",
+  "resources": [
+    { "type": "llms-txt", "url": "https://umeedcarecenter.vercel.app/llms.txt", "description": "Facts, services and guides in plain text" },
+    { "type": "sitemap", "url": "https://umeedcarecenter.vercel.app/sitemap.xml", "description": "All public pages" },
+    { "type": "documentation", "url": "https://umeedcarecenter.vercel.app/guides", "description": "Patient guides on prosthetics and orthotics" }
+  ]
+}
