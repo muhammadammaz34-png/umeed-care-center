@@ -100,6 +100,7 @@ export default function Services() {
                     className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-primary transition-colors"
                   >
                     {t.servicesPage.learnMore}
+                    <span className="sr-only"> {ur ? current.titleUr : current.title}</span>
                     <ArrowRight className="w-4 h-4 rtl:-scale-x-100" />
                   </Link>
                 </div>

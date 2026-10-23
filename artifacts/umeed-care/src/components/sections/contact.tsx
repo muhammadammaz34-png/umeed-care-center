@@ -131,7 +131,7 @@ export default function Contact() {
                 </div>
 
                 <Field label={t.contactSection.labelService} error={errors.service}>
-                  <select value={form.service} onChange={(e) => handleChange("service", e.target.value)} className={fieldClass(!!errors.service)}>
+                  <select aria-label={t.contactSection.labelService} value={form.service} onChange={(e) => handleChange("service", e.target.value)} className={fieldClass(!!errors.service)}>
                     <option value="">{t.contactSection.placeholderService}</option>
                     {SERVICES_EN.map((s, i) => (
                       <option key={s} value={s}>{t.contactSection.services[i]}</option>
