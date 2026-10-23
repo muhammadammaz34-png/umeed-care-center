@@ -1,0 +1,15 @@
+name: GEO audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * 1"
+
+jobs:
+  geo-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GLINCKER/geo-audit-action@v1
+        with:
+          url: https://umeedcarecenter.vercel.app
+          badge: true
