@@ -15,7 +15,7 @@ import { useSEO } from "@/hooks/use-seo";
 export default function Home() {
   useSEO({
     path: "/",
-    title: "Umeed Care Center | Orthotics & Prosthetics Karachi",
+    title: "Artificial Leg & Orthotics in Karachi | Umeed Care Center",
     description: "Orthotic & prosthetic home service in Karachi. Custom prosthetic limbs, orthotics, spinal braces & diabetic footwear. Book a consultation: +92 313 6422564.",
     jsonLd: {
       "@context": "https://schema.org",
