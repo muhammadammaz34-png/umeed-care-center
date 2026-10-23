@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -76,7 +75,7 @@
   --card-border: 180 20% 85%;
 
   /* Brand Green — matches "Umeed" lime green from cover banner */
-  --primary: 120 58% 40%;
+  --primary: 120 58% 33%;
   --primary-foreground: 0 0% 100%;
 
   /* Brand Blue secondary — matches the blue circle and "امید" text */
@@ -236,3 +235,6 @@ html.lenis, html.lenis body { height: auto; }
 .lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
 .lenis [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* Keep green readable on dark sections after darkening the base primary */
+.bg-dark .text-primary, footer .text-primary, .bg-dark a.text-primary { color: hsl(120 55% 58%); }
